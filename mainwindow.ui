@@ -80,7 +80,7 @@ background:rgba(0,0,0,100);}</string>
         <string notr="true">QGroupBox{color:white;}</string>
        </property>
        <property name="title">
-        <string>Ajouter client</string>
+        <string/>
        </property>
        <widget class="QLineEdit" name="lineEdit_cin">
         <property name="geometry">
@@ -507,8 +507,9 @@ font-size:13px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 63 12pt &quot;Bahnschrift SemiBold Condensed&quot;;
-font.color :white;</string>
+         <string notr="true">
+QTableView{
+color:white;}</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_idsup">
