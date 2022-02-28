@@ -506,6 +506,10 @@ font-size:13px;
           <height>241</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">font: 63 12pt &quot;Bahnschrift SemiBold Condensed&quot;;
+font.color :white;</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_idsup">
         <property name="geometry">
