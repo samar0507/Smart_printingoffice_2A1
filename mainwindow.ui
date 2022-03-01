@@ -33,8 +33,96 @@
      <cursorShape>IBeamCursor</cursorShape>
     </property>
     <property name="styleSheet">
-     <string notr="true">QWidget {    
+     <string notr="true">QTabWidget::pane {
+    border: 1px solid #5F9EA0;
+    background: white;
+}
 
+QTabWidget::tab-bar:top {
+    top: 1px;
+}
+
+QTabWidget::tab-bar:bottom {
+    bottom: 1px;
+}
+
+QTabWidget::tab-bar:left {
+    right: 1px;
+}
+
+QTabWidget::tab-bar:right {
+    left: 1px;
+}
+
+QTabBar::tab {
+    border: 1px solid #5F9EA0;
+}
+
+QTabBar::tab:selected {
+    background:#5F9EA0;
+    color:white;
+}
+
+QTabBar::tab:!selected {
+    background: white;
+}
+
+QTabBar::tab:!selected:hover {
+    background: #F0F8FF;
+}
+
+QTabBar::tab:top:!selected {
+    margin-top: 5px;
+}
+
+QTabBar::tab:bottom:!selected {
+    margin-bottom: 5px;
+}
+
+QTabBar::tab:top, QTabBar::tab:bottom {
+    min-width: 8px;
+    margin-right: -1px;
+    padding: 5px 10px 5px 10px;
+}
+
+QTabBar::tab:top:selected {
+    border-bottom-color: none;
+}
+
+QTabBar::tab:bottom:selected {
+    border-top-color: none;
+}
+
+QTabBar::tab:top:last, QTabBar::tab:bottom:last,
+QTabBar::tab:top:only-one, QTabBar::tab:bottom:only-one {
+    margin-right: 0;
+}
+
+QTabBar::tab:left:!selected {
+    margin-right: px;
+}
+
+QTabBar::tab:right:!selected {
+    margin-left: 3px;
+}
+
+QTabBar::tab:left, QTabBar::tab:right {
+    min-height: 8ex;
+    margin-bottom: -1px;
+    padding: 10px 5px 10px 5px;
+}
+
+QTabBar::tab:left:selected {
+    border-left-color: none;
+}
+
+QTabBar::tab:right:selected {
+    border-right-color: none;
+}
+
+QTabBar::tab:left:last, QTabBar::tab:right:last,
+QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
+    margin-bottom: 0;
 }</string>
     </property>
     <property name="currentIndex">
@@ -453,7 +541,7 @@ background:rgba(0,0,0,100);}</string>
         <string notr="true">QGroupBox{color:white;}</string>
        </property>
        <property name="title">
-        <string>Liste des clients</string>
+        <string/>
        </property>
        <widget class="QPushButton" name="pushButton_2">
         <property name="geometry">
@@ -510,28 +598,6 @@ font-size:13px;
          <string notr="true">
 QTableView{
 color:white;}</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_idsup">
-        <property name="geometry">
-         <rect>
-          <x>400</x>
-          <y>360</y>
-          <width>131</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_93">
@@ -619,6 +685,27 @@ font-size:13px;
         </property>
         <property name="text">
          <string>search</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>360</y>
+          <width>131</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox{
+background-color: transparent;
+  color: white;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}
+QAbstractScrollArea{
+ color: white;
+}</string>
         </property>
        </widget>
       </widget>
