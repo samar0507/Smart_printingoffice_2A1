@@ -19,6 +19,7 @@ bool client::ajouter()
     QString res =QString ::number(cin);
     QString res1 =QString ::number(date_naissance);
     query.prepare("INSERT INTO client (cin,adresse,date_naissance,nom,prenom)""values(:cin,:adresse,:date_naissance,:nom,:prenom) ");
+
     query.bindValue(":cin",res);
     query.bindValue(":nom",nom);
     query.bindValue(":date_naissance",res1);
@@ -59,4 +60,16 @@ bool client::modifier(int cin)
           query.bindValue(":adresse",adresse );
 
         return query.exec();
+}
+QSqlQueryModel *client::affichersearch(int cin)
+{
+    QString res=QString::number(cin);
+     QSqlQueryModel * model =new QSqlQueryModel();
+    model->setQuery("select * from client where cin like '%"+res+"%';");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("Adresse"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Date de Naissance"));
+ return model;
 }

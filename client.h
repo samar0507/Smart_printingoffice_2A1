@@ -26,6 +26,9 @@ public:
     QSqlQueryModel *afficher();
     bool supprimer(int);
     bool modifier(int);
+    bool search(int);
+    QSqlQueryModel *affichersearch(int );
+
 };
 
 

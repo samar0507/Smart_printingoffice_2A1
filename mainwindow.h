@@ -23,6 +23,16 @@ private slots:
 
     void on_pushButton_19_clicked();
 
+    void on_lineEdit_search_cursorPositionChanged(int arg1, int arg2);
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_24_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_tab_cl_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     client cl;
