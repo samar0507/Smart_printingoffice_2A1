@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget_4">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -131,7 +131,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
     <property name="tabBarAutoHide">
      <bool>false</bool>
     </property>
-    <widget class="QWidget" name="widget_4">
+    <widget class="QWidget" name="tb1">
      <attribute name="title">
       <string> Client AU</string>
      </attribute>
@@ -464,7 +464,7 @@ border-radius: 8px;
      <zorder>label</zorder>
      <zorder>frame_13</zorder>
     </widget>
-    <widget class="QWidget" name="tab_11">
+    <widget class="QWidget" name="tb2">
      <attribute name="title">
       <string>Afficher la liste des clients</string>
      </attribute>
@@ -559,27 +559,6 @@ border-radius: 8px;
         </property>
         <property name="text">
          <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_5">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>20</y>
-          <width>61</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-        </property>
-        <property name="text">
-         <string>search</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_24">

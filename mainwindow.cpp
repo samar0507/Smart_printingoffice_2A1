@@ -28,6 +28,8 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QDesktopServices>
+#include <QHBoxLayout>
+#include <QStackedWidget>
 using qrcodegen::QrCode;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -245,6 +247,8 @@ if (qry.exec())
         ui->lineEdit_prenom->setText(qry.value(2).toString());
         ui->lineEdit_adresse->setText(qry.value(3).toString());
         ui->lineEdit_date->setText(qry.value(4).toString());
+
+        ui->tabWidget->setCurrentWidget(ui->tb1);
      }
 }
 else

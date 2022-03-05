@@ -33,6 +33,8 @@ private slots:
 
     void on_tab_cl_activated(const QModelIndex &index);
 
+
+
 private:
     Ui::MainWindow *ui;
     client cl;
