@@ -26,12 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
     commande.cpp \
+    historique.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     commande.h \
+    historique.h \
         mainwindow.h \
     connection.h
 

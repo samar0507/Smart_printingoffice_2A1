@@ -37,7 +37,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="tabBarAutoHide">
     <bool>false</bool>
@@ -333,7 +333,7 @@ font-size:13px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Desktop/bg.jpg</pixmap>
+       <pixmap>../bg.jpg</pixmap>
       </property>
      </widget>
      <zorder>label_4</zorder>
@@ -630,7 +630,7 @@ font-size:13px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Desktop/bg.jpg</pixmap>
+       <pixmap>../bg.jpg</pixmap>
       </property>
      </widget>
      <zorder>label_5</zorder>
@@ -927,7 +927,7 @@ font-size:13px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../Desktop/bg.jpg</pixmap>
+       <pixmap>../bg.jpg</pixmap>
       </property>
      </widget>
      <zorder>label_6</zorder>
@@ -1139,7 +1139,7 @@ font-size: 10px;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Desktop/bg.jpg</pixmap>
+      <pixmap>../bg.jpg</pixmap>
      </property>
     </widget>
     <zorder>label_7</zorder>

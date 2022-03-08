@@ -3,24 +3,29 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QObject>
+#include <QDate>
 
 
 commande::commande()
 {
-   idc=0; idcl=0; prix=0; date_c=" "; demande=" ";
+   idc=0;
+   idcl=0;
+   prix=0;
+   date_c=QDate();
+   demande=" ";
 }
 
-commande::commande(int idc,int idcl, int prix,QString date_c,QString demande)
-{ this->idc=idc ; this->idcl=idcl ; this->prix=prix ; this->date_c=date_c ; this->demande=demande;}
+commande::commande(int idc,int idcl, int prix,QDate date_c,QString demande)
+{ this->idc=idc ; this->idcl=idcl ; this->prix=prix;this->date_c=date_c ; this->demande=demande;}
 int commande::getidc(){return idc;}
 int commande::getidcl(){return idcl;}
 int commande::getprix(){return prix;}
-QString commande::getdate_c(){return date_c;}
+QDate commande::getdate_c(){return date_c;}
 QString commande::getdemande(){return demande;}
 void commande::setidc(int idc){ this->idc=idc;}
 void commande::setidcl(int idcl){this->idcl=idcl;}
 void commande::setprix(int prix){this->prix=prix;}
-void commande::setdate_c(QString date_c){this->date_c=date_c;}
+void commande::setdate_c(QDate date_c){this->date_c=date_c;}
 void commande::setdemande(QString demande){this->demande=demande;}
 bool commande::ajouter()
 {
@@ -76,16 +81,39 @@ bool commande::modifier()
 
             query.bindValue(":idc", idc);
 
-
-
-
-
-
              return query.exec();
 
-
-
-
     }
-
+QSqlQueryModel * commande::tri_prix()
+{   QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from commande order by prix");
+    return model;
+}
+QSqlQueryModel * commande::tri_idc()
+{   QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from commande order by idc");
+    return model;
+}
+QSqlQueryModel * commande::tri_date()
+{   QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select * from commande order by date");
+    return model;
+}
+QSqlQueryModel * commande::recherche(int idc)
+{
+    QSqlQuery query ;
+    QSqlQueryModel* model=new QSqlQueryModel();
+   query.prepare("select * from commande where idc =:idc");
+    query.bindValue(0,idc);
+    query.exec();
+    model->setQuery(query);
+return model;
+}
+QSqlQueryModel*  commande ::afficher_id()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+model->setQuery("select idc from commande");
+model->setHeaderData(0,Qt::Horizontal,QObject::tr("idc"));
+return model;
+}
 

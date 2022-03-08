@@ -22,6 +22,18 @@ private slots:
 
     void on_button_modifier_clicked();
 
+    void on_tri_prix_clicked();
+
+    void on_tri_idc_clicked();
+
+    void on_tri_date_clicked();
+
+    void on_rechercher_clicked();
+
+
+
+    void on_tableView_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     commande c;

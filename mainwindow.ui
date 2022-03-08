@@ -51,8 +51,8 @@
     <widget class="QTabWidget" name="tabWidget_2">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>20</y>
+       <x>180</x>
+       <y>40</y>
        <width>621</width>
        <height>511</height>
       </rect>
@@ -94,7 +94,7 @@ font-size: 10px;}
 </string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
@@ -184,8 +184,8 @@ font-size: 10px;}
        <widget class="QPushButton" name="add_btn">
         <property name="geometry">
          <rect>
-          <x>200</x>
-          <y>320</y>
+          <x>380</x>
+          <y>300</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -215,16 +215,6 @@ font-size:13px;
          <string>Date De Commande:</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="date">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>190</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_10">
         <property name="geometry">
          <rect>
@@ -235,7 +225,7 @@ font-size:13px;
          </rect>
         </property>
         <property name="text">
-         <string>Demande</string>
+         <string>Demande:</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="demande">
@@ -244,6 +234,16 @@ font-size:13px;
           <x>200</x>
           <y>250</y>
           <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="date">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>200</y>
+          <width>111</width>
           <height>22</height>
          </rect>
         </property>
@@ -278,16 +278,16 @@ font-size:13px;
          <x>10</x>
          <y>60</y>
          <width>591</width>
-         <height>351</height>
+         <height>371</height>
         </rect>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_113">
+      <widget class="QLineEdit" name="chercher">
        <property name="geometry">
         <rect>
-         <x>370</x>
+         <x>310</x>
          <y>10</y>
-         <width>221</width>
+         <width>181</width>
          <height>31</height>
         </rect>
        </property>
@@ -304,53 +304,116 @@ border-radius: 8px;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_18">
+      <widget class="QRadioButton" name="tri_prix">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>-30</y>
-         <width>31</width>
-         <height>111</height>
+         <x>80</x>
+         <y>0</y>
+         <width>83</width>
+         <height>18</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">QLabel
-{background : transparent;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>../../../../Downloads/su.png</pixmap>
-       </property>
-       <property name="indent">
-        <number>0</number>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_114">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>10</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>ArrowCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {background:transparent;
+        <string notr="true">QRadioButton{background:transparent;
 border:none;
 color:white;
 font-size: 10px;
 }</string>
        </property>
        <property name="text">
-        <string>Rechercher </string>
+        <string>Prix</string>
        </property>
       </widget>
+      <widget class="QRadioButton" name="tri_idc">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>141</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton{background:transparent;
+border:none;
+color:white;
+font-size: 10px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Identifiant Commande</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="tri_date">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>40</y>
+         <width>131</width>
+         <height>18</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QRadioButton{background:transparent;
+border:none;
+color:white;
+font-size: 10px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Date Commande</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Tri par:</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="rechercher">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>20</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rechercher..</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>0</y>
+         <width>631</width>
+         <height>491</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../bg.jpg</pixmap>
+       </property>
+      </widget>
+      <zorder>label_4</zorder>
+      <zorder>table_commande</zorder>
+      <zorder>chercher</zorder>
+      <zorder>tri_prix</zorder>
+      <zorder>tri_idc</zorder>
+      <zorder>tri_date</zorder>
+      <zorder>label_3</zorder>
+      <zorder>rechercher</zorder>
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
@@ -361,8 +424,8 @@ font-size: 10px;
         <rect>
          <x>40</x>
          <y>20</y>
-         <width>521</width>
-         <height>401</height>
+         <width>531</width>
+         <height>381</height>
         </rect>
        </property>
        <property name="title">
@@ -407,16 +470,6 @@ font-size: 10px;
          <string>Prix:</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="idc_1">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>50</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="idcl_1">
         <property name="geometry">
          <rect>
@@ -440,7 +493,7 @@ font-size: 10px;
        <widget class="QPushButton" name="button_modifier">
         <property name="geometry">
          <rect>
-          <x>400</x>
+          <x>380</x>
           <y>300</y>
           <width>93</width>
           <height>28</height>
@@ -448,7 +501,7 @@ font-size: 10px;
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{border-radius: 8px;
-background :green
+background :#5F9EA0
 ;
 color: white;
 font-size:13px;
@@ -468,17 +521,7 @@ font-size:13px;
          </rect>
         </property>
         <property name="text">
-         <string>Date Commande:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="date_1">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>190</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
+         <string>Date De Commande:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_16">
@@ -504,6 +547,36 @@ font-size:13px;
          </rect>
         </property>
        </widget>
+       <widget class="QDateEdit" name="date_1">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>200</y>
+          <width>110</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tableView">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>20</y>
+          <width>171</width>
+          <height>141</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="update_id">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>50</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_7">
@@ -513,10 +586,10 @@ font-size:13px;
       <widget class="QGroupBox" name="groupBox_7">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>40</y>
-         <width>281</width>
-         <height>201</height>
+         <x>40</x>
+         <y>20</y>
+         <width>521</width>
+         <height>381</height>
         </rect>
        </property>
        <property name="title">
@@ -535,20 +608,10 @@ font-size:13px;
          <string>Identifiant Commande:</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="del_id">
-        <property name="geometry">
-         <rect>
-          <x>150</x>
-          <y>70</y>
-          <width>113</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="button_supprimer">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>50</x>
           <y>140</y>
           <width>93</width>
           <height>28</height>
@@ -565,6 +628,21 @@ font-size:13px;
         <property name="text">
          <string>Supprimer</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="del_id_2">
+        <property name="geometry">
+         <rect>
+          <x>151</x>
+          <y>70</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>
