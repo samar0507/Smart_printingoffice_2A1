@@ -37,7 +37,11 @@ public:
     QSqlQueryModel* afficher();
     bool supprimer(int);
     bool modifier(int,QString,QString,QString,QString);
-
+    QSqlQueryModel *tri_fonc();
+    QSqlQueryModel * tri_nom();
+    QSqlQueryModel * tri_prenom();
+    QSqlQueryModel * recherche(int id);
+    QSqlQueryModel *  afficher_id();
 };
 
 #endif // employe_H
