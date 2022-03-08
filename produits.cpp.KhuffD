@@ -152,15 +152,19 @@ QSqlQueryModel *Produits::rechercher_id(int id)
        return model1;
 
 }
-QSqlQueryModel *Produits::rechercher_nom(QString nom)
-  {
-      QSqlQueryModel * model= new QSqlQueryModel();
-      model->setQuery("select * from produits where nom LIKE '"+nom+"%'");
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-      model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_P"));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("PRIX"));
-      model->setHeaderData(4, Qt::Horizontal, QObject::tr("QUANTITE"));
+QSqlQueryModel *Produits::rechercher_nom(QString txt)
+{
 
-  return model;
-      }
+    QSqlQueryModel *model1=new QSqlQueryModel();
+    model1->setQuery("select * from produits where nom LIKE '"+txt+"'" );
+    model1->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+    model1->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+    model1->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_P"));
+    model1->setHeaderData(3, Qt::Horizontal, QObject::tr("PRIX"));
+    model1->setHeaderData(4, Qt::Horizontal, QObject::tr("QUANTITE"));
+
+
+
+    return model;
+}
+

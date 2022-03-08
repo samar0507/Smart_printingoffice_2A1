@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>997</width>
-    <height>710</height>
+    <height>725</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -23,10 +23,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>941</width>
-      <height>641</height>
+      <x>10</x>
+      <y>10</y>
+      <width>961</width>
+      <height>661</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -149,9 +149,9 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
       <property name="geometry">
        <rect>
         <x>160</x>
-        <y>100</y>
-        <width>661</width>
-        <height>381</height>
+        <y>40</y>
+        <width>651</width>
+        <height>521</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -170,8 +170,8 @@ background:rgba(0,0,0,100);}</string>
         <rect>
          <x>20</x>
          <y>20</y>
-         <width>621</width>
-         <height>341</height>
+         <width>611</width>
+         <height>481</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -184,7 +184,7 @@ background:rgba(0,0,0,100);}</string>
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>70</y>
+          <y>40</y>
           <width>161</width>
           <height>20</height>
          </rect>
@@ -206,7 +206,7 @@ border-radius: 8px;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>70</y>
+          <y>40</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -229,7 +229,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>230</y>
+          <y>200</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -249,7 +249,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>110</y>
+          <y>80</y>
           <width>161</width>
           <height>20</height>
          </rect>
@@ -268,7 +268,7 @@ border-radius: 8px;
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>190</y>
+          <y>160</y>
           <width>161</width>
           <height>20</height>
          </rect>
@@ -287,7 +287,7 @@ border-radius: 8px;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>110</y>
+          <y>80</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -307,7 +307,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>190</y>
+          <y>160</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -328,7 +328,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>230</y>
+          <y>200</y>
           <width>161</width>
           <height>20</height>
          </rect>
@@ -347,7 +347,7 @@ border-radius: 8px;
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>160</y>
+          <y>180</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -368,7 +368,7 @@ font-size:13px;
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>150</y>
+          <y>120</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -388,23 +388,47 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>210</x>
-          <y>150</y>
+          <y>120</y>
           <width>161</width>
           <height>22</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QDateEdit
+         <string notr="true">
+QDateEdit
  { background-color: transparent;
   color: #F5F5DC
 ;
   border: 1.5px solid white; 
 border-radius: 8px;
 }
+
+/* header row */
+QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }
+
+/* normal days */
+QCalendarWidget QAbstractItemView:enabled
+{
+font-size:11px;
+color: rgb(180, 180, 180);
+background-color: black;
+selection-background-color: rgb(64, 64, 64);
+selection-color: rgb(0, 255, 0);
+}
 </string>
         </property>
         <property name="showGroupSeparator" stdset="0">
          <bool>false</bool>
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2022</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
         </property>
         <property name="time">
          <time>
@@ -418,6 +442,44 @@ border-radius: 8px;
         </property>
         <property name="calendarPopup">
          <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_import_image">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>340</y>
+          <width>121</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#008080;
+
+color: white;
+font-size:13px;
+}
+QPushButton:hover
+{
+color :;
+}</string>
+        </property>
+        <property name="text">
+         <string>Importer une image</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="imag">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>260</y>
+          <width>211</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
@@ -466,10 +528,10 @@ background:rgba(0,0,0,100);}</string>
       <widget class="QGroupBox" name="groupBox_24">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>511</width>
-         <height>281</height>
+         <x>70</x>
+         <y>120</y>
+         <width>811</width>
+         <height>301</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -481,10 +543,10 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QTableView" name="tab_produit">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>40</y>
-          <width>491</width>
-          <height>231</height>
+          <x>50</x>
+          <y>30</y>
+          <width>521</width>
+          <height>241</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -494,14 +556,101 @@ font: 75 8pt &quot;Arial&quot;;}
 </string>
         </property>
        </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>30</y>
+          <width>141</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QGroupBox{color:white;}</string>
+        </property>
+        <property name="title">
+         <string>Tri</string>
+        </property>
+        <widget class="QLineEdit" name="lineEdit_124">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>30</y>
+           <width>111</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {background:transparent;
+border:none;
+color:white;
+font-size: 12px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Tri selon :</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="tri_id">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>90</y>
+           <width>83</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QRadioButton{color:white;}</string>
+         </property>
+         <property name="text">
+          <string>Identifiant </string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="tri_nom">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>120</y>
+           <width>83</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QRadioButton{color:white;}</string>
+         </property>
+         <property name="text">
+          <string>Nom</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="tri_date">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>150</y>
+           <width>83</width>
+           <height>18</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QRadioButton{color:white;}</string>
+         </property>
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </widget>
+       </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_25">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>340</y>
+         <x>100</x>
+         <y>440</y>
          <width>441</width>
-         <height>81</height>
+         <height>121</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -510,33 +659,11 @@ font: 75 8pt &quot;Arial&quot;;}
        <property name="title">
         <string>Suppression</string>
        </property>
-       <widget class="QLineEdit" name="l_id_sup">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>40</y>
-          <width>161</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="lineEdit_121">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>40</y>
+          <x>30</x>
+          <y>50</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -560,7 +687,7 @@ font-size: 12px;
          <rect>
           <x>320</x>
           <y>30</y>
-          <width>91</width>
+          <width>101</width>
           <height>31</height>
          </rect>
         </property>
@@ -576,208 +703,78 @@ font-size:13px;
          <string>Supprimer</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QGroupBox" name="groupBox_7">
-       <property name="geometry">
-        <rect>
-         <x>530</x>
-         <y>40</y>
-         <width>381</width>
-         <height>241</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QGroupBox{color:white;}</string>
-       </property>
-       <property name="title">
-        <string>Tri</string>
-       </property>
-       <widget class="QRadioButton" name="radioButton_16">
+       <widget class="QComboBox" name="l_id_sup">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>20</y>
-          <width>83</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton{color:white;}</string>
-        </property>
-        <property name="text">
-         <string>Identifiant </string>
-        </property>
-       </widget>
-       <widget class="QRadioButton" name="radioButton_17">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>20</y>
-          <width>83</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton{color:white;}</string>
-        </property>
-        <property name="text">
-         <string>Nom</string>
-        </property>
-       </widget>
-       <widget class="QRadioButton" name="radioButton_18">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>20</y>
-          <width>83</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton{color:white;}</string>
-        </property>
-        <property name="text">
-         <string>Prix</string>
-        </property>
-       </widget>
-       <widget class="QFrame" name="frame_7">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
+          <x>140</x>
           <y>50</y>
-          <width>361</width>
-          <height>171</height>
+          <width>151</width>
+          <height>22</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QFrame{background:white;}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QGroupBox" name="groupBox_8">
-       <property name="geometry">
-        <rect>
-         <x>530</x>
-         <y>300</y>
-         <width>381</width>
-         <height>271</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QGroupBox{color:white;}</string>
-       </property>
-       <property name="title">
-        <string>Recherche</string>
-       </property>
-       <widget class="QRadioButton" name="radioButton_19">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>50</y>
-          <width>83</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton{color:white;}</string>
-        </property>
-        <property name="text">
-         <string>Identifiant </string>
-        </property>
-       </widget>
-       <widget class="QRadioButton" name="radioButton_20">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>20</y>
-          <width>83</width>
-          <height>18</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QRadioButton{color:white;}</string>
-        </property>
-        <property name="text">
-         <string>Nom</string>
-        </property>
-       </widget>
-       <widget class="QFrame" name="frame_8">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>80</y>
-          <width>351</width>
-          <height>171</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame{background:white;}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_122">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>20</y>
-          <width>141</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
+         <string notr="true">QComboBox
  { background-color: transparent;
-  color: #F5F5DC
+  color: white
 ;
   border: 1.5px solid white; 
 border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
+
+}
+QAbstractScrollArea
+{color:white;}</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_123">
+       <widget class="QPushButton" name="pb_supprimer_tout">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>50</y>
-          <width>141</width>
-          <height>20</height>
+          <x>320</x>
+          <y>70</y>
+          <width>101</width>
+          <height>31</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
 ;
-  border: 1.5px solid white; 
-border-radius: 8px;
+color: white;
+font-size:13px;
 }</string>
         </property>
         <property name="text">
-         <string/>
+         <string>Supprimer Tout</string>
         </property>
        </widget>
       </widget>
-      <widget class="QGroupBox" name="groupBox_26">
+      <widget class="QPushButton" name="refresh_2">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>450</y>
+         <x>830</x>
+         <y>10</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :#008080
+;
+color: white;
+font-size:13px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Refresh</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_27">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>460</y>
          <width>251</width>
-         <height>81</height>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -786,7 +783,7 @@ border-radius: 8px;
        <property name="title">
         <string>PDF</string>
        </property>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="pb_pdf">
         <property name="geometry">
          <rect>
           <x>50</x>
@@ -804,7 +801,109 @@ font-size:13px;
 }</string>
         </property>
         <property name="text">
-         <string>Exporter un fichier PDF</string>
+         <string>Exporter en fichier PDF</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_8">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>10</y>
+         <width>451</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGroupBox{color:white;}</string>
+       </property>
+       <property name="title">
+        <string>Recherche</string>
+       </property>
+       <widget class="QLineEdit" name="rech_id">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>20</y>
+          <width>151</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_rech_id">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>20</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Rechercher par ID</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_rech_nom">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>60</y>
+          <width>131</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Rechercher par Nom</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="rech_nom">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>60</y>
+          <width>151</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
@@ -818,9 +917,9 @@ font-size:13px;
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-10</y>
         <width>971</width>
-        <height>711</height>
+        <height>721</height>
        </rect>
       </property>
       <property name="text">
@@ -865,28 +964,6 @@ background:rgba(0,0,0,100);}</string>
        <property name="title">
         <string>Modifier produit</string>
        </property>
-       <widget class="QLineEdit" name="l_idm">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>60</y>
-          <width>181</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="lineEdit_116">
         <property name="geometry">
          <rect>
@@ -1032,7 +1109,7 @@ border-radius: 8px;
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>160</y>
+          <y>190</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -1086,7 +1163,22 @@ QDateEdit
 ;
   border: 1.5px solid white; 
 border-radius: 8px;
-}</string>
+}
+
+/* header row */
+QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }
+
+/* normal days */
+QCalendarWidget QAbstractItemView:enabled
+{
+font-size:11px;
+color: rgb(180, 180, 180);
+background-color: black;
+selection-background-color: rgb(64, 64, 64);
+selection-color: rgb(0, 255, 0);
+}
+
+</string>
         </property>
         <property name="maximumDate">
          <date>
@@ -1104,6 +1196,48 @@ border-radius: 8px;
         </property>
         <property name="calendarPopup">
          <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="l_idm">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>60</y>
+          <width>151</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}
+QAbstractScrollArea
+{color:white;}</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="refresh">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>140</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#008080
+;
+color: white;
+font-size:13px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Refresh</string>
         </property>
        </widget>
       </widget>
