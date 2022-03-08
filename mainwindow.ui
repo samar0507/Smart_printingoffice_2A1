@@ -126,7 +126,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>false</bool>
@@ -390,7 +390,7 @@ font-size:13px;
          <string>Modifier client</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_21">
+       <widget class="QPushButton" name="CAM">
         <property name="geometry">
          <rect>
           <x>410</x>
@@ -411,36 +411,38 @@ font-size:13px;
          <string>Ouvrir CAM</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="lineEdit_date">
-        <property name="geometry">
-         <rect>
-          <x>160</x>
-          <y>160</y>
-          <width>161</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="scrollArea">
         <property name="geometry">
          <rect>
           <x>410</x>
           <y>80</y>
           <width>151</width>
-          <height>191</height>
+          <height>131</height>
          </rect>
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>160</y>
+          <width>161</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QDateEdit
+{
+ background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+
+}</string>
         </property>
        </widget>
       </widget>
@@ -458,7 +460,7 @@ border-radius: 8px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/djjjj.jpg</pixmap>
+       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
       </property>
      </widget>
      <zorder>label</zorder>
@@ -652,7 +654,7 @@ font-size:13px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../../../Downloads/djjjj.jpg</pixmap>
+       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_23">

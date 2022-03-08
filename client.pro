@@ -6,6 +6,7 @@ CONFIG += c++11
 QT += sql
 QT  += core gui svg
 QT += axcontainer
+QT += core gui multimedia multimediawidgets
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -34,7 +35,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
-
+ QMAKE_CXXFLAGS += -std=c++11
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

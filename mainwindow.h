@@ -4,10 +4,17 @@
 
 #include <QMainWindow>
 #include "client.h"
+#include<QWidget>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
-
+class QCamera;
+class QCameraViewfinder;
+class QCameraImageCapture;
+class QVBoxLayout;
+class QMenu;
+class QAction;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -38,5 +45,14 @@ private slots:
 private:
     Ui::MainWindow *ui;
     client cl;
+
+    QCamera *mCamera;
+   QCameraViewfinder *mQCameraViewfinder;
+    QCameraImageCapture *mQCameraImageCapture;
+   QVBoxLayout   *mLayout;
+   QMenu *mOptionsMenu;
+   QAction *mEncenderAction;
+   QAction *mApAction;
+   QAction *mCaptureAction;
 };
 #endif // MAINWINDOW_H

@@ -4,7 +4,7 @@ client::client()
 {cin=0; nom="";prenom="";
 }
 
-client::client(int cin,int date_naissance,QString nom,QString prenom,QString adresse)
+client::client(int cin,QDate date_naissance,QString nom,QString prenom,QString adresse)
 
 { this->cin=cin;
     this->date_naissance=date_naissance;
@@ -17,12 +17,11 @@ bool client::ajouter()
 {
     QSqlQuery query;
     QString res =QString ::number(cin);
-    QString res1 =QString ::number(date_naissance);
     query.prepare("INSERT INTO client (cin,adresse,date_naissance,nom,prenom)""values(:cin,:adresse,:date_naissance,:nom,:prenom) ");
 
     query.bindValue(":cin",res);
     query.bindValue(":nom",nom);
-    query.bindValue(":date_naissance",res1);
+    query.bindValue(":date_naissance",date_naissance);
     query.bindValue(":adresse",adresse);
     query.bindValue(":prenom",prenom);
     return query.exec();
@@ -51,12 +50,11 @@ bool client::modifier(int cin)
     QSqlQuery query;
 
           QString res=QString::number(cin);
-   QString res1=QString::number(date_naissance);
           query.prepare("UPDATE client SET nom= :nom , prenom= :prenom,date_naissance= :date_naissance,adresse=:adresse WHERE cin=:cin ");
           query.bindValue(":cin",res);
           query.bindValue(":nom", nom);
           query.bindValue(":prenom", prenom);
-   query.bindValue(":date_naissance",res1);
+   query.bindValue(":date_naissance",date_naissance);
           query.bindValue(":adresse",adresse );
 
         return query.exec();

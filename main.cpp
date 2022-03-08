@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 
     bool test=c.createconnect();
      MainWindow w;
+   //  a.setStyle("fusion");
     if(test)
     {w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),

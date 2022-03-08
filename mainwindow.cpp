@@ -29,16 +29,62 @@
 #include <QSqlQueryModel>
 #include <QDesktopServices>
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QStackedWidget>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QMenu>
+#include <QAction>
+#include <QFileDialog>
+#include<QPixmap>
 using qrcodegen::QrCode;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->tab_cl->setModel(cl.afficher());
-}
+//QPixmap pix("build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg");
+//ui->label->setPixmap(pix);
+//ui->label_5->setPixmap(pix);
+        mCamera = new QCamera(this);
+     mQCameraViewfinder = new QCameraViewfinder(this);
+      mQCameraImageCapture = new QCameraImageCapture(mCamera,this);
+      mLayout =new QVBoxLayout;
+      mOptionsMenu = new QMenu("Ouvrir Cam",this);
+      mCamera->setViewfinder(mQCameraViewfinder);
+      mEncenderAction =new QAction("Ouvrir Cam",this);
+      mApAction =new QAction("Stop Camera",this);
+      mCaptureAction =new QAction("Capture image",this);
+      mOptionsMenu->addActions({mEncenderAction,mApAction,mCaptureAction});
+      ui->CAM->setMenu(mOptionsMenu);
+      mLayout->addWidget(mQCameraViewfinder);
+      mLayout->setMargin(0);
+      ui->scrollArea->setLayout(mLayout);
+      connect(mEncenderAction,&QAction::triggered,[&](){
+          mCamera->start();
+      });
+      connect(mApAction,&QAction::triggered,[&](){
+          mCamera->stop();
+      });
+connect(mCaptureAction,&QAction::triggered,[&](){
+   auto filename =QFileDialog ::getSaveFileName(this,"Capturer","/","Image(*.jpg;*.jpeg)");
+   if(filename.isEmpty()){
+       return;
+   }
+           mQCameraImageCapture->setCaptureDestination(QCameraImageCapture::CaptureToFile);
+    QImageEncoderSettings ImageEncoderSettings;
+    ImageEncoderSettings.setCodec("image/jpeg");
+    ImageEncoderSettings.setResolution(1600,1200);
+    mQCameraImageCapture->setEncodingSettings(ImageEncoderSettings);
+    mCamera->setCaptureMode(QCamera::CaptureStillImage);
+    mCamera->start();
+    mQCameraImageCapture->capture(filename);
+    mCamera->unlock();
+});
 
+ui->tab_cl->setModel(cl.afficher());
+}
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -76,11 +122,11 @@ void MainWindow::on_pushButton_20_clicked()
 {
     int cin = ui->lineEdit_cin->text().toInt();
     QString nom=ui->lineEdit_nom->text();
-    int date_naissance = ui->lineEdit_date->text().toInt();
+    QDate date_naissance = ui->dateEdit->date();
     QString adresse=ui->lineEdit_adresse->text();
       QString prenom=ui->lineEdit_prenom->text();
       client cl(cin,date_naissance,nom,prenom,adresse);
-      if(cin!=0 && nom!="" && date_naissance!=0 && prenom!="" && adresse!="")
+      if(cin!=0 && nom!=""  && prenom!="" && adresse!="")
       {
        bool test=cl.ajouter();
        if(test)
@@ -89,7 +135,7 @@ void MainWindow::on_pushButton_20_clicked()
            ui->lineEdit_cin->clear();
            ui->lineEdit_nom->clear();
            ui->lineEdit_prenom->clear();
-           ui->lineEdit_date->clear();
+           ui->dateEdit->clear();
            ui->lineEdit_adresse->clear();
            QMessageBox::information(nullptr, QObject::tr("done"),
                                   QObject::tr("ajout effectue.\n"
@@ -111,11 +157,11 @@ void MainWindow::on_pushButton_19_clicked()
 
     int cin = ui->lineEdit_cin->text().toInt();
     QString nom=ui->lineEdit_nom->text();
-    int date_naissance = ui->lineEdit_date->text().toInt();
+    QDate date_naissance = ui->dateEdit->date();
     QString adresse=ui->lineEdit_adresse->text();
       QString prenom=ui->lineEdit_prenom->text();
       client cl(cin,date_naissance,nom,prenom,adresse );
-      if(cin!=0 && nom!="" && date_naissance!=0 && prenom!="" && adresse!="")
+      if(cin!=0 && nom!="" && prenom!="" && adresse!="")
       {
       bool test=cl.modifier(cin);
       if(test)
@@ -123,7 +169,7 @@ void MainWindow::on_pushButton_19_clicked()
           ui->lineEdit_cin->clear();
           ui->lineEdit_nom->clear();
           ui->lineEdit_prenom->clear();
-          ui->lineEdit_date->clear();
+          ui->dateEdit->clear();
           ui->lineEdit_adresse->clear();
       QMessageBox::information(nullptr, QObject::tr("done "),
                         QObject::tr("modification effectué!\n"
@@ -246,7 +292,7 @@ if (qry.exec())
         ui->lineEdit_nom->setText(qry.value(1).toString());
         ui->lineEdit_prenom->setText(qry.value(2).toString());
         ui->lineEdit_adresse->setText(qry.value(3).toString());
-        ui->lineEdit_date->setText(qry.value(4).toString());
+        ui->dateEdit->setDate(qry.value(4).toDate());
 
         ui->tabWidget->setCurrentWidget(ui->tb1);
      }
