@@ -28,7 +28,7 @@ public:
     bool supprimer(int);
     bool modifier(int);
     bool search(int);
-    QSqlQueryModel *affichersearch(int );
+    QSqlQueryModel *affichersearch(int,QString,QString );
 
 };
 

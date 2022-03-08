@@ -10,7 +10,6 @@
 #include<QFile>
 #include<QFileDialog>
 #include<QSvgRenderer>
-#include<QFileDialog>
 #include <QTextDocument>
 #include <QPainter>
 #include <QTextStream>
@@ -19,12 +18,12 @@
 #include <QSqlError>
 #include <vector>
 #include<QDirModel>
-#include <qrcode.h>
 #include <string>
 #include <iostream>
 #include <fstream>
 #include <QtSvg/QSvgRenderer>
 #include <QPdfWriter>
+#include <QTabWidget>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QDesktopServices>
@@ -44,9 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//QPixmap pix("build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg");
-//ui->label->setPixmap(pix);
-//ui->label_5->setPixmap(pix);
+    ui->lineEdit_cin->setValidator(new QIntValidator(0,99999999,this));
         mCamera = new QCamera(this);
      mQCameraViewfinder = new QCameraViewfinder(this);
       mQCameraImageCapture = new QCameraImageCapture(mCamera,this);
@@ -146,7 +143,7 @@ void MainWindow::on_pushButton_20_clicked()
                       QMessageBox::critical(nullptr, QObject::tr("error"),
                                   QObject::tr("ajout non effectue.\n"
                                               "Click Cancel to exit."), QMessageBox::Cancel);
-}else
+       }else
           QMessageBox::critical(nullptr, QObject::tr("error"),
                       QObject::tr("ajout non effectue.\n"
                                   "Click Cancel to exit."), QMessageBox::Cancel);
@@ -155,36 +152,7 @@ void MainWindow::on_pushButton_20_clicked()
 void MainWindow::on_pushButton_19_clicked()
 {
 
-    int cin = ui->lineEdit_cin->text().toInt();
-    QString nom=ui->lineEdit_nom->text();
-    QDate date_naissance = ui->dateEdit->date();
-    QString adresse=ui->lineEdit_adresse->text();
-      QString prenom=ui->lineEdit_prenom->text();
-      client cl(cin,date_naissance,nom,prenom,adresse );
-      if(cin!=0 && nom!="" && prenom!="" && adresse!="")
-      {
-      bool test=cl.modifier(cin);
-      if(test)
-      { ui->tab_cl->setModel(cl.afficher());//refresh
-          ui->lineEdit_cin->clear();
-          ui->lineEdit_nom->clear();
-          ui->lineEdit_prenom->clear();
-          ui->dateEdit->clear();
-          ui->lineEdit_adresse->clear();
-      QMessageBox::information(nullptr, QObject::tr("done "),
-                        QObject::tr("modification effectué!\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
 
-
-      }
-        else
-            QMessageBox::critical(nullptr, QObject::tr("error"),
-                        QObject::tr("modification non effectué !.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
-      }else
-          QMessageBox::critical(nullptr, QObject::tr("error"),
-                      QObject::tr("modification non effectué !.\n"
-                                  "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
 
@@ -194,9 +162,11 @@ void MainWindow::on_pushButton_19_clicked()
 void MainWindow::on_lineEdit_search_cursorPositionChanged(int arg1, int arg2)
 {
     int cin = ui->lineEdit_search->text().toInt();
+     QString nom=ui->lineEdit_search->text();
+     QString prenom=ui->lineEdit_search->text();
     if(arg2!= 0)
     {
-    ui->tab_cl->setModel(cl.affichersearch(cin));
+    ui->tab_cl->setModel(cl.affichersearch(cin,nom,prenom));
     }
     else{
 ui->tab_cl->setModel(cl.afficher());
@@ -233,7 +203,7 @@ void MainWindow::on_pushButton_2_clicked()
                    else
                        strList.append("");
                }
-               data << strList.join("|  |") + "\n";
+               data << strList.join("|") + "\n";
            }
            file.close();
            QMessageBox::information(this,"Exporter To Excel","Exporter En Excel Avec Succées ");
@@ -288,17 +258,51 @@ if (qry.exec())
 {
     while(qry.next())
     {
-        ui->lineEdit_cin->setText(qry.value(0).toString());
-        ui->lineEdit_nom->setText(qry.value(1).toString());
-        ui->lineEdit_prenom->setText(qry.value(2).toString());
-        ui->lineEdit_adresse->setText(qry.value(3).toString());
-        ui->dateEdit->setDate(qry.value(4).toDate());
+        ui->lineEdit_cin_2->setText(qry.value(0).toString());
+        ui->lineEdit_nom_2->setText(qry.value(1).toString());
+        ui->lineEdit_prenom_2->setText(qry.value(2).toString());
+        ui->lineEdit_adresse_2->setText(qry.value(3).toString());
+        ui->dateEdit_2->setDate(qry.value(4).toDate());
 
-        ui->tabWidget->setCurrentWidget(ui->tb1);
+        ui->tab2->setCurrentWidget(ui->tab);
      }
 }
 else
 {
     QMessageBox::critical(this,tr("error"),qry.lastError().text());
 }
+}
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    int cin = ui->lineEdit_cin_2->text().toInt();
+    QString nom=ui->lineEdit_nom_2->text();
+    QDate date_naissance = ui->dateEdit_2->date();
+    QString adresse=ui->lineEdit_adresse_2->text();
+      QString prenom=ui->lineEdit_prenom_2->text();
+      client cl(cin,date_naissance,nom,prenom,adresse );
+      if(cin!=0 && nom!="" && prenom!="" && adresse!="")
+      {
+      bool test=cl.modifier(cin);
+      if(test)
+      { ui->tab_cl->setModel(cl.afficher());//refresh
+          ui->lineEdit_cin_2->clear();
+          ui->lineEdit_nom_2->clear();
+          ui->lineEdit_prenom_2->clear();
+          ui->dateEdit_2->clear();
+          ui->lineEdit_adresse_2->clear();
+      QMessageBox::information(nullptr, QObject::tr("done "),
+                        QObject::tr("modification effectué!\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+      }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("error"),
+                        QObject::tr("modification non effectué !.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+      }else
+          QMessageBox::critical(nullptr, QObject::tr("error"),
+                      QObject::tr("modification non effectué !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
 }

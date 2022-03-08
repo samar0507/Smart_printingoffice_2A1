@@ -42,6 +42,8 @@ private slots:
 
 
 
+    void on_pushButton_22_clicked();
+
 private:
     Ui::MainWindow *ui;
     client cl;

@@ -14,10 +14,10 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="tabWidget">
+   <widget class="QTabWidget" name="tab2">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
       <width>761</width>
       <height>611</height>
@@ -133,7 +133,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
     </property>
     <widget class="QWidget" name="tb1">
      <attribute name="title">
-      <string> Client AU</string>
+      <string>Ajout</string>
      </attribute>
      <widget class="QFrame" name="frame_13">
       <property name="geometry">
@@ -351,8 +351,8 @@ border-radius: 8px;
        <widget class="QPushButton" name="pushButton_20">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>250</y>
+          <x>130</x>
+          <y>240</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -367,27 +367,6 @@ font-size:13px;
         </property>
         <property name="text">
          <string>Ajouter client</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton_19">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>250</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-        </property>
-        <property name="text">
-         <string>Modifier client</string>
         </property>
        </widget>
        <widget class="QPushButton" name="CAM">
@@ -435,14 +414,29 @@ font-size:13px;
         </property>
         <property name="styleSheet">
          <string notr="true">QDateEdit
-{
- background-color: transparent;
+ { background-color: transparent;
   color: #F5F5DC
 ;
-  border: 1.5px solid white; 
+  border: 1.5px solid white;
 border-radius: 8px;
+}
 
-}</string>
+/* header row */
+QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }
+
+/* normal days */
+QCalendarWidget QAbstractItemView:enabled
+{
+font-size:11px;
+color: rgb(180, 180, 180);
+background-color: black;
+selection-background-color: rgb(64, 64, 64);
+selection-color: rgb(0, 255, 0);
+}
+</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </widget>
@@ -465,6 +459,254 @@ border-radius: 8px;
      </widget>
      <zorder>label</zorder>
      <zorder>frame_13</zorder>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Modifier</string>
+     </attribute>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>751</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_14">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>20</y>
+        <width>631</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame
+{background : black;
+background:rgba(0,0,0,100);}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QGroupBox" name="groupBox_11">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>591</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGroupBox{color:white;}</string>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <widget class="QLineEdit" name="lineEdit_nom_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>40</y>
+          <width>161</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_97">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>130</y>
+          <width>151</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {background:transparent;
+border:none;
+color:white;
+font-size: 10px;}</string>
+        </property>
+        <property name="text">
+         <string>Date De Naissanse:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_100">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>80</y>
+          <width>171</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {background:transparent;
+border:none;
+color:white;
+font-size: 10px;}</string>
+        </property>
+        <property name="text">
+         <string>Prenom:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_adresse_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>160</y>
+          <width>161</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_101">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>40</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {background:transparent;
+border:none;
+color:white;
+font-size: 10px;}</string>
+        </property>
+        <property name="text">
+         <string>Nom :</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_102">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>170</y>
+          <width>113</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {background:transparent;
+border:none;
+color:white;
+font-size: 10px;}</string>
+        </property>
+        <property name="text">
+         <string>Adresse:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_prenom_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>80</y>
+          <width>161</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_22">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>250</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Modifier client</string>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="dateEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>120</y>
+          <width>161</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QDateEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white;
+border-radius: 8px;
+}
+
+/* header row */
+QCalendarWidget QWidget { alternate-background-color: rgb(128, 128, 128); }
+
+/* normal days */
+QCalendarWidget QAbstractItemView:enabled
+{
+font-size:11px;
+color: rgb(180, 180, 180);
+background-color: black;
+selection-background-color: rgb(64, 64, 64);
+selection-color: rgb(0, 255, 0);
+}
+</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tb2">
      <attribute name="title">
@@ -699,6 +941,28 @@ font-size:13px;
      <zorder>pushButton_23</zorder>
      <zorder>frame</zorder>
     </widget>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_cin_2">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>570</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

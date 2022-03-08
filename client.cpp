@@ -59,11 +59,11 @@ bool client::modifier(int cin)
 
         return query.exec();
 }
-QSqlQueryModel *client::affichersearch(int cin)
+QSqlQueryModel *client::affichersearch(int cin,QString nom,QString prenom)
 {
     QString res=QString::number(cin);
      QSqlQueryModel * model =new QSqlQueryModel();
-    model->setQuery("select * from client where cin like '%"+res+"%';");
+    model->setQuery("select * from client where cin like '%"+res+"%'or nom like'%"+nom+"%'or prenom like '%"+prenom+"%';");
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
