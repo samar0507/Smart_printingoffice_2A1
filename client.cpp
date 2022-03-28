@@ -49,7 +49,7 @@ bool client::modifier(int cin)
 {
     QSqlQuery query;
 
-          QString res=QString::number(cin);
+    QString res=QString::number(cin);
           query.prepare("UPDATE client SET nom= :nom , prenom= :prenom,date_naissance= :date_naissance,adresse=:adresse WHERE cin=:cin ");
           query.bindValue(":cin",res);
           query.bindValue(":nom", nom);

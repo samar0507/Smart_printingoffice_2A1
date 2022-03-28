@@ -7,7 +7,7 @@ QT += sql
 QT  += core gui svg
 QT += axcontainer
 QT += core gui multimedia multimediawidgets
-
+QT += printsupport
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -35,6 +35,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
+RC_ICONS = logo.ico
  QMAKE_CXXFLAGS += -std=c++11
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

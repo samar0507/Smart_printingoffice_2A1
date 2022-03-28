@@ -28,8 +28,6 @@ private slots:
 
     void on_pushButton_20_clicked();
 
-    void on_pushButton_19_clicked();
-
     void on_lineEdit_search_cursorPositionChanged(int arg1, int arg2);
 
     void on_pushButton_2_clicked();

@@ -37,6 +37,9 @@
 #include <QAction>
 #include <QFileDialog>
 #include<QPixmap>
+#include <QPrintDialog>
+#include<QPrinter>
+#include <QTextTableCell>
 using qrcodegen::QrCode;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -149,16 +152,6 @@ void MainWindow::on_pushButton_20_clicked()
                                   "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void MainWindow::on_pushButton_19_clicked()
-{
-
-
-}
-
-
-
-
-
 void MainWindow::on_lineEdit_search_cursorPositionChanged(int arg1, int arg2)
 {
     int cin = ui->lineEdit_search->text().toInt();
@@ -236,18 +229,7 @@ void MainWindow::on_pushButton_24_clicked()
               }
 }
 
-void MainWindow::on_pushButton_3_clicked()
-{
-    if(ui->tab_cl->currentIndex().row()==-1)
-                  QMessageBox::information(nullptr, QObject::tr("QrCode"),
-                                           QObject::tr("Veuillez Choisir un client du Tableau.\n"
-                                                       "Click Ok to exit."), QMessageBox::Ok);
-              else
-              {
-        int cin=ui->tab_cl->model()->data(ui->tab_cl->model()->index(ui->tab_cl->currentIndex().row(),0)).toInt();
 
-    }
-}
 
 
 
@@ -308,4 +290,59 @@ void MainWindow::on_pushButton_22_clicked()
           QMessageBox::critical(nullptr, QObject::tr("error"),
                       QObject::tr("modification non effectué !.\n"
                                   "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    if(ui->tab_cl->currentIndex().row()==-1)
+                  QMessageBox::information(nullptr, QObject::tr("QrCode"),
+                                           QObject::tr("Veuillez Choisir un client du Tableau.\n"
+                                                       "Click Ok to exit."), QMessageBox::Ok);
+              else
+              {
+        int cin=ui->tab_cl->model()->data(ui->tab_cl->model()->index(ui->tab_cl->currentIndex().row(),0)).toInt();
+         QString res=QString::number(cin);
+        QSqlDatabase db;
+                            QTableView TableView_Client;
+                            QSqlQueryModel * Modal=new  QSqlQueryModel();
+
+                            QSqlQuery qry;
+                             qry.prepare("SELECT * FROM client where cin like  '%"+res+"%';");
+                             qry.exec();
+                             Modal->setQuery(qry);
+                             TableView_Client.setModel(Modal);
+
+
+
+                             db.close();
+
+
+                             QString strStream;
+                             QTextStream out(&strStream);
+
+
+
+                                                  QTextDocument *document = new QTextDocument();
+                                                  document->setHtml(strStream);
+
+                             QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+                                                     if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+
+                                                    QPrinter printer (QPrinter::PrinterResolution);
+                                                     printer.setOutputFormat(QPrinter::PdfFormat);
+
+                                                     QPdfWriter pdfWriter(fileName);
+                                                    pdfWriter.setPageSize(QPageSize(QPageSize::B8));
+
+                                                   QPainter painter(&pdfWriter);
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../2.jpg"));
+                                                     pdfWriter.newPage();
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../1.jpg"));
+
+
+
+    }
 }
