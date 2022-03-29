@@ -5,7 +5,6 @@
 #include <QFileDialog>
 #include "smtp.h"
 #include <QtWidgets/QMessageBox>
-#include <QPrinter>
 #include <QPainter>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -51,6 +50,8 @@ private slots:
     void on_tri_fin_btn_clicked();
 
     void on_search_btn_clicked();
+
+    void on_pdf_export_clicked();
 
 private:
     Ui::MainWindow *ui;

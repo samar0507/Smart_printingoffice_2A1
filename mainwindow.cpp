@@ -3,7 +3,15 @@
 #include "fournisseurs.h"
 #include<QMessageBox>
 #include<QIntValidator>
-
+#include <QPainter>
+#include <QPdfWriter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QPoint>
+#include <QImage>
+#include <QDesktopServices>
+#include <QUrl>
+#include<ctime>
 //test git
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -291,4 +299,61 @@ void MainWindow::on_search_btn_clicked()
     ui->tab_fournisseurs->setModel(f.afficher());
          int id=ui->search->text().toInt();
          f.rechercher(ui->tab_fournisseurs,id);
+}
+
+void MainWindow::on_pdf_export_clicked()
+{
+
+    QPdfWriter pdf("C:/projet/Smart_printingoffice_2A1-Fournisseurs/fournisseurs");
+
+        QPainter painter(&pdf);
+        const QImage image("C:/projet/Smart_printingoffice_2A1-Fournisseurs - Copie (2)/spot.png");
+        const QPoint imageCoordinates(0,0);
+        painter.drawImage(imageCoordinates,image);
+        int i = 4000;
+        painter.setPen(Qt::blue);
+        painter.setFont(QFont("Arial", 30));
+        painter.drawText(3000,1500,"Liste des Fournisseurs");
+        painter.setPen(Qt::black);
+        painter.setFont(QFont("Arial", 50));
+        // painter.drawText(1100,2000,afficheDC);
+        painter.drawRect(500,200,700,200);
+        painter.drawRect(0,3000,9600,500);
+        painter.setFont(QFont("Arial", 9));
+        painter.drawText(300,3300,"Identifiant Fournisseurs");
+        painter.drawText(2300,3300,"Nom Fournisseurs");
+        painter.drawText(4300,3300,"Date Début Contrat");
+        painter.drawText(6300,3300,"Date Fin Contrat");
+        painter.drawText(8000,3300,"Adresse");
+        QSqlQuery query;
+                     query.prepare("<SELECT CAST( GETDATE() AS Date ) ");
+                     time_t tt;
+                     struct tm* ti;
+                     time(&tt);
+                     ti=localtime(&tt);
+                     asctime(ti);
+                     painter.drawText(500,300, asctime(ti));
+        query.prepare("select * from fournisseurs");
+        query.exec();
+        while (query.next())
+        {
+            painter.drawText(300,i,query.value(0).toString());
+            painter.drawText(2300,i,query.value(1).toString());
+            painter.drawText(4300,i,query.value(2).toString());
+            painter.drawText(6300,i,query.value(3).toString());
+            painter.drawText(8000,i,query.value(4).toString());
+            i = i +500;
+        }
+
+        int reponse = QMessageBox::question(this, "Export PDF avec succés", "Voulez-vous Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
+        if (reponse == QMessageBox::Yes)
+        {
+            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/projet/Smart_printingoffice_2A1-Fournisseurs/fournisseurs"));
+
+            painter.end();
+        }
+        if (reponse == QMessageBox::No)
+        {
+            painter.end();
+        }
 }

@@ -117,7 +117,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -261,7 +261,7 @@ font-size:13px;
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>260</y>
+         <y>250</y>
          <width>56</width>
          <height>16</height>
         </rect>
@@ -602,7 +602,7 @@ font-size:13px;
       <widget class="QGroupBox" name="groupBox_25">
        <property name="geometry">
         <rect>
-         <x>270</x>
+         <x>160</x>
          <y>460</y>
          <width>441</width>
          <height>121</height>
@@ -729,9 +729,31 @@ font-size: 12px;
         <pixmap>../../Users/SOUISSI/Downloads/djjjj.jpg</pixmap>
        </property>
       </widget>
+      <widget class="QPushButton" name="pdf_export">
+       <property name="geometry">
+        <rect>
+         <x>640</x>
+         <y>510</y>
+         <width>111</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Exporter la liste</string>
+       </property>
+      </widget>
       <zorder>label_12</zorder>
       <zorder>groupBox_24</zorder>
       <zorder>groupBox_25</zorder>
+      <zorder>pdf_export</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
