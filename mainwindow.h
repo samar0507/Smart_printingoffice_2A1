@@ -16,23 +16,28 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_add_btn_clicked();
 
-    void on_button_supprimer_clicked();
+    void on_tableView_3_activated(const QModelIndex &index);
 
-    void on_button_modifier_clicked();
+    void on_add_btn_3_clicked();
 
-    void on_tri_prix_clicked();
+    void on_button_supprimer_3_clicked();
 
-    void on_tri_idc_clicked();
+    void on_button_modifier_3_clicked();
 
-    void on_tri_date_clicked();
+    void on_tri_prix_3_clicked();
 
-    void on_rechercher_clicked();
+    void on_tri_idc_3_clicked();
 
+    void on_tri_date_3_clicked();
 
+    void on_rechercher_3_clicked();
 
-    void on_tableView_activated(const QModelIndex &index);
+    void on_PDF_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

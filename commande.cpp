@@ -4,6 +4,12 @@
 #include <QtDebug>
 #include <QObject>
 #include <QDate>
+#include <QTableView>
+#include "historique.h"
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+
 
 
 commande::commande()
@@ -56,7 +62,7 @@ QSqlQueryModel* commande::afficher()
 
         model->setQuery("SELECT * FROM commande");
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant commande"));
-        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Identifiant client"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("idc"));
         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix"));
         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date de commande"));
         model->setHeaderData(4, Qt::Horizontal, QObject::tr("Demande de client"));
@@ -78,9 +84,6 @@ bool commande::modifier()
             query.bindValue(":prix", prix);
             query.bindValue(":date_c", date_c);
             query.bindValue(":demande", demande);
-
-            query.bindValue(":idc", idc);
-
              return query.exec();
 
     }
@@ -99,16 +102,17 @@ QSqlQueryModel * commande::tri_date()
     model->setQuery("select * from commande order by date");
     return model;
 }
-QSqlQueryModel * commande::recherche(int idc)
+/*QSqlQueryModel * commande::recherche(int idc)
 {
     QSqlQuery query ;
-    QSqlQueryModel* model=new QSqlQueryModel();
-   query.prepare("select * from commande where idc =:idc");
-    query.bindValue(0,idc);
-    query.exec();
-    model->setQuery(query);
-return model;
-}
+        QSqlQueryModel* model=new QSqlQueryModel();
+       query.prepare("select * from commande where idc =:idc");
+        query.bindValue(0,idc);
+        query.exec();
+        model->setQuery(query);
+    return model;
+} */
+
 QSqlQueryModel*  commande ::afficher_id()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
@@ -116,4 +120,101 @@ model->setQuery("select idc from commande");
 model->setHeaderData(0,Qt::Horizontal,QObject::tr("idc"));
 return model;
 }
+/*
+void commande::recherche(QTableView *table, int idc)
+{
+   QSqlQueryModel *model=new QSqlQueryModel();
+   QSqlQuery *query =new QSqlQuery;
+   query->prepare("select * from COMMANDE where regexp_like(idc,:idc);");
+   query->bindValue(":idc",idc);
+   if(idc==0)
+      {
+          query->prepare("select * from COMMANDE");
+      }
 
+   query->exec();
+   model->setQuery(*query);
+   table->setModel(model);
+   table->show();
+}*/
+QSqlQueryModel *commande::recherche(int idc)
+{
+    QString res=QString::number(idc);
+     QSqlQueryModel * model =new QSqlQueryModel();
+    model->setQuery("select * from COMMANDE where idc like '"+res+"%';");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant commande"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("idc"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date de commande"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Demande de client"));
+ return model;
+}
+/*void commande::addToHistory()
+{
+
+    QSqlQuery query1;
+    query1.prepare("select * from COMMANDE where (TO_CHAR(date,'dd/mm/yyyy') = TO_CHAR(sysdate,'dd/mm/yyyy'))");
+    query1.exec();
+
+    QSqlQuery query,qry;
+    QString date=QDateTime::currentDateTime().toString("dddd, dd MMMM yyyy");
+    QString date1=QDateTime::currentDateTime().toString("dd/MM/yy");
+    QString time=QDateTime::currentDateTime().toString("hh:mm");
+    QString activity;
+
+    activity="\n    "+date1+"   -   "+time+" \t   \n";
+
+
+} */
+/*QSqlQueryModel* commande::afficherHistorique()
+{   QSqlQueryModel* model=new QSqlQueryModel();
+
+    model->setQuery("SELECT * from COMMANDE where (TO_CHAR(date,'dd/mm/yyyy') = TO_CHAR(sysdate,'dd/mm/yyyy'))");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant commande"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("idc"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date de commande"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Demande de client"));
+
+}*/
+
+bool commande::history_file(int idc,int idcl, int prix,QDate date_c)
+{
+    QFile file("C:\\Users\\ASUS\\Desktop\\projet\\copieee\\copieee\\file.txt");
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        qCritical() << file.errorString();
+        return false;
+    }
+    QTextStream stream(&file);
+    stream <<idc << "\t" <<idcl << "\t" <<prix << "\t" << "\n" ;
+    file.close();
+    QSqlQuery query;
+    query.prepare("INSERT INTO HISTORIQUE (IDCMD,IDCT, PRIX,DATEE) "
+                        "VALUES (:idc, :idcl, :prix, :date_c)");
+          query.bindValue(0, idc);
+          query.bindValue(1, idcl);
+          query.bindValue(2, prix);
+          query.bindValue(3, date_c);
+
+          return  query.exec();
+}
+
+QSqlQueryModel* commande::display_history()
+{
+        QSqlQueryModel* model=new QSqlQueryModel();
+        model->setQuery("SELECT * FROM HISTORIQUE");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant Commande"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Identifiant Client"));
+        model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix"));
+        return model;
+}
+
+QSqlQueryModel* commande::calcul (QString mm)
+{
+        QSqlQueryModel* model=new QSqlQueryModel();
+        model->setQuery("select sum(PRIX),COUNT(*) from ( SELECT * FROM HISTORIQUE WHERE TO_CHAR(datee,'MM') = "+mm+" );");
+        model->setHeaderData(0, Qt::Horizontal, QObject::tr("Chiffre d'aff"));
+        model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nbr Commande"));
+        return model;
+}

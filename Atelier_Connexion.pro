@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+*gcc*:QMAKE_CXXFLAGS += -std=c++11
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,14 +28,12 @@ CONFIG += c++11
 
 SOURCES += \
     commande.cpp \
-    historique.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp
 
 HEADERS += \
     commande.h \
-    historique.h \
         mainwindow.h \
     connection.h
 

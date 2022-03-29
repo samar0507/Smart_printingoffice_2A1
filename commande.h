@@ -1,10 +1,14 @@
 #ifndef COMMANDE_H
 #define COMMANDE_H
-
+#include "historique.h"
 #include <QString>
 #include <QMessageBox>
 #include <QSqlQueryModel>
 #include <QDate>
+#include <QTableView>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
 
 
 
@@ -36,10 +40,17 @@ public:
     QSqlQueryModel* tri_prix();
     QSqlQueryModel* tri_idc();
     QSqlQueryModel* tri_date();
-    QSqlQueryModel * recherche(int idc);
+    //void recherche(QTableView *table, int idc);
+    QSqlQueryModel *recherche(int idc);
     QSqlQueryModel*  afficher_id();
+    commande PDF();
 
 
+
+    ////
+    bool history_file(int idc,int idcl, int prix,QDate date_c);
+    QSqlQueryModel* display_history ();
+    QSqlQueryModel* calcul (QString mm);
 
 };
 
