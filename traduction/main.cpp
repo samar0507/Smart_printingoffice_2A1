@@ -5,11 +5,12 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTranslator t;
+
     QStringList languages;
+    QTranslator t;
     languages << "English" << "French"  ;
     QString lang= QInputDialog::getItem(NULL,"Select Language",
-                                        "Language", languages);
+                                    "Language", languages);
     if(lang == "French")
     {
         t.load(":/french.qm");
