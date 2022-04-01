@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
+      <y>-10</y>
       <width>761</width>
       <height>611</height>
      </rect>
@@ -445,16 +445,16 @@ selection-color: rgb(0, 255, 0);
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-1</y>
-        <width>751</width>
-        <height>531</height>
+        <y>0</y>
+        <width>761</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
+       <pixmap resource="ressource.qrc">:/img/img/djjjj.jpg</pixmap>
       </property>
      </widget>
      <zorder>label</zorder>
@@ -468,23 +468,23 @@ selection-color: rgb(0, 255, 0);
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>10</y>
-        <width>751</width>
-        <height>531</height>
+        <y>0</y>
+        <width>761</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
+       <pixmap resource="ressource.qrc">:/img/img/djjjj.jpg</pixmap>
       </property>
      </widget>
      <widget class="QFrame" name="frame_14">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>20</y>
+        <x>50</x>
+        <y>30</y>
         <width>631</width>
         <height>381</height>
        </rect>
@@ -715,9 +715,9 @@ selection-color: rgb(0, 255, 0);
      <widget class="QFrame" name="frame_15">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>711</width>
+        <x>30</x>
+        <y>20</y>
+        <width>701</width>
         <height>491</height>
        </rect>
       </property>
@@ -735,8 +735,8 @@ background:rgba(0,0,0,100);}</string>
       <widget class="QGroupBox" name="groupBox_12">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>0</y>
+         <x>20</x>
+         <y>20</y>
          <width>661</width>
          <height>471</height>
         </rect>
@@ -896,7 +896,7 @@ font-size:13px;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>../build-client-Desktop_Qt_5_9_9_MinGW_32bit-Debug/djjjj.jpg</pixmap>
+       <pixmap resource="ressource.qrc">:/img/img/djjjj.jpg</pixmap>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_23">
@@ -945,9 +945,9 @@ font-size:13px;
    <widget class="QLineEdit" name="lineEdit_cin_2">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>570</y>
-      <width>161</width>
+      <x>120</x>
+      <y>670</y>
+      <width>16</width>
       <height>20</height>
      </rect>
     </property>
@@ -959,9 +959,6 @@ font-size:13px;
   border: 1.5px solid white; 
 border-radius: 8px;
 }</string>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
   </widget>
@@ -977,6 +974,8 @@ border-radius: 8px;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressource.qrc"/>
+ </resources>
  <connections/>
 </ui>

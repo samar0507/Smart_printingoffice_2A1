@@ -46,7 +46,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+centralWidget()->setStyleSheet("{background-image:url(qrc:/img/img/djjjj.jpg)}");
     ui->lineEdit_cin->setValidator(new QIntValidator(0,99999999,this));
+        ui->lineEdit_cin_2->setValidator(new QIntValidator(0,99999999,this));
         mCamera = new QCamera(this);
      mQCameraViewfinder = new QCameraViewfinder(this);
       mQCameraImageCapture = new QCameraImageCapture(mCamera,this);
