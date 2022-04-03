@@ -177,7 +177,7 @@ void MainWindow::on_pushButton_2_clicked()
 
        QDateTime date = QDateTime::currentDateTime();
        QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-       QString d="../clients/excel/list "+formattedTime;
+       QString d="excel/list "+formattedTime;
        QString filters("xls files (*.xls);;All files (*.*)");
        QString defaultFilter("xls files (*.xls)");
        QString fileName = QFileDialog::getSaveFileName(0, "Save file",d,
@@ -233,7 +233,7 @@ void MainWindow::on_pushButton_24_clicked()
                    svgRenderer.render( &pixPainter );
                    ui->label_2->setPixmap(pix);
                    QString s = QString::number(id);
-                  QString qrid="../clients/QRCode/"+s;
+                  QString qrid="QRCode/"+s;
                    QString fileName = QFileDialog::getSaveFileName(this, tr("Save QRCode"),
                                                                  qrid,
                                                                    tr("qrcode (*.png)"));
@@ -345,7 +345,7 @@ void MainWindow::on_pushButton_3_clicked()
 
                                                   QTextDocument *document = new QTextDocument();
                                                   document->setHtml(strStream);
-QString c ="../clients/Fidelite/Carte fidelite  "+res;
+QString c ="Fidelite/Carte fidelite  "+res;
                              QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", c, "*.pdf");
                                                      if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
@@ -354,7 +354,7 @@ QString c ="../clients/Fidelite/Carte fidelite  "+res;
 
                                                      QPdfWriter pdfWriter(fileName);
                                                     pdfWriter.setPageSize(QPageSize(QPageSize::B8));
-                                                   QString qrid="../clients/QRCode/"+res;
+                                                   QString qrid="QRCode/"+res;
                                                    QPainter painter(&pdfWriter);
 
                                                      painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/2.jpg"));
