@@ -97,7 +97,7 @@ void MainWindow::on_pushButton_4_clicked()
 {
 
     if(ui->tab_cl->currentIndex().row()==-1)
-                  QMessageBox::information(nullptr, QObject::tr("QrCode"),
+                  QMessageBox::information(nullptr, QObject::tr("Suppression"),
                                            QObject::tr("Veuillez Choisir un client du Tableau.\n"
                                                        "Click Ok to exit."), QMessageBox::Ok);
               else
@@ -127,7 +127,10 @@ void MainWindow::on_pushButton_20_clicked()
     QDate date_naissance = ui->dateEdit->date();
     QString adresse=ui->lineEdit_adresse->text();
       QString prenom=ui->lineEdit_prenom->text();
-      client cl(cin,date_naissance,nom,prenom,adresse);
+
+      QString res =QString ::number(cin);
+       QString qrlink="QRCode/"+res;
+      client cl(cin,date_naissance,nom,prenom,adresse,qrlink);
       if(cin!=0 && nom!=""  && prenom!="" && adresse!="")
       {
        bool test=cl.ajouter();
@@ -172,12 +175,14 @@ void MainWindow::on_pushButton_2_clicked()
     QTableView *table;
        table = ui->tab_cl;
 
+       QDateTime date = QDateTime::currentDateTime();
+       QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+       QString d="../clients/excel/list "+formattedTime;
        QString filters("xls files (*.xls);;All files (*.*)");
        QString defaultFilter("xls files (*.xls)");
-       QString fileName = QFileDialog::getSaveFileName(0, "Save file", QCoreApplication::applicationDirPath(),
+       QString fileName = QFileDialog::getSaveFileName(0, "Save file",d,
                           filters, &defaultFilter);
        QFile file(fileName);
-
        QAbstractItemModel *model =  table->model();
        if (file.open(QFile::WriteOnly | QFile::Truncate)) {
            QTextStream data(&file);
@@ -227,6 +232,15 @@ void MainWindow::on_pushButton_24_clicked()
                    QPainter pixPainter( &pix );
                    svgRenderer.render( &pixPainter );
                    ui->label_2->setPixmap(pix);
+                   QString s = QString::number(id);
+                  QString qrid="../clients/QRCode/"+s;
+                   QString fileName = QFileDialog::getSaveFileName(this, tr("Save QRCode"),
+                                                                 qrid,
+                                                                   tr("qrcode (*.png)"));
+                   if (!fileName.isEmpty())
+                   {
+                     pix.save(fileName);
+                   }
 
               }
 }
@@ -267,7 +281,9 @@ void MainWindow::on_pushButton_22_clicked()
     QDate date_naissance = ui->dateEdit_2->date();
     QString adresse=ui->lineEdit_adresse_2->text();
       QString prenom=ui->lineEdit_prenom_2->text();
-      client cl(cin,date_naissance,nom,prenom,adresse );
+      QString res =QString ::number(cin);
+       QString qrlink="QRCode/"+res;
+      client cl(cin,date_naissance,nom,prenom,adresse,qrlink);
       if(cin!=0 && nom!="" && prenom!="" && adresse!="")
       {
       bool test=cl.modifier(cin);
@@ -300,7 +316,7 @@ void MainWindow::on_pushButton_22_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     if(ui->tab_cl->currentIndex().row()==-1)
-                  QMessageBox::information(nullptr, QObject::tr("QrCode"),
+                  QMessageBox::information(nullptr, QObject::tr("PDF"),
                                            QObject::tr("Veuillez Choisir un client du Tableau.\n"
                                                        "Click Ok to exit."), QMessageBox::Ok);
               else
@@ -329,8 +345,8 @@ void MainWindow::on_pushButton_3_clicked()
 
                                                   QTextDocument *document = new QTextDocument();
                                                   document->setHtml(strStream);
-
-                             QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
+QString c ="../clients/Fidelite/Carte fidelite  "+res;
+                             QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", c, "*.pdf");
                                                      if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
                                                     QPrinter printer (QPrinter::PrinterResolution);
@@ -338,11 +354,13 @@ void MainWindow::on_pushButton_3_clicked()
 
                                                      QPdfWriter pdfWriter(fileName);
                                                     pdfWriter.setPageSize(QPageSize(QPageSize::B8));
-
+                                                   QString qrid="../clients/QRCode/"+res;
                                                    QPainter painter(&pdfWriter);
-                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../2.jpg"));
+
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/2.jpg"));
+                                                      painter.drawPixmap(QRect(20,20,pdfWriter.logicalDpiX()*0.17,pdfWriter.logicalDpiY()*0.17),QPixmap(qrid));
                                                      pdfWriter.newPage();
-                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../1.jpg"));
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/1.jpg"));
 
 
 
