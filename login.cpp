@@ -20,14 +20,14 @@ void login::on_login_2_clicked()
 {
 
     QString nom = ui->lineEdit_username->text();
-    QString fonc = ui->lineEdit_password->text();
+    QString pass = ui->lineEdit_password->text();
 
     QSqlQuery query;
 
 
-         query.prepare(("SELECT *FROM employes WHERE nom =:nom AND fonc=:fonc"));
+         query.prepare(("SELECT *FROM employes WHERE nom =:nom AND pass=:pass"));
          query.bindValue(":nom",nom);
-         query.bindValue(":fonc",fonc);
+         query.bindValue(":pass",pass);
          query.exec();
          if(query.next())
          {

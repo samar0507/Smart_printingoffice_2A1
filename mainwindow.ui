@@ -17,9 +17,9 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>20</y>
-      <width>661</width>
+      <x>10</x>
+      <y>40</y>
+      <width>781</width>
       <height>501</height>
      </rect>
     </property>
@@ -60,7 +60,7 @@ font-size: 10px;}
 </string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -69,7 +69,7 @@ font-size: 10px;}
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>140</x>
         <y>20</y>
         <width>521</width>
         <height>401</height>
@@ -150,8 +150,8 @@ font-size: 10px;}
       <widget class="QPushButton" name="add_btn">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>320</y>
+         <x>210</x>
+         <y>330</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -181,16 +181,6 @@ font-size:13px;
         <string>Date De Naissance:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="date">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>190</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
@@ -201,7 +191,7 @@ font-size:13px;
         </rect>
        </property>
        <property name="text">
-        <string>Fonctionnalité:</string>
+        <string>Mot De Passe:</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="fonc">
@@ -212,6 +202,9 @@ font-size:13px;
          <width>113</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
        </property>
       </widget>
       <widget class="QPushButton" name="insertion_photo">
@@ -225,7 +218,7 @@ font-size:13px;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{border-radius: 8px;
-background :green
+background :#5F9EA0
 ;
 color: white;
 font-size:13px;
@@ -233,49 +226,6 @@ font-size:13px;
        </property>
        <property name="text">
         <string>PHOTO</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="wa">
-       <property name="geometry">
-        <rect>
-         <x>390</x>
-         <y>210</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{border-radius: 8px;
-background :green
-;
-color: white;
-font-size:13px;
-}</string>
-       </property>
-       <property name="text">
-        <string>QR CODE</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_15">
-       <property name="geometry">
-        <rect>
-         <x>250</x>
-         <y>320</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{border-radius: 8px;
-background :pink
-
-;
-color: white;
-font-size:13px;
-}</string>
-       </property>
-       <property name="text">
-        <string>Chat Box</string>
        </property>
       </widget>
       <widget class="QLabel" name="img_label">
@@ -291,6 +241,40 @@ font-size:13px;
         <string/>
        </property>
       </widget>
+      <widget class="QDateEdit" name="date">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>200</y>
+         <width>110</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QDateEdit
+{
+    background-color: white;
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(100,100,100);
+    spacing: 5px; 
+}
+
+
+QDateEdit::drop-down {
+    image: url(:/new/myapp/cbarrowdn.png);
+    width:50px;
+    height:15px;
+    subcontrol-position: right top;
+    subcontrol-origin:margin;
+    background-color: white;
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(100,100,100);
+   spacing: 5px; 
+}</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -300,25 +284,25 @@ font-size:13px;
      <widget class="QTableView" name="tab_employes">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>341</width>
-        <height>291</height>
+        <x>60</x>
+        <y>210</y>
+        <width>651</width>
+        <height>201</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="tri_resp">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>70</y>
+        <x>10</x>
+        <y>100</y>
         <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{border-radius: 8px;
-background :violet
+background :lightblue;
 
 ;
 color: white;
@@ -326,21 +310,21 @@ font-size:13px;
 }</string>
       </property>
       <property name="text">
-       <string>tri par fonctionnalité</string>
+       <string>tri par date de naissance</string>
       </property>
      </widget>
      <widget class="QPushButton" name="tri_nom">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>140</y>
+        <x>200</x>
+        <y>100</y>
         <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{border-radius: 8px;
-background :violet
+background :lightblue
 
 ;
 color: white;
@@ -354,15 +338,15 @@ font-size:13px;
      <widget class="QPushButton" name="tri_prenom">
       <property name="geometry">
        <rect>
-        <x>370</x>
-        <y>210</y>
+        <x>390</x>
+        <y>100</y>
         <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{border-radius: 8px;
-background :violet
+background :lightblue
 
 ;
 color: white;
@@ -373,10 +357,33 @@ font-size:13px;
        <string>tri par prenom</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="rechercher">
+     <widget class="QLineEdit" name="cherche">
       <property name="geometry">
        <rect>
-        <x>360</x>
+        <x>110</x>
+        <y>20</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>       ID:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="qr">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
         <y>20</y>
         <width>93</width>
         <height>28</height>
@@ -392,30 +399,20 @@ font-size:13px;
 }</string>
       </property>
       <property name="text">
-       <string>RECHERCHE</string>
+       <string>QR CODE</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="cherche">
+     <widget class="QLabel" name="qr_label">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>20</y>
-        <width>221</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>30</y>
-        <width>91</width>
-        <height>16</height>
+        <x>640</x>
+        <y>70</y>
+        <width>121</width>
+        <height>101</height>
        </rect>
       </property>
       <property name="text">
-       <string>       ID:</string>
+       <string/>
       </property>
      </widget>
     </widget>
@@ -426,8 +423,8 @@ font-size:13px;
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>20</y>
+        <x>130</x>
+        <y>30</y>
         <width>521</width>
         <height>401</height>
        </rect>
@@ -435,19 +432,6 @@ font-size:13px;
       <property name="title">
        <string>Modification</string>
       </property>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>50</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>ID:</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
@@ -528,27 +512,17 @@ font-size:13px;
         <string>Date De Naissance:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="date_mod">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>190</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_11">
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>260</y>
-         <width>91</width>
-         <height>16</height>
+         <y>250</y>
+         <width>131</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Fonctionnalité:</string>
+        <string>Mot De Passe :</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="fonc_mod">
@@ -560,12 +534,15 @@ font-size:13px;
          <height>22</height>
         </rect>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
       </widget>
       <widget class="QLineEdit" name="update_id">
        <property name="geometry">
         <rect>
          <x>200</x>
-         <y>50</y>
+         <y>460</y>
          <width>113</width>
          <height>22</height>
         </rect>
@@ -578,6 +555,16 @@ font-size:13px;
          <y>30</y>
          <width>141</width>
          <height>192</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="date_mod">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>200</y>
+         <width>110</width>
+         <height>22</height>
         </rect>
        </property>
       </widget>
@@ -670,11 +657,11 @@ font-size:13px;
      <attribute name="title">
       <string>ChatBox</string>
      </attribute>
-     <widget class="QPushButton" name="enviar">
+     <widget class="QPushButton" name="CHAT">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>180</y>
+        <x>380</x>
+        <y>260</y>
         <width>111</width>
         <height>28</height>
        </rect>
@@ -691,57 +678,26 @@ font-size:13px;
        <string>envoyer</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
-        <x>105</x>
-        <y>96</y>
-        <width>51</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>port</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="puerto">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>100</y>
+        <x>210</x>
+        <y>260</y>
         <width>161</width>
         <height>22</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
+     <widget class="QPlainTextEdit" name="plainTextEdit">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>150</y>
-        <width>56</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Message</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="msj">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>140</y>
-        <width>161</width>
-        <height>22</height>
+        <x>210</x>
+        <y>70</y>
+        <width>281</width>
+        <height>171</height>
        </rect>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_6">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
     </widget>
    </widget>
    <widget class="QLabel" name="label_12">

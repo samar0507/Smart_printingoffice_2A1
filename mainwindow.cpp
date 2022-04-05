@@ -7,6 +7,19 @@
 #include<QImage>
 #include <QFile>
 #include <QUdpSocket>
+#include <QPainter>
+#include "qrcode.h"
+#include<QtSvg/QSvgRenderer>
+#include<QSvgRenderer>
+#include<QPixmap>
+#include<QDebug>
+#include<vector>
+#include<iostream>
+#include<fstream>
+#include <QDate>
+#include <QTcpSocket>
+
+using qrcodegen::QrCode;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,7 +29,26 @@ MainWindow::MainWindow(QWidget *parent)
     ui->id->setValidator(new QIntValidator(0,9999999,this));
     ui->tab_employes->setModel(e.afficher());
     ui->tab_id_2->setModel((e.afficher_id()));
-    mSocket = new QUdpSocket(this);
+    mSocket=new QTcpSocket(this);
+    mSocket->connectToHost("localhost",2000);
+    if (mSocket->waitForConnected(3000))
+    {
+        ui->plainTextEdit->appendPlainText("se connecter correctement");
+    }
+    else
+    {
+        ui->plainTextEdit->appendPlainText("pas de connexion");
+    }
+    connect(mSocket,SIGNAL(readyRead()),this,SLOT(leer()));
+}
+
+void MainWindow::leer()
+{
+    QByteArray buffer;
+    buffer.resize(mSocket->bytesAvailable());
+    mSocket->read(buffer.data(),buffer.size());
+    ui->plainTextEdit->setReadOnly(true);
+    ui->plainTextEdit->appendPlainText(QString(buffer));
 }
 MainWindow::~MainWindow()
 {
@@ -30,9 +62,9 @@ void MainWindow::on_add_btn_clicked()
     int id=ui->id->text().toInt();
         QString nom=ui->nom->text();
         QString prenom=ui->per->text();
-        QString date_naiss=ui->date->text();
-        QString fonc= ui->fonc->text();
-        employes e(id,nom,prenom,date_naiss,fonc);
+        QDate date_naiss=ui->date->date();
+        QString pass= ui->fonc->text();
+        employes e(id,nom,prenom,date_naiss,pass);
         bool test=e.ajouter();
         if(test)
         {
@@ -79,9 +111,9 @@ void MainWindow::on_mod_btn_clicked()
     int id=ui->update_id->text().toInt();
            QString nom=ui->nom_mod->text();
            QString prenom=ui->per_mod->text();
-           QString date_naiss=ui->date_mod->text();
-           QString fonc=ui->fonc_mod->text();
-        bool test=e.modifier(id,nom,prenom,date_naiss,fonc);
+           QDate date_naiss=ui->date_mod->date();
+           QString pass=ui->fonc_mod->text();
+        bool test=e.modifier(id,nom,prenom,date_naiss,pass);
         if(test)
         {
             //REFRESH
@@ -159,26 +191,24 @@ void MainWindow::on_tri_prenom_clicked()
                          "Click Cancel to exit."), QMessageBox::Cancel);
     ui->tab_employes->setModel(e.tri_prenom());
 }
-QSqlQueryModel * employes::recherche(int id)
-{
-    QSqlQuery query ;
-    QSqlQueryModel* model=new QSqlQueryModel();
-   query.prepare("select * from employes where id =:id");
-    query.bindValue(":id",id);
-    query.exec();
-    model->setQuery(query);
-return model;
-}
-void MainWindow::on_rechercher_clicked()
-{
-    {
-         int id=ui->cherche->text().toInt();
-         ui->tab_employes->setModel(e.recherche(id));
-         QMessageBox::information(nullptr,QObject::tr("OK"),
-                                   QObject::tr("recherche effectuée.\n"
-                                               "clic cancel to exit."),QMessageBox::Cancel);
-                }
-}
+//QSqlQueryModel * employes::recherche(int id)
+//{
+//    QSqlQuery query ;
+//    QSqlQueryModel* model=new QSqlQueryModel();
+//   query.prepare("select * from employes where id =:id");
+//    query.bindValue(":id",id);
+//    query.exec();
+//    model->setQuery(query);
+//return model;
+//}
+//void MainWindow::on_rechercher_clicked()
+//{
+//    {
+//        ui->tab_employes->setModel(e.afficher());
+//             int id=ui->cherche->text().toInt();
+//             e.rechercher(ui->tab_employes,id);
+//                }
+//}
 
 QSqlQueryModel*  employes ::afficher_id()
 { QSqlQueryModel *model=new QSqlQueryModel();
@@ -188,10 +218,10 @@ return model;
 }
 
 
-void MainWindow::on_enviar_clicked()
-{   auto datagrama = ui->msj->text().toLatin1();
-    mSocket->writeDatagram(datagrama, QHostAddress::Broadcast,ui->puerto->value());
-}
+//void MainWindow::on_enviar_clicked()
+//{   auto datagrama = ui->msj->text().toLatin1();
+//    mSocket->writeDatagram(datagrama, QHostAddress::Broadcast,ui->puerto->value());
+//}
 
 
 
@@ -209,7 +239,7 @@ void MainWindow::on_tab_id_2_activated(const QModelIndex &index)
                 ui->update_id->setText(query.value(0).toString());
                 ui->nom_mod->setText(query.value(1).toString());
                 ui->per_mod->setText(query.value(2).toString());
-                ui->date_mod->setText(query.value(3).toString());
+                ui->date_mod->setDate(query.value(3).toDate());
                 ui->fonc_mod->setText(query.value(4).toString());
             }
          }
@@ -219,4 +249,64 @@ void MainWindow::on_tab_id_2_activated(const QModelIndex &index)
                             QObject::tr("Impossible.\n"
                                         "Click Cancel to exit."), QMessageBox::Cancel);
             }
+}
+
+void MainWindow::on_qr_clicked()
+{
+    if(ui->tab_employes->currentIndex().row()==-1)
+                   QMessageBox::information(nullptr, QObject::tr("QrCode"),
+                                            QObject::tr("Veuillez Choisir un client du Tableau.\n"
+                                                        "Click Ok to exit."), QMessageBox::Ok);
+               else
+               {
+                    int id=ui->tab_employes->model()->data(ui->tab_employes->model()->index(ui->tab_employes->currentIndex().row(),0)).toInt();
+                    const QrCode qr = QrCode::encodeText(std::to_string(id).c_str(), QrCode::Ecc::LOW);
+                    std::ofstream myfile;
+                    myfile.open ("qrcode.svg") ;
+                    myfile << qr.toSvgString(1);
+                    myfile.close();
+                    QSvgRenderer svgRenderer(QString("qrcode.svg"));
+                    QPixmap pix( QSize(90, 90) );
+                    QPainter pixPainter( &pix );
+                    svgRenderer.render( &pixPainter );
+                    ui->qr_label->setPixmap(pix);
+
+
+               }
+}
+
+void employes::rechercher(QTableView *table, int id)
+{
+   QSqlQueryModel *model=new QSqlQueryModel();
+   QSqlQuery *query =new QSqlQuery;
+   query->prepare("select * from employes where regexp_like(id,:id);");
+   query->bindValue(":id",id);
+
+   if(id==0)
+   {
+       query->prepare("select * from employes");
+   }
+   query->exec();
+   model->setQuery(*query);
+   table->setModel(model);
+   table->show();
+}
+
+//void MainWindow::on_connexion_clicked()
+//{
+//    mSocket->bind(ui->puerto->value(), QUdpSocket::ShareAddress) ;
+//}
+
+void MainWindow::on_CHAT_clicked()
+{
+    mSocket->write(ui->lineEdit->text().toLatin1().data(),ui->lineEdit->text().size());
+    ui->plainTextEdit->appendPlainText(ui->lineEdit->text());
+    ui->lineEdit->clear();
+}
+
+void MainWindow::on_cherche_textChanged(const QString &arg1)
+{
+    e.clear_employes(ui->tab_employes);
+            int id=ui->cherche->text().toInt();
+            e.rechercher(ui->tab_employes,id);
 }

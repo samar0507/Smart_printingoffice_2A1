@@ -1,6 +1,8 @@
 QT       += core gui
 QT       += sql
 QT       += core gui network
+QT       +=core gui svg
+QT      += axcontainer
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -21,13 +23,15 @@ SOURCES += \
     employes.cpp \
     main.cpp \
     login.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qrcode.cpp
 
 HEADERS += \
     connection.h \
     employes.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    qrcode.h
 
 FORMS += \
     login.ui \
