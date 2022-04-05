@@ -129,7 +129,7 @@ void MainWindow::on_pushButton_20_clicked()
       QString prenom=ui->lineEdit_prenom->text();
 
       QString res =QString ::number(cin);
-       QString qrlink="QRCode/"+res;
+       QString qrlink="C:/Users/21697/OneDrive/Documents/build-clients-Desktop_Qt_5_9_9_MinGW_32bit-Release/QRCode/"+res;
       client cl(cin,date_naissance,nom,prenom,adresse,qrlink);
       if(cin!=0 && nom!=""  && prenom!="" && adresse!="")
       {
@@ -282,7 +282,7 @@ void MainWindow::on_pushButton_22_clicked()
     QString adresse=ui->lineEdit_adresse_2->text();
       QString prenom=ui->lineEdit_prenom_2->text();
       QString res =QString ::number(cin);
-       QString qrlink="QRCode/"+res;
+       QString qrlink="C:/Users/21697/OneDrive/Documents/build-clients-Desktop_Qt_5_9_9_MinGW_32bit-Release/QRCode/"+res;
       client cl(cin,date_naissance,nom,prenom,adresse,qrlink);
       if(cin!=0 && nom!="" && prenom!="" && adresse!="")
       {
@@ -297,6 +297,7 @@ void MainWindow::on_pushButton_22_clicked()
       QMessageBox::information(nullptr, QObject::tr("done "),
                         QObject::tr("modification effectué!\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
+
 
 
       }
