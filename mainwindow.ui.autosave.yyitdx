@@ -123,7 +123,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -472,10 +472,10 @@ color :;
        <widget class="QLabel" name="imag">
         <property name="geometry">
          <rect>
-          <x>70</x>
+          <x>80</x>
           <y>260</y>
-          <width>221</width>
-          <height>181</height>
+          <width>211</width>
+          <height>171</height>
          </rect>
         </property>
         <property name="text">
@@ -528,8 +528,8 @@ background:rgba(0,0,0,100);}</string>
       <widget class="QGroupBox" name="groupBox_24">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>140</y>
+         <x>70</x>
+         <y>120</y>
          <width>811</width>
          <height>301</height>
         </rect>
@@ -543,7 +543,7 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QTableView" name="tab_produit">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>50</x>
           <y>30</y>
           <width>521</width>
           <height>241</height>
@@ -559,8 +559,8 @@ font: 75 8pt &quot;Arial&quot;;}
        <widget class="QGroupBox" name="groupBox_7">
         <property name="geometry">
          <rect>
-          <x>620</x>
-          <y>40</y>
+          <x>630</x>
+          <y>30</y>
           <width>141</width>
           <height>231</height>
          </rect>
@@ -648,7 +648,7 @@ font-size: 12px;
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>450</y>
+         <y>440</y>
          <width>441</width>
          <height>121</height>
         </rect>
@@ -772,7 +772,7 @@ font-size:13px;
        <property name="geometry">
         <rect>
          <x>610</x>
-         <y>470</y>
+         <y>460</y>
          <width>251</width>
          <height>91</height>
         </rect>
@@ -808,10 +808,10 @@ font-size:13px;
       <widget class="QGroupBox" name="groupBox_8">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>210</x>
          <y>10</y>
          <width>451</width>
-         <height>131</height>
+         <height>101</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -890,28 +890,6 @@ font-size:13px;
           <x>80</x>
           <y>60</y>
           <width>151</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="rech">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>100</y>
-          <width>241</width>
           <height>20</height>
          </rect>
         </property>
@@ -1127,6 +1105,27 @@ border-radius: 8px;
 }</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="pb_modifier">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>190</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
        <widget class="QLineEdit" name="lineEdit_129">
         <property name="geometry">
          <rect>
@@ -1220,32 +1219,11 @@ QAbstractScrollArea
 {color:white;}</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pb_modifier">
+       <widget class="QPushButton" name="refresh">
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>170</y>
-          <width>91</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-        </property>
-        <property name="text">
-         <string>Modifier</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="refresh_mod">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>130</y>
+          <y>140</y>
           <width>91</width>
           <height>31</height>
          </rect>
@@ -1289,8 +1267,8 @@ font-size:13px;
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>110</y>
-        <width>781</width>
+        <y>80</y>
+        <width>701</width>
         <height>471</height>
        </rect>
       </property>
@@ -1311,64 +1289,6 @@ background:rgba(0,0,0,100);}</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QCustomPlot" name="plot" native="true">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>30</y>
-         <width>701</width>
-         <height>411</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QFrame" name="frame_29">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>30</y>
-        <width>281</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>1024</width>
-        <height>840</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QFrame
-{background : black;
-background:rgba(0,0,0,100);}</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QPushButton" name="stat">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>20</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-       </property>
-       <property name="text">
-        <string>Statistiques</string>
-       </property>
-      </widget>
      </widget>
     </widget>
    </widget>
@@ -1385,14 +1305,6 @@ font-size:13px;
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCustomPlot</class>
-   <extends>QWidget</extends>
-   <header>qcustomplot.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

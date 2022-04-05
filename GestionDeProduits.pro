@@ -1,6 +1,15 @@
 QT       += core gui sql
 QT += sql
 CONFIG += console
+
+QT       += core gui network sql printsupport serialport charts \
+            multimedia multimediawidgets
+QT += multimedia
+  QT += charts
+
+
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -22,18 +31,26 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     notification.cpp \
-    produits.cpp
+    produits.cpp \
+    qcustomplot.cpp \
+    statistiques.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
     notification.h \
-    produits.h
+    produits.h \
+    qcustomplot.h \
+    statistiques.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Ressources.qrc

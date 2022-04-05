@@ -24,6 +24,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void refresh();
+
     void on_pb_ajouter_clicked();
 
     void on_pb_supprimer_clicked();
@@ -32,7 +34,6 @@ private slots:
 
     void on_l_idm_currentIndexChanged(const QString &arg1);
 
-    void on_refresh_clicked();
 
     void on_pb_import_image_clicked();
 
@@ -51,6 +52,14 @@ private slots:
     void on_pb_pdf_clicked();
 
     void on_pb_rech_nom_clicked();
+
+    void on_stat_clicked();
+
+    void on_rech_textEdited(const QString &arg1);
+
+    void on_tabWidget_currentChanged(int index);
+
+    void on_refresh_mod_clicked();
 
 private:
     Ui::MainWindow *ui;
