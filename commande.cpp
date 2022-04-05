@@ -137,7 +137,7 @@ void commande::recherche(QTableView *table, int idc)
    table->setModel(model);
    table->show();
 }*/
-QSqlQueryModel *commande::recherche(int idc)
+/*QSqlQueryModel *commande::recherche(int idc)
 {
     QString res=QString::number(idc);
      QSqlQueryModel * model =new QSqlQueryModel();
@@ -148,7 +148,7 @@ QSqlQueryModel *commande::recherche(int idc)
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date de commande"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Demande de client"));
  return model;
-}
+}*/
 /*void commande::addToHistory()
 {
 
@@ -217,4 +217,10 @@ QSqlQueryModel* commande::calcul (QString mm)
         model->setHeaderData(0, Qt::Horizontal, QObject::tr("Chiffre d'aff"));
         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nbr Commande"));
         return model;
+}
+void commande::clear_commande(QTableView *table)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->clear();
+    table->setModel(model);
 }

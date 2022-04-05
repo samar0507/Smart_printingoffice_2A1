@@ -41,7 +41,8 @@ public:
     QSqlQueryModel* tri_idc();
     QSqlQueryModel* tri_date();
     //void recherche(QTableView *table, int idc);
-    QSqlQueryModel *recherche(int idc);
+    //QSqlQueryModel *recherche(int idc);
+    void rechercher(QTableView *, int);
     QSqlQueryModel*  afficher_id();
     commande PDF();
 
@@ -51,6 +52,7 @@ public:
     bool history_file(int idc,int idcl, int prix,QDate date_c);
     QSqlQueryModel* display_history ();
     QSqlQueryModel* calcul (QString mm);
+    void clear_commande(QTableView *);
 
 };
 

@@ -45,6 +45,7 @@ void MainWindow::on_add_btn_3_clicked()
         int prix=ui->le_prix_3->text().toInt();
         QDate date_c=ui->date_4->date();
         QString demande=ui->demande_4->text();
+        QString idc1=ui->le_idc_4->text();
     commande c(idc,idcl,prix,date_c,demande);
 bool test=c.ajouter();
 bool addfile=c.history_file(idc,idcl,prix,date_c);
@@ -57,6 +58,21 @@ if(test&&addfile)
     QMessageBox::information(nullptr, QObject::tr("OK"),
                 QObject::tr("Ajout effectué\n"
                             "Click Cancel to exit."), QMessageBox::Cancel);
+    QString nomFile ="file";
+              QFile file("C:/Users/ASUS/Desktop/projet/copieee/copieee/historique.txt");
+              QString finalmsg="fichier modifie avec succes";
+               if(!file.exists()){
+               finalmsg="fichier cree avec succes";
+               }
+              file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+
+
+
+              QTextStream txt(&file);
+                QString d_info = QDateTime::currentDateTime().toString();
+
+              QString message2=d_info+" - Une commande a été ajoutée avec le idc "+idc1+"\n";
+              txt << message2;
 }
 else
     QMessageBox::critical(nullptr, QObject::tr("Not OK"),
@@ -66,7 +82,7 @@ else
 void MainWindow::on_button_supprimer_3_clicked()
 {
     commande c1; c1.setidc(ui->del_id_4->currentText().toInt());
-
+    QString idc=ui->del_id_4->currentText();
     bool test=c1.supprimer(c1.getidc());
     QMessageBox msgBox;
     if(test)
@@ -76,6 +92,21 @@ void MainWindow::on_button_supprimer_3_clicked()
         ui->del_id_4->setModel(c.afficher_id());
 
         msgBox.setText("Suppression avec succes.");
+        QString nomFile ="Historique";
+                     QFile file("C:/Users/ASUS/Desktop/projet/copieee/copieee/historique.txt");
+                     QString finalmsg="fichier modifie avec succes";
+                      if(!file.exists()){
+                      finalmsg="fichier cree avec succes";
+                      }
+                     file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+
+
+
+                     QTextStream txt(&file);
+                       QString d_info = QDateTime::currentDateTime().toString();
+
+                      QString message2=d_info+" - Une commande a été supprimée avec le idc "+idc+" \n";
+                     txt << message2;
 
 
     }
@@ -90,6 +121,7 @@ void MainWindow::on_button_modifier_3_clicked()
       int prix=ui->prix_3->text().toInt();
       QDate date_c=ui->date_5->date();
       QString demande=ui->demande_5->text();
+      QString id=ui->tableView_3->model()->data(ui->tableView_3->model()->index(ui->tableView_3->currentIndex().row(),0)).toString();
  commande c2(idc,idcl,prix,date_c,demande);
  bool test=c2.modifier();
  QMessageBox msgBox;
@@ -99,6 +131,22 @@ void MainWindow::on_button_modifier_3_clicked()
     ui->tableView_3->setModel(c.afficher_id());
     ui->del_id_4->setModel(c.afficher_id());
     msgBox.setText("Modification avec succes.");
+
+    QString nomFile ="Historique";
+         QFile file("C:/Users/ASUS/Desktop/projet/copieee/copieee/historique.txt");
+         QString finalmsg="fichier modifie avec succes";
+          if(!file.exists()){
+          finalmsg="fichier cree avec succes";
+          }
+         file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+
+
+
+         QTextStream txt(&file);
+           QString d_info = QDateTime::currentDateTime().toString();
+
+         QString message2=d_info+" - Une commande a été modifiée avec le idc "+id+"\n";
+         txt << message2;
 
  }
  else
@@ -130,7 +178,7 @@ void MainWindow::on_tri_date_3_clicked()
                  QObject::tr("tri effectu.\n"
                              "Click Cancel to exit."), QMessageBox::Cancel);
 }
-void MainWindow::on_rechercher_3_clicked()
+void commande::rechercher(QTableView *table, int idc)
 {
    /* int idc=ui->chercher_3->text().toInt();
 
@@ -142,9 +190,19 @@ void MainWindow::on_rechercher_3_clicked()
    /* ui->table_commande_3->setModel(c.afficher());
              int idc=ui->chercher_3->text().toInt();
              c.recherche(ui->table_commande_3,idc);*/
-    int idc = ui->chercher_3->text().toInt();
+    QSqlQueryModel *model=new QSqlQueryModel();
+       QSqlQuery *query =new QSqlQuery;
+       query->prepare("select * from commande where regexp_like(idc,:idc);");
+       query->bindValue(":idc",idc);
 
-        ui->table_commande_3->setModel(c.recherche(idc));
+       if(idc==0)
+       {
+           query->prepare("select * from commande");
+       }
+       query->exec();
+       model->setQuery(*query);
+       table->setModel(model);
+       table->show();
 }
 
 /*void MainWindow::on_tableView_activated(const QModelIndex &index)
@@ -203,6 +261,9 @@ void MainWindow::on_PDF_clicked()
 
 
     QPainter painter(&pdf);
+    const QImage image("C:/Users/ASUS/Desktop/projet/copieee/copieee/logo.png");
+            const QPoint imageCoordinates(0,0);
+            painter.drawImage(imageCoordinates,image);
 
     int i = 4000;
     painter.setPen(Qt::blue);
@@ -259,4 +320,25 @@ void MainWindow::on_pushButton_2_clicked()
 {
     QString month=ui->comboBox->currentText();
     ui->table_histo_2->setModel(c.calcul(month));
+}
+
+void MainWindow::on_tabWidget_4_currentChanged(int index)
+{
+    ui->table_commande_3->setModel(c.afficher());
+
+        QSqlQueryModel *modal=new QSqlQueryModel;
+        QSqlQuery *qry=new QSqlQuery;
+        qry->prepare("select idc from commande");
+        qry->exec();
+        modal->setQuery(*qry);
+        ui->del_id_4->setModel(modal);
+
+        ui->tableView_3->setModel(modal);
+}
+
+void MainWindow::on_chercher_3_textChanged(const QString &arg1)
+{
+    c.clear_commande(ui->table_commande_3);
+                int idc=ui->chercher_3->text().toInt();
+                c.rechercher(ui->table_commande_3,idc);
 }

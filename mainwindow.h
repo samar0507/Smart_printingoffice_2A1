@@ -39,6 +39,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_tabWidget_4_currentChanged(int index);
+
+    void on_chercher_3_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     commande c;
