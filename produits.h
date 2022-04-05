@@ -38,8 +38,6 @@ public:
      QSqlQueryModel * trierID();
      QSqlQueryModel * trierN();
      QSqlQueryModel *trierD();
-     QSqlQueryModel* rechercher_id(int);
-     QSqlQueryModel* rechercher_nom(QString);
      QSqlQueryModel *rechercher(QSqlQuery);
 
      void statistique(QVector<double>* ticks,QVector<QString> *labels);

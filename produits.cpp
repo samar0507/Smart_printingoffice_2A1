@@ -133,38 +133,6 @@ QSqlQueryModel *Produits::trierD() //tri par date
 
 }
 
-QSqlQueryModel *Produits::rechercher_id(int id)
-{
-    QSqlQuery query;
-    QSqlQueryModel * model1=new QSqlQueryModel();
-    QString res=QString::number(id);
-
-
-
-    model1->setQuery("select * from produits where id LIKE '"+res+"%'");
-    model1->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-    model1->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-    model1->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_P"));
-    model1->setHeaderData(3, Qt::Horizontal, QObject::tr("PRIX"));
-    model1->setHeaderData(4, Qt::Horizontal, QObject::tr("QUANTITE"));
-
-
-
-       return model1;
-
-}
-QSqlQueryModel *Produits::rechercher_nom(QString nom)
-  {
-      QSqlQueryModel * model= new QSqlQueryModel();
-      model->setQuery("select * from produits where regexp_like(nom,'"+nom+"')");
-      model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-      model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
-      model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE_P"));
-      model->setHeaderData(3, Qt::Horizontal, QObject::tr("PRIX"));
-      model->setHeaderData(4, Qt::Horizontal, QObject::tr("QUANTITE"));
-
-  return model;
-      }
 
 QSqlQueryModel * Produits::rechercher(QSqlQuery q)
 {

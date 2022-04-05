@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->l_idm->setValidator(new QIntValidator(0,9999,this));
     ui->l_prixm->setValidator(new QIntValidator(0,99999999,this));
     ui->l_quantitem->setValidator(new QIntValidator(0,99999999,this));
-    ui->rech_id->setValidator(new QIntValidator(0,99999999,this));
 
     ui->tab_produit->setModel(P.afficher());
     QSqlQueryModel * model2= new QSqlQueryModel();
@@ -99,8 +98,6 @@ void MainWindow::on_pb_supprimer_clicked() //supprimer un produit
         Notification n("Supprimé avec succés","Produit supprimé");
         n.afficher();
         ui->tab_produit->setModel(P.afficher());
-        refresh();
-
 
         QSqlQueryModel * model2= new QSqlQueryModel();
         model2->setQuery("select id from produits")  ;
@@ -213,13 +210,6 @@ void MainWindow::on_pb_supprimer_tout_clicked()
    }
 }
 
-void MainWindow::on_refresh_2_clicked() //refresh dans la liste
-{
-    QSqlQueryModel * model2= new QSqlQueryModel();
-    model2->setQuery("select *  from produits")  ;
-    ui->l_id_sup->setModel(model2) ;
-    ui->tab_produit->setModel(model2) ;
-}
 
 void MainWindow::on_tri_nom_clicked()
 {
@@ -237,12 +227,7 @@ void MainWindow::on_tri_id_clicked()
 }
 
 
-void MainWindow::on_pb_rech_id_clicked()
-{
-    int id=ui->rech_id->text().toInt();
-    ui->tab_produit->setModel(P.rechercher_id(id));
-    ui->rech_id->clear();
-}
+
 
 
 void MainWindow::on_pb_pdf_clicked()
@@ -302,19 +287,7 @@ void MainWindow::on_pb_pdf_clicked()
             }
 }
 
-void MainWindow::on_pb_rech_nom_clicked()
-{
 
-    QString nom =ui->rech_nom->text();
-    if( nom.isEmpty() )
-       {
-        QMessageBox::critical(0,qApp->tr("Erreur!!"),qApp->tr("Veuillez remplir les champs vides."),QMessageBox::Cancel);
-       }
-    else{
-    ui->tab_produit->setModel(P.rechercher_nom(nom));
-    ui->rech_nom->clear();}
-
-}
 
 
 void MainWindow::on_stat_clicked()
@@ -339,73 +312,7 @@ void MainWindow::on_rech_textEdited(const QString &arg1)//recherche avancee sans
 
 }
 
-void MainWindow::on_tabWidget_currentChanged(int index)
-{
-    QLinearGradient gradient(0, 0, 0, 400);
-    gradient.setColorAt(0, QColor(90, 90, 90));
-    gradient.setColorAt(0.38, QColor(105, 105, 105));
-    gradient.setColorAt(1, QColor(70, 70, 70));
-    ui->plot->setBackground(QBrush(gradient));
 
-    QCPBars *amande = new QCPBars(ui->plot->xAxis, ui->plot->yAxis);
-    amande->setAntialiased(false);
-    amande->setStackingGap(1);
-     //couleurs
-    amande->setName("Repartition des produits selon quantites ");
-    amande->setPen(QPen(QColor(0, 168, 140).lighter(130)));
-    amande->setBrush(QColor(0, 168, 140));
-
-     //axe des abscisses
-    QVector<double> ticks;
-    QVector<QString> labels;
-    P.statistique(&ticks,&labels);
-
-    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
-    textTicker->addTicks(ticks, labels);
-    ui->plot->xAxis->setTicker(textTicker);
-    ui->plot->xAxis->setTickLabelRotation(60);
-    ui->plot->xAxis->setSubTicks(false);
-    ui->plot->xAxis->setTickLength(0, 4);
-    ui->plot->xAxis->setRange(0, 8);
-    ui->plot->xAxis->setBasePen(QPen(Qt::white));
-    ui->plot->xAxis->setTickPen(QPen(Qt::white));
-    ui->plot->xAxis->grid()->setVisible(true);
-    ui->plot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-    ui->plot->xAxis->setTickLabelColor(Qt::white);
-    ui->plot->xAxis->setLabelColor(Qt::white);
-
-    // axe des ordonnées
-    ui->plot->yAxis->setRange(0,10);
-    ui->plot->yAxis->setPadding(5);
-    ui->plot->yAxis->setLabel("Statistiques");
-    ui->plot->yAxis->setBasePen(QPen(Qt::white));
-    ui->plot->yAxis->setTickPen(QPen(Qt::white));
-    ui->plot->yAxis->setSubTickPen(QPen(Qt::white));
-    ui->plot->yAxis->grid()->setSubGridVisible(true);
-    ui->plot->yAxis->setTickLabelColor(Qt::white);
-    ui->plot->yAxis->setLabelColor(Qt::white);
-    ui->plot->yAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::SolidLine));
-    ui->plot->yAxis->grid()->setSubGridPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-
-    // ajout des données  (statistiques de la quantité)//
-
-    QVector<double> PlaceData;
-    QSqlQuery q1("select QUANTITE from produits");
-    while (q1.next()) {
-                  int  nbr_fautee = q1.value(0).toInt();
-                  PlaceData<< nbr_fautee;
-                    }
-    amande->setData(ticks, PlaceData);
-
-    ui->plot->legend->setVisible(true);
-    ui->plot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
-    ui->plot->legend->setBrush(QColor(255, 255, 255, 100));
-    ui->plot->legend->setBorderPen(Qt::NoPen);
-    QFont legendFont = font();
-    legendFont.setPointSize(5);
-    ui->plot->legend->setFont(legendFont);
-    ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
-}
 
 void MainWindow::on_refresh_mod_clicked()
 {

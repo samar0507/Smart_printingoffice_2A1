@@ -2,5 +2,7 @@
     <qresource prefix="/Images">
         <file>djjjj.jpg</file>
         <file>pro.jpg</file>
+        <file>papiers.jpg</file>
+        <file>journals.jpg</file>
     </qresource>
 </RCC>

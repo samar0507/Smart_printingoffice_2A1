@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>997</width>
-    <height>725</height>
+    <width>1024</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -123,7 +123,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -747,27 +747,6 @@ font-size:13px;
         </property>
        </widget>
       </widget>
-      <widget class="QPushButton" name="refresh_2">
-       <property name="geometry">
-        <rect>
-         <x>830</x>
-         <y>10</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{border-radius: 8px;
-background :#008080
-;
-color: white;
-font-size:13px;
-}</string>
-       </property>
-       <property name="text">
-        <string>Refresh</string>
-       </property>
-      </widget>
       <widget class="QGroupBox" name="groupBox_27">
        <property name="geometry">
         <rect>
@@ -808,10 +787,10 @@ font-size:13px;
       <widget class="QGroupBox" name="groupBox_8">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>10</y>
+         <x>200</x>
+         <y>20</y>
          <width>451</width>
-         <height>131</height>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -820,97 +799,11 @@ font-size:13px;
        <property name="title">
         <string>Recherche</string>
        </property>
-       <widget class="QLineEdit" name="rech_id">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>20</y>
-          <width>151</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pb_rech_id">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>20</y>
-          <width>131</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-        </property>
-        <property name="text">
-         <string>Rechercher par ID</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pb_rech_nom">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>60</y>
-          <width>131</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-        </property>
-        <property name="text">
-         <string>Rechercher par Nom</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="rech_nom">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>60</y>
-          <width>151</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLineEdit" name="rech">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>100</y>
+          <x>110</x>
+          <y>40</y>
           <width>241</width>
           <height>20</height>
          </rect>
@@ -1285,48 +1178,11 @@ font-size:13px;
        <pixmap>../../../../Downloads/djjjj.jpg</pixmap>
       </property>
      </widget>
-     <widget class="QFrame" name="frame_28">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>110</y>
-        <width>781</width>
-        <height>471</height>
-       </rect>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>1024</width>
-        <height>840</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QFrame
-{background : black;
-background:rgba(0,0,0,100);}</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QCustomPlot" name="plot" native="true">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>30</y>
-         <width>701</width>
-         <height>411</height>
-        </rect>
-       </property>
-      </widget>
-     </widget>
      <widget class="QFrame" name="frame_29">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>30</y>
+        <x>300</x>
+        <y>230</y>
         <width>281</width>
         <height>71</height>
        </rect>
@@ -1378,21 +1234,13 @@ font-size:13px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>997</width>
+     <width>1024</width>
      <height>24</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QCustomPlot</class>
-   <extends>QWidget</extends>
-   <header>qcustomplot.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

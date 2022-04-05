@@ -32,7 +32,6 @@ SOURCES += \
     mainwindow.cpp \
     notification.cpp \
     produits.cpp \
-    qcustomplot.cpp \
     statistiques.cpp
 
 HEADERS += \
@@ -40,7 +39,6 @@ HEADERS += \
     mainwindow.h \
     notification.h \
     produits.h \
-    qcustomplot.h \
     statistiques.h
 
 FORMS += \

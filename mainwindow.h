@@ -39,25 +39,17 @@ private slots:
 
     void on_pb_supprimer_tout_clicked();
 
-    void on_refresh_2_clicked();
-
     void on_tri_nom_clicked();
 
     void on_tri_date_clicked();
 
     void on_tri_id_clicked();
 
-    void on_pb_rech_id_clicked();
-
     void on_pb_pdf_clicked();
-
-    void on_pb_rech_nom_clicked();
 
     void on_stat_clicked();
 
     void on_rech_textEdited(const QString &arg1);
-
-    void on_tabWidget_currentChanged(int index);
 
     void on_refresh_mod_clicked();
 
