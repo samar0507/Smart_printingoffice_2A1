@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1006</width>
-    <height>703</height>
+    <height>688</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -117,7 +117,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -314,28 +314,6 @@ font-size:13px;
         <string>Browse Photo</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_15">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>340</y>
-         <width>91</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{border-radius: 8px;
-background :pink
-
-;
-color: white;
-font-size:13px;
-}</string>
-       </property>
-       <property name="text">
-        <string>Traduire</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="img">
        <property name="geometry">
         <rect>
@@ -474,7 +452,7 @@ background:rgba(0,0,0,100);}</string>
         <property name="geometry">
          <rect>
           <x>30</x>
-          <y>120</y>
+          <y>100</y>
           <width>861</width>
           <height>301</height>
          </rect>
@@ -510,7 +488,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>150</x>
-          <y>30</y>
+          <y>20</y>
           <width>97</width>
           <height>20</height>
          </rect>
@@ -523,7 +501,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>150</x>
-          <y>50</y>
+          <y>40</y>
           <width>131</width>
           <height>20</height>
          </rect>
@@ -536,7 +514,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>150</x>
-          <y>90</y>
+          <y>80</y>
           <width>97</width>
           <height>20</height>
          </rect>
@@ -549,7 +527,7 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>150</x>
-          <y>70</y>
+          <y>60</y>
           <width>131</width>
           <height>20</height>
          </rect>
@@ -596,6 +574,19 @@ font-size:13px;
         </property>
         <property name="text">
          <string>Rechercher</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="spot">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>420</y>
+          <width>341</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>
@@ -729,12 +720,12 @@ font-size: 12px;
         <pixmap>../../Users/SOUISSI/Downloads/djjjj.jpg</pixmap>
        </property>
       </widget>
-      <widget class="QPushButton" name="pdf_export">
+      <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>640</x>
-         <y>510</y>
-         <width>111</width>
+         <x>690</x>
+         <y>500</y>
+         <width>93</width>
          <height>28</height>
         </rect>
        </property>
@@ -747,13 +738,26 @@ font-size:13px;
 }</string>
        </property>
        <property name="text">
-        <string>Exporter la liste</string>
+        <string>Export PDF</string>
        </property>
       </widget>
       <zorder>label_12</zorder>
       <zorder>groupBox_24</zorder>
       <zorder>groupBox_25</zorder>
-      <zorder>pdf_export</zorder>
+      <zorder>pushButton</zorder>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>650</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Serveur Smtp :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
@@ -1202,19 +1206,6 @@ background:rgba(0,0,0,100);}</string>
       <property name="title">
        <string>Modifier</string>
       </property>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>30</x>
-         <y>50</y>
-         <width>56</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
@@ -1360,26 +1351,6 @@ border-radius: 8px;
 </string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="update_id">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>50</y>
-         <width>113</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}
-</string>
-       </property>
-      </widget>
       <widget class="QTableView" name="tab_id_2">
        <property name="geometry">
         <rect>
@@ -1468,6 +1439,239 @@ border-radius: 8px;
      <zorder>refresh_btn</zorder>
      <zorder>new_deb</zorder>
     </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Les sites web de nos fournisseurs</string>
+     </attribute>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-20</y>
+        <width>1201</width>
+        <height>741</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Users/SOUISSI/Downloads/djjjj.jpg</pixmap>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_5">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>30</y>
+        <width>621</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame
+{background : black;
+background:rgba(0,0,0,100);}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="fournisseurs1">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>80</y>
+         <width>161</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :orange
+;
+color: red;
+font-size:14px;
+}</string>
+       </property>
+       <property name="text">
+        <string>L'EXPO Permanente</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="fournisseurs2">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>180</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :orange
+;
+color: red;
+font-size:14px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Companeo</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="fournisseurs3">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>270</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :orange
+;
+color: red;
+font-size:14px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Affaryet</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="fournisseurs4">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>350</y>
+         <width>161</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :orange
+;
+color: red;
+font-size:14px;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Tunisianet</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="fournisseurs5">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>440</y>
+         <width>161</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border-radius: 8px;
+background :orange
+;
+color: red;
+font-size:14px;
+}</string>
+       </property>
+       <property name="text">
+        <string>Print Value</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>640</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#ff5500;&quot;&gt;Nos Fournisseurs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>630</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#ff5500;&quot;&gt;Nos Fournisseurs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>630</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#ff5500;&quot;&gt;Nos Fournisseurs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>670</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>L'EXPO Permanente: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>660</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>L'EXPO Permanente: </string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLineEdit" name="update_id">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>660</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}
+</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

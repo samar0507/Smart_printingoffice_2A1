@@ -27,6 +27,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
     connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
+    //HyperLink
+    //QLabel * myLabel = new QLabel();
+    /*ui->fournisseur1->setName("Expo Permanente");
+    ui->fournisseur1->setText("<a href=\"https://www.usinenouvelle.com/expo/">text</a>");
+    myLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);*/
    }
 
 
@@ -293,7 +298,6 @@ void MainWindow::on_tri_fin_btn_clicked()
                  QObject::tr("tri effectué.\n"
                              "Click Cancel to exit."), QMessageBox::Cancel);
 }
-
 void MainWindow::on_search_btn_clicked()
 {
     ui->tab_fournisseurs->setModel(f.afficher());
@@ -301,13 +305,12 @@ void MainWindow::on_search_btn_clicked()
          f.rechercher(ui->tab_fournisseurs,id);
 }
 
-void MainWindow::on_pdf_export_clicked()
+void MainWindow::on_pushButton_clicked()
 {
-
-    QPdfWriter pdf("C:/projet/Smart_printingoffice_2A1-Fournisseurs/fournisseurs");
+    QPdfWriter pdf("C:/Projet c++/YEKHDEEEEEEM/fournisseurs");
 
         QPainter painter(&pdf);
-        const QImage image("C:/projet/Smart_printingoffice_2A1-Fournisseurs - Copie (2)/spot.png");
+        const QImage image("C:/Projet c++/YEKHDEEEEEEM/spot.png");
         const QPoint imageCoordinates(0,0);
         painter.drawImage(imageCoordinates,image);
         int i = 4000;
@@ -348,7 +351,7 @@ void MainWindow::on_pdf_export_clicked()
         int reponse = QMessageBox::question(this, "Export PDF avec succés", "Voulez-vous Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
         if (reponse == QMessageBox::Yes)
         {
-            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/projet/Smart_printingoffice_2A1-Fournisseurs/fournisseurs"));
+            QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Projet c++/YEKHDEEEEEEM/fournisseurs"));
 
             painter.end();
         }
@@ -356,4 +359,43 @@ void MainWindow::on_pdf_export_clicked()
         {
             painter.end();
         }
+}
+
+
+
+void MainWindow::on_search_textChanged(const QString &arg1)
+{
+    f.clear_fournisseurs(ui->tab_fournisseurs);
+        int id=ui->search->text().toInt();
+        f.rechercher(ui->tab_fournisseurs,id);
+}
+
+void MainWindow::on_fournisseur1_linkActivated(const QString &link)
+{
+     QDesktopServices::openUrl(QUrl("https://www.usinenouvelle.com/expo/"));
+}
+
+void MainWindow::on_fournisseurs1_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.usinenouvelle.com/expo/"));
+}
+
+void MainWindow::on_fournisseurs2_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.companeo.com/"));
+}
+
+void MainWindow::on_fournisseurs3_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.affariyet.com/"));
+}
+
+void MainWindow::on_fournisseurs4_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.tunisianet.com.tn/"));
+}
+
+void MainWindow::on_fournisseurs5_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://print-value.fr/"));
 }

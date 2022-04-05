@@ -53,6 +53,22 @@ private slots:
 
     void on_pdf_export_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_search_textChanged(const QString &arg1);
+
+    void on_fournisseur1_linkActivated(const QString &link);
+
+    void on_fournisseurs1_clicked();
+
+    void on_fournisseurs2_clicked();
+
+    void on_fournisseurs3_clicked();
+
+    void on_fournisseurs4_clicked();
+
+    void on_fournisseurs5_clicked();
+
 private:
     Ui::MainWindow *ui;
     fournisseurs f;

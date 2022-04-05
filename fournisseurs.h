@@ -49,7 +49,7 @@ public:
     QSqlQueryModel * tri_date_deb();
     QSqlQueryModel * tri_date_fin();
     void rechercher(QTableView*, int);
-
+    void clear_fournisseurs(QTableView *);
     bool import(int);
 };
 

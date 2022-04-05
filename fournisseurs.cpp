@@ -137,6 +137,12 @@ void fournisseurs::rechercher(QTableView *table, int id)
    table->setModel(model);
    table->show();
 }
+void fournisseurs::clear_fournisseurs(QTableView *table)
+{
+    QSqlQueryModel *model=new QSqlQueryModel();
+    model->clear();
+    table->setModel(model);
+}
 //int import(int id)
 //{
 //    QSqlQuery query("SELECT Name, Group FROM Teacher");
