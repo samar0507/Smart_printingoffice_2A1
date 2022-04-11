@@ -40,12 +40,30 @@
 #include <QPrintDialog>
 #include<QPrinter>
 #include <QTextTableCell>
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include "arduino.h"
 using qrcodegen::QrCode;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+ui->hum->display("-------");
+    switch(a.connect_arduino())
+        {
+            case (0):
+                qDebug()<<"arduino is available and connected to"<<a.getarduino_port_name();
+            break;
+            case (1):
+                qDebug()<<"arduino is available but not connected to"<<a.getarduino_port_name();
+            break;
+            case (-1):
+                qDebug()<<"arduino is not available";
+            break;
+
+        }
+     QObject::connect(a.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
 centralWidget()->setStyleSheet("{background-image:url(qrc:/img/img/djjjj.jpg)}");
     ui->lineEdit_cin->setValidator(new QIntValidator(0,99999999,this));
         ui->lineEdit_cin_2->setValidator(new QIntValidator(0,99999999,this));
@@ -92,7 +110,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::update_label()
+{
+ QByteArray sr=a.read_from_arduino();
+ QString b= QString(sr);
+  QStringList bb = b.split(",");
+ int hum = bb[0].toInt();
 
+ if(hum > 70)
+ {
+     QMessageBox::critical(nullptr, QObject::tr("WARNING!!"),
+                            QObject::tr("Taux d'humidite élevè.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+ }
+
+qDebug () << hum;
+ui->hum->display(b);
+
+
+ }
 void MainWindow::on_pushButton_4_clicked()
 {
 
@@ -359,7 +395,7 @@ QString c ="Fidelite/Carte fidelite  "+res;
                                                    QPainter painter(&pdfWriter);
 
                                                      painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/2.jpg"));
-                                                      painter.drawPixmap(QRect(20,20,pdfWriter.logicalDpiX()*0.17,pdfWriter.logicalDpiY()*0.17),QPixmap(qrid));
+                                                      painter.drawPixmap(QRect(2280,1080,pdfWriter.logicalDpiX()*0.17,pdfWriter.logicalDpiY()*0.17),QPixmap(qrid));
                                                      pdfWriter.newPage();
                                                      painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/1.jpg"));
 

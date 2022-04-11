@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include "client.h"
+#include "arduino.h"
 #include<QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,7 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+ arduino a;
 private slots:
     void on_pushButton_4_clicked();
 
@@ -38,7 +39,7 @@ private slots:
 
     void on_tab_cl_activated(const QModelIndex &index);
 
-
+void update_label();
 
     void on_pushButton_22_clicked();
 

@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT       +=serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 QT += sql
@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     client.cpp \
     connection.cpp \
     main.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
     qrcode.cpp
 
 HEADERS += \
+    arduino.h \
     client.h \
     connection.h \
     mainwindow.h \
