@@ -8,8 +8,8 @@
 #include<QFileDialog>
 
 #include "produits.h"
-
 #include "notification.h"
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +25,7 @@ public:
 
 private slots:
     void refresh();
+    void update_label();
 
     void on_pb_ajouter_clicked();
 
@@ -53,11 +54,15 @@ private slots:
 
     void on_refresh_mod_clicked();
 
+    void on_buttonon_clicked();
+
+    void on_buttonoff_clicked();
+
 private:
     Ui::MainWindow *ui;
     Produits P;
-
+    Arduino A;
  Notification n; QSystemTrayIcon *mysystem;
-
+int alert;
 };
 #endif // MAINWINDOW_H

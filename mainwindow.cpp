@@ -3,7 +3,8 @@
 
 #include "produits.h"
 #include "statistiques.h"
-
+#include "humidite.h"
+#include "connection.h"
 
 #include <QPrinter>
 #include<QPrintDialog>
@@ -37,6 +38,18 @@ MainWindow::MainWindow(QWidget *parent)
     QSqlQueryModel * model= new QSqlQueryModel();
     model->setQuery("select id from produits")  ;
     ui->l_id_sup->setModel(model) ;
+
+    //arduino
+        int ret=A.connect_arduino(); //lancer la connection à arduino
+        switch(ret){
+        case(0):qDebug() << "arduino is available and connected to : " << A.getarduino_port_name();
+            break;
+        case(1):qDebug() << "arduino is available butnconnected to : " << A.getarduino_port_name();
+            break;
+        case(-1):qDebug() << "arduino is not available" ;
+        }
+         QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); //permet de lancer
+        //le slot update_label suite à la reception du signal readyRead (reception des données).
 }
 
 MainWindow::~MainWindow()
@@ -321,3 +334,46 @@ void MainWindow::on_refresh_mod_clicked()
     ui->l_idm->setModel(model2) ;
     ui->tab_produit->setModel(model2) ;
 }
+
+void MainWindow::on_buttonon_clicked()
+{
+    A.write_to_arduino("1"); //envoyer 1 à arduino
+    ui->label_etat->setText("ON");
+}
+
+void MainWindow::on_buttonoff_clicked()
+{
+    A.write_to_arduino("0"); //envoyer 0 à arduino
+    ui->label_etat->setText("OFF");
+}
+
+
+void MainWindow::update_label()
+{
+ QByteArray sr=A.read_from_arduino();
+ QString b= QString(sr);
+  QStringList bb = b.split(",");
+ int hum = bb[0].toInt();
+
+ if(hum == 70)
+ {
+     Connection c;
+     c.createconnect();
+QDateTime date = QDateTime::currentDateTime();
+humidite h (date);
+bool test=h.ajouter();
+ }
+qDebug () << hum;
+ui->Hum->display(b);
+
+alert=hum;
+
+if (alert>60)
+{
+    ui->label_alert->setText("Taux d'humidite élevè!!!");
+}
+else {
+     ui->label_alert->setText(" ");
+}
+
+ }

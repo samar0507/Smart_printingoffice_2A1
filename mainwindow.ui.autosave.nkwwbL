@@ -1280,7 +1280,7 @@ background:rgba(0,0,0,100);}</string>
         <string notr="true">QGroupBox{color:white;}</string>
        </property>
        <property name="title">
-        <string>Humidité</string>
+        <string>Ajouter produit</string>
        </property>
        <widget class="QLineEdit" name="lineEdit_103">
         <property name="geometry">
@@ -1385,7 +1385,7 @@ font-size:13px;
          <string>OFF</string>
         </property>
        </widget>
-       <widget class="QLCDNumber" name="Hum">
+       <widget class="QLCDNumber" name="temp_lcdNumber">
         <property name="geometry">
          <rect>
           <x>140</x>
@@ -1676,17 +1676,10 @@ font-size: 12px;
         <property name="geometry">
          <rect>
           <x>100</x>
-          <y>360</y>
-          <width>431</width>
-          <height>81</height>
+          <y>370</y>
+          <width>421</width>
+          <height>71</height>
          </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-border:none;
-color:red;
-font-size: 30px;
-}</string>
         </property>
         <property name="text">
          <string/>
