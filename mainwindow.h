@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include "client.h"
 #include "arduino.h"
+#include "humidite.h"
 #include<QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -46,7 +47,7 @@ void update_label();
 private:
     Ui::MainWindow *ui;
     client cl;
-
+humidite h;
     QCamera *mCamera;
    QCameraViewfinder *mQCameraViewfinder;
     QCameraImageCapture *mQCameraImageCapture;

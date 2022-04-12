@@ -22,6 +22,7 @@ SOURCES += \
     arduino.cpp \
     client.cpp \
     connection.cpp \
+    humidite.cpp \
     main.cpp \
     mainwindow.cpp \
     qrcode.cpp
@@ -30,6 +31,7 @@ HEADERS += \
     arduino.h \
     client.h \
     connection.h \
+    humidite.h \
     mainwindow.h \
     qrcode.h
 

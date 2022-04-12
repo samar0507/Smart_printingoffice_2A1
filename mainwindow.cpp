@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "client.h"
+#include "humidite.h"
 #include "connection.h"
 #include <QDebug>
 #include <QLineEdit>
@@ -117,11 +118,13 @@ void MainWindow::update_label()
   QStringList bb = b.split(",");
  int hum = bb[0].toInt();
 
- if(hum > 70)
+ if(hum == 70)
  {
-     QMessageBox::critical(nullptr, QObject::tr("WARNING!!"),
-                            QObject::tr("Taux d'humidite élevè.\n"
-                                        "Click Cancel to exit."), QMessageBox::Cancel);
+     connection c;
+     c.createconnect();
+QDateTime date = QDateTime::currentDateTime();
+humidite h (date);
+bool test=h.ajouter();
  }
 
 qDebug () << hum;
