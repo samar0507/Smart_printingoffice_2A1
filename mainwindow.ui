@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QTabWidget" name="tab2">
@@ -361,7 +361,7 @@ border-radius: 8px;
 }</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_20">
+         <widget class="QPushButton" name="ajout_cl">
           <property name="geometry">
            <rect>
             <x>130</x>
@@ -382,7 +382,7 @@ font-size:13px;
            <string>Ajouter client</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="CAM">
+         <widget class="QPushButton" name="cam">
           <property name="geometry">
            <rect>
             <x>410</x>
@@ -682,7 +682,7 @@ border-radius: 8px;
 }</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_22">
+         <widget class="QPushButton" name="modif_cl">
           <property name="geometry">
            <rect>
             <x>200</x>
@@ -738,29 +738,6 @@ selection-color: rgb(0, 255, 0);
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
-         </widget>
-         <widget class="QGroupBox" name="groupBox">
-          <property name="geometry">
-           <rect>
-            <x>390</x>
-            <y>280</y>
-            <width>191</width>
-            <height>51</height>
-           </rect>
-          </property>
-          <property name="title">
-           <string>humidité</string>
-          </property>
-          <widget class="QLCDNumber" name="hum">
-           <property name="geometry">
-            <rect>
-             <x>60</x>
-             <y>20</y>
-             <width>64</width>
-             <height>23</height>
-            </rect>
-           </property>
-          </widget>
          </widget>
         </widget>
         <widget class="QPushButton" name="pushButton_25">
@@ -825,7 +802,7 @@ background:rgba(0,0,0,100);}</string>
          <property name="title">
           <string/>
          </property>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="excel_cl">
           <property name="geometry">
            <rect>
             <x>80</x>
@@ -861,7 +838,7 @@ QTableView{
 color:white;}</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_search">
+         <widget class="QLineEdit" name="lineEdit_search_cl">
           <property name="geometry">
            <rect>
             <x>200</x>
@@ -883,7 +860,7 @@ border-radius: 8px;
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_24">
+         <widget class="QPushButton" name="qrcode_cl">
           <property name="geometry">
            <rect>
             <x>400</x>
@@ -904,7 +881,7 @@ font-size:13px;
            <string>Generer QR Code</string>
           </property>
          </widget>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="label_qr">
           <property name="geometry">
            <rect>
             <x>410</x>
@@ -917,7 +894,7 @@ font-size:13px;
            <string/>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="supp_cl">
           <property name="geometry">
            <rect>
             <x>80</x>
@@ -938,7 +915,7 @@ font-size:13px;
            <string>Supprimer client</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="fidelite">
           <property name="geometry">
            <rect>
             <x>80</x>
@@ -1397,6 +1374,25 @@ font-size: 40px;
     <widget class="QWidget" name="page_5"/>
     <widget class="QWidget" name="page_6"/>
     <widget class="QWidget" name="page_3"/>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_cin_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>560</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

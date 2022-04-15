@@ -1,9 +1,12 @@
 QT       += core gui
-
+QT       +=serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QT += sql
 CONFIG += c++11
-
+QT  += core gui svg
+QT += axcontainer
+QT += core gui multimedia multimediawidgets
+QT += printsupport
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -16,11 +19,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
+    client.cpp \
+    connection.cpp \
+    humidite.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qrcode.cpp
 
 HEADERS += \
-    mainwindow.h
+    arduino.h \
+    client.h \
+    connection.h \
+    humidite.h \
+    mainwindow.h \
+    qrcode.h
 
 FORMS += \
     mainwindow.ui
