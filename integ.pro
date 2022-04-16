@@ -10,7 +10,7 @@ QT += printsupport
 QT       += core gui network sql printsupport serialport charts \
             multimedia multimediawidgets
 QT += multimedia
-  QT += charts
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
