@@ -168,6 +168,8 @@ void MainWindow::on_ajout_cl_clicked()
        bool test=cl.ajouter();
        if(test)
        {
+           Notification n("Ajouté avec succés","Client ajouté");
+           n.afficher();
            ui->tab_cl->setModel(cl.afficher());//refresh
 
            ui->lineEdit_cin->clear();
@@ -175,19 +177,11 @@ void MainWindow::on_ajout_cl_clicked()
            ui->lineEdit_prenom->clear();
            ui->dateEdit->clear();
            ui->lineEdit_adresse->clear();
-           QMessageBox::information(nullptr, QObject::tr("done"),
-                                  QObject::tr("ajout effectue.\n"
-                                              "Click Cancel to exit."), QMessageBox::Cancel);
 
               }
-                  else
-                      QMessageBox::critical(nullptr, QObject::tr("error"),
-                                  QObject::tr("ajout non effectue.\n"
-                                              "Click Cancel to exit."), QMessageBox::Cancel);
-       }else
-          QMessageBox::critical(nullptr, QObject::tr("error"),
-                      QObject::tr("ajout non effectue.\n"
-                                  "Click Cancel to exit."), QMessageBox::Cancel);
+       Notification n("Echec d'ajout ","Client non ajouté");
+                  n.afficher();
+       }
 }
 
 void MainWindow::on_modif_cl_clicked()
@@ -204,27 +198,23 @@ void MainWindow::on_modif_cl_clicked()
       {
       bool test=cl.modifier(cin);
       if(test)
-      { ui->tab_cl->setModel(cl.afficher());//refresh
+      {
+          Notification n("Modifié avec succés","Client ajouté");
+          n.afficher();
+          ui->tab_cl->setModel(cl.afficher());//refresh
           ui->lineEdit_cin_2->clear();
           ui->lineEdit_nom_2->clear();
           ui->lineEdit_prenom_2->clear();
           ui->dateEdit_2->clear();
           ui->lineEdit_adresse_2->clear();
-      QMessageBox::information(nullptr, QObject::tr("done "),
-                        QObject::tr("modification effectué!\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
 
 
 
       }
         else
-            QMessageBox::critical(nullptr, QObject::tr("error"),
-                        QObject::tr("modification non effectué !.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
-      }else
-          QMessageBox::critical(nullptr, QObject::tr("error"),
-                      QObject::tr("modification non effectué !.\n"
-                                  "Click Cancel to exit."), QMessageBox::Cancel);
+          Notification n("Echec de modification  ","Client non modifié");
+                     n.afficher();
+      }
 
 }
 
@@ -281,7 +271,9 @@ strList.append("\t");}
                data << strList.join("") + "\n";
            }
            file.close();
-           QMessageBox::information(this,"Exporter To Excel","Exporter En Excel Avec Succées ");
+           Notification n("Exporter To Excel","Exporter En Excel Avec Succées");
+           n.afficher();
+
        }
 }
 
@@ -298,15 +290,13 @@ void MainWindow::on_supp_cl_clicked()
     if(test)
     { ui->tab_cl->setModel(cl.afficher());//refresh
        ui->lineEdit_search_cl->clear();
-        QMessageBox::information(nullptr, QObject::tr("done"),
-                               QObject::tr("suppression effectue.\n"
-                                           "Click Cancel to exit."), QMessageBox::Cancel);
 
+       Notification n("Supprimé avec succés","Client supprimé");
+       n.afficher();
            }
                else
-                   QMessageBox::critical(nullptr, QObject::tr("error"),
-                               QObject::tr("suppression non effectue.\n"
-                                           "Click Cancel to exit."), QMessageBox::Cancel);
+        Notification n("Echec de suppression ","Client non supprimés");
+         n.afficher();
 
 
 }
@@ -331,20 +321,12 @@ void MainWindow::on_fidelite_clicked()
                              qry.exec();
                              Modal->setQuery(qry);
                              TableView_Client.setModel(Modal);
-
-
-
                              db.close();
-
-
                              QString strStream;
                              QTextStream out(&strStream);
-
-
-
                                                   QTextDocument *document = new QTextDocument();
                                                   document->setHtml(strStream);
-QString c ="Fidelite/Carte fidelite  "+res;
+                                          QString c ="Fidelite/Carte fidelite  "+res;
                              QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", c, "*.pdf");
                                                      if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
 
@@ -422,7 +404,7 @@ void MainWindow::on_tab_cl_activated(const QModelIndex &index)
     }
 }
 
-// produits
+  /////////////////////////////////////////////produits
 void MainWindow::on_g_produit_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->produit);
@@ -497,6 +479,10 @@ void MainWindow::on_pb_modifier_clicked()//modifier un produit
          ui->l_id_sup->setModel(model2) ;
 
 
+       }
+       else
+       {   Notification n("Echec de modification ","Produit non modifié");
+           n.afficher();
        }
      }
 
