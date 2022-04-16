@@ -58,9 +58,9 @@ private slots:
 
     void on_pb_modifier_clicked();
 
-    void on_l_idm_currentIndexChanged(const QString &arg1);
-
     void on_pb_supprimer_clicked();
+
+    void on_l_id_sup_currentIndexChanged(const QString &arg1);
 
     void on_pb_import_image_clicked();
 
@@ -83,19 +83,6 @@ private slots:
     void on_buttonon_clicked();
 
     void on_buttonoff_clicked();
-
-
-
-
-    void on_pushButton_32_clicked();
-
-    void on_pushButton_33_clicked();
-
-    void on_pushButton_34_clicked();
-
-    void on_pushButton_35_clicked();
-
-    void on_pushButton_36_clicked();
 
 private:
     Ui::MainWindow *ui;

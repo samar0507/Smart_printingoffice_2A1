@@ -7,6 +7,10 @@ QT  += core gui svg
 QT += axcontainer
 QT += core gui multimedia multimediawidgets
 QT += printsupport
+QT       += core gui network sql printsupport serialport charts \
+            multimedia multimediawidgets
+QT += multimedia
+  QT += charts
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,7 +29,10 @@ SOURCES += \
     humidite.cpp \
     main.cpp \
     mainwindow.cpp \
-    qrcode.cpp
+    notification.cpp \
+    produits.cpp \
+    qrcode.cpp \
+    statistiques.cpp
 
 HEADERS += \
     arduino.h \
@@ -33,10 +40,14 @@ HEADERS += \
     connection.h \
     humidite.h \
     mainwindow.h \
-    qrcode.h
+    notification.h \
+    produits.h \
+    qrcode.h \
+    statistiques.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

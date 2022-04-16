@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>djjjj.jpg</file>
+        <file>journals.jpg</file>
+        <file>logo.png</file>
+        <file>notif.png</file>
+        <file>papiers.jpg</file>
+        <file>pro.jpg</file>
+        <file>lister.png</file>
+        <file>pdf.png</file>
+        <file>refresh.png</file>
     </qresource>
 </RCC>
