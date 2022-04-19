@@ -80,9 +80,6 @@ private slots:
 
     void on_refresh_mod_clicked();
 
-    void on_buttonon_clicked();
-
-    void on_buttonoff_clicked();
 
 
 

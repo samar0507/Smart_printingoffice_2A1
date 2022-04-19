@@ -9,12 +9,12 @@ humidite::humidite(QDateTime hum)
 this->hum=hum;
 }
 
-bool humidite::ajouter()
+void humidite::ajouter()
 {
     QSqlQuery query;
 
     query.prepare("INSERT INTO arduino (hum)""values(:hum) ");
 
     query.bindValue(":hum",hum);
-    return query.exec();
+     query.exec();
 }

@@ -10,7 +10,7 @@ class humidite
 public:
     humidite();
     humidite(QDateTime);
-    bool ajouter();
+    void ajouter();
 };
 
 #endif // HUMIDITE_H
