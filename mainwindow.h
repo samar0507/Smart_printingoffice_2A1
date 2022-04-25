@@ -2,12 +2,19 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include "client.h"
+#include "commande.h"
 #include "arduino.h"
 #include "humidite.h"
 #include "produits.h"
+#include "employes.h"
+#include "dialog.h"
+#include "fournisseurs.h"
 #include "notification.h"
 #include "statistiques.h"
+#include "rfid.h"
 #include<QWidget>
+#include <QTcpSocket>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,6 +33,26 @@ public:
     ~MainWindow();
 arduino a;
 private slots:
+
+void on_tableView_3_activated(const QModelIndex &index);
+
+void on_add_btn_3_clicked();
+
+void on_button_supprimer_3_clicked();
+
+void on_button_modifier_3_clicked();
+
+
+
+
+
+
+
+
+
+
+
+
     void update_label();
 
     void on_g_client_clicked();
@@ -80,6 +107,9 @@ private slots:
 
     void on_refresh_mod_clicked();
 
+    void on_buttonon_clicked();
+
+    void on_buttonoff_clicked();
 
 
 
@@ -93,6 +123,149 @@ private slots:
     void on_pushButton_35_clicked();
 
     void on_pushButton_36_clicked();
+
+    void on_g_emp_clicked();
+
+
+
+
+    /*employés*/
+    void on_add_btn_clicked();
+
+    void on_del_btn_clicked();
+
+    void on_mod_btn_clicked();
+
+    void on_load_butt_clicked();
+
+    void on_tab_id_2_activated(const QModelIndex &index);
+
+    void leer();
+
+    void on_qr_clicked();
+
+    void on_insertion_photo_clicked();
+
+    void on_ard_clicked();
+
+    void on_CHAT_clicked();
+
+    //void on_tri_resp_clicked();
+
+    void on_tri_nom2_clicked();
+
+    void on_tri_prenom_clicked();
+
+    void on_cherche_textChanged(const QString &arg1);
+
+
+
+
+   /* void on_insertion_photo_clicked();
+
+      void on_tri_resp_clicked();
+
+
+
+      void on_tri_prenom_clicked();
+
+/    void on_rechercher_clicked();
+
+      void on_enviar_clicked();
+
+      void on_tab_id_2_activated(const QModelIndex &index);
+
+      void on_qr_clicked();
+
+      void on_tab_employes_activated(const QModelIndex &index);
+
+      void  on_connexion_clicked();
+      void leer();
+
+      void on_CHAT_clicked();
+
+      void on_cherche_textChanged(const QString &arg1);
+
+      void on_pushButton_clicked();*/
+
+    void on_g_comm_clicked();
+
+//    void on_add_btn2_clicked();
+
+//    void on_del_btn2_clicked();
+
+//    void on_update_btn_clicked();
+
+//    void on_delete_all_btn_clicked();
+//    void on_tab_id_21_activated(const QModelIndex &index);
+
+
+    void on_g_four_clicked();
+
+//    void on_del_btn_2_clicked();
+
+//    void on_delete_2_clicked();
+
+//    void on_addto_clicked();
+
+   void on_ara_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_PDF_clicked();
+
+
+    void on_tabWidget_4_currentChanged(int index);
+
+    void on_pushButton_4_clicked();
+
+  void on_tri_prix_3_clicked();
+  void on_tri_idc_3_clicked();
+  void on_tri_date_3_clicked();
+  //void on_chercher_3_cursorPositionChanged(int arg1, int arg2);
+  void on_chercher_3_textChanged(const QString &arg1);
+
+//Fournisseurs
+  void on_btn_add_clicked();
+
+  void on_tri_pr_nom_clicked();
+
+  void on_tri_pr_id_clicked();
+
+  void on_tri_pr_fin_clicked();
+
+
+  void on_tri_pr_deb_clicked();
+
+  void on_search_id_textChanged(const QString &arg1);
+
+  void on_btn_del_clicked();
+
+  void on_btn_del_all_clicked();
+
+  void on_id_tab_activated(const QModelIndex &index);
+
+  void on_btn_update_clicked();
+
+  void on_btn_browse_clicked();
+
+  void sendMail();
+
+  void mailSent(QString);
+
+  void browse();
+
+  void on_fournisseurs1_3_clicked();
+
+  void on_fournisseurs2_3_clicked();
+
+  void on_fournisseurs3_3_clicked();
+
+  void on_fournisseurs4_3_clicked();
+
+  void on_fournisseurs5_3_clicked();
+
+  void update_label_uid();
 
 private:
     Ui::MainWindow *ui;
@@ -111,5 +284,21 @@ humidite h;
    arduino A;
    Notification n; QSystemTrayIcon *mysystem;
    int alert;
+
+   /*employés*/
+   employes e;
+   QTcpSocket*mSocket;
+   dialog *di;
+
+   /*commande*/
+   commande c;
+
+   /* Fournisseurs */
+
+   fournisseurs f;
+   QStringList files;
+   QString data;
+   Arduino Ar;
+   QString uid;
 };
 #endif // MAINWINDOW_H

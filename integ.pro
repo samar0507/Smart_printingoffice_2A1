@@ -1,5 +1,6 @@
 QT       += core gui
 QT       +=serialport
+QT       += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += sql
 CONFIG += c++11
@@ -10,7 +11,7 @@ QT += printsupport
 QT       += core gui network sql printsupport serialport charts \
             multimedia multimediawidgets
 QT += multimedia
-QT += charts
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,27 +26,44 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     arduino.cpp \
     client.cpp \
+    commande.cpp \
     connection.cpp \
+    dialog.cpp \
+    employes.cpp \
+    fournisseurs.cpp \
     humidite.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     notification.cpp \
     produits.cpp \
     qrcode.cpp \
+    rfid.cpp \
+    smtp.cpp \
     statistiques.cpp
 
 HEADERS += \
     arduino.h \
+    arduino1.h \
     client.h \
+    commande.h \
     connection.h \
+    dialog.h \
+    employes.h \
+    fournisseurs.h \
     humidite.h \
+    login.h \
     mainwindow.h \
     notification.h \
     produits.h \
     qrcode.h \
+    rfid.h \
+    smtp.h \
     statistiques.h
 
 FORMS += \
+    dialog.ui \
+    login.ui \
     mainwindow.ui \
     statistiques.ui
 
@@ -55,4 +73,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    lang.qrc \
     r.qrc
