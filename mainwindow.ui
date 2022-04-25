@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1167</width>
-    <height>533</height>
+    <width>1164</width>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,12 +25,12 @@
      <rect>
       <x>50</x>
       <y>-10</y>
-      <width>1131</width>
-      <height>611</height>
+      <width>1101</width>
+      <height>691</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="menu">
      <widget class="QTabWidget" name="tab2_2">
@@ -332,7 +332,7 @@ font-size: 40px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_4</zorder>
@@ -781,7 +781,7 @@ selection-color: rgb(0, 255, 0);
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_21">
@@ -827,7 +827,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_14">
@@ -1268,7 +1268,7 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame">
@@ -1323,7 +1323,7 @@ border: none;
         <x>60</x>
         <y>10</y>
         <width>931</width>
-        <height>691</height>
+        <height>641</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1695,14 +1695,14 @@ QDateEdit::drop-down {
           <x>-4</x>
           <y>-7</y>
           <width>941</width>
-          <height>521</height>
+          <height>621</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_23</zorder>
@@ -1902,30 +1902,24 @@ font-size:13px;
           <string/>
          </property>
         </widget>
-        <widget class="QLabel" name="label_2">
-         <property name="geometry">
-          <rect>
-           <x>-4</x>
-           <y>13</y>
-           <width>941</width>
-           <height>531</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
-         </property>
-        </widget>
-        <zorder>label_2</zorder>
-        <zorder>tab_employes</zorder>
-        <zorder>tri_resp</zorder>
-        <zorder>ard</zorder>
-        <zorder>tri_nom_2</zorder>
-        <zorder>qr</zorder>
-        <zorder>label_qr_2</zorder>
        </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>-30</x>
+          <y>0</y>
+          <width>951</width>
+          <height>611</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <zorder>label_2</zorder>
        <zorder>frame_5</zorder>
        <zorder>tri_prenom</zorder>
        <zorder>cherche</zorder>
@@ -2124,14 +2118,14 @@ background:rgba(0,0,0,100);}</string>
           <x>-4</x>
           <y>-7</y>
           <width>941</width>
-          <height>461</height>
+          <height>611</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_6</zorder>
@@ -2246,14 +2240,14 @@ font-size:13px;
           <x>-4</x>
           <y>-7</y>
           <width>961</width>
-          <height>491</height>
+          <height>611</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_7</zorder>
@@ -2331,16 +2325,27 @@ font-size:13px;
           <x>-10</x>
           <y>-10</y>
           <width>971</width>
-          <height>501</height>
+          <height>621</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
+       <widget class="QLineEdit" name="nvID">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>520</y>
+          <width>113</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <zorder>nvID</zorder>
        <zorder>label_8</zorder>
        <zorder>frame_8</zorder>
       </widget>
@@ -2350,9 +2355,9 @@ font-size:13px;
      <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>0</y>
-        <width>1091</width>
+        <x>70</x>
+        <y>10</y>
+        <width>1021</width>
         <height>671</height>
        </rect>
       </property>
@@ -2450,7 +2455,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
@@ -2769,14 +2774,14 @@ background:rgba(0,0,0,100);}</string>
           <x>0</x>
           <y>-20</y>
           <width>1041</width>
-          <height>511</height>
+          <height>661</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_45</zorder>
@@ -2791,9 +2796,9 @@ background:rgba(0,0,0,100);}</string>
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>0</y>
+          <y>70</y>
           <width>981</width>
-          <height>461</height>
+          <height>491</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3070,6 +3075,27 @@ font-size: 12px;
            </property>
           </widget>
          </widget>
+         <widget class="QPushButton" name="export_btn">
+          <property name="geometry">
+           <rect>
+            <x>690</x>
+            <y>350</y>
+            <width>91</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{border-radius: 8px;
+background :#5F9EA0
+;
+color: white;
+font-size:13px;
+}</string>
+          </property>
+          <property name="text">
+           <string>PDF</string>
+          </property>
+         </widget>
         </widget>
        </widget>
        <widget class="QLabel" name="label_46">
@@ -3077,15 +3103,15 @@ font-size: 12px;
          <rect>
           <x>-50</x>
           <y>0</y>
-          <width>1061</width>
-          <height>461</height>
+          <width>1141</width>
+          <height>641</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_46</zorder>
@@ -3341,14 +3367,14 @@ border-radius: 8px;
           <x>-24</x>
           <y>-7</y>
           <width>1101</width>
-          <height>561</height>
+          <height>641</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_49</zorder>
@@ -3361,8 +3387,8 @@ border-radius: 8px;
        <widget class="QFrame" name="frame_33">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>0</y>
+          <x>210</x>
+          <y>40</y>
           <width>611</width>
           <height>571</height>
          </rect>
@@ -3382,9 +3408,9 @@ background:rgba(0,0,0,100);}</string>
          <property name="geometry">
           <rect>
            <x>50</x>
-           <y>0</y>
+           <y>10</y>
            <width>501</width>
-           <height>501</height>
+           <height>541</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -3750,17 +3776,17 @@ font-size:13px;
        <widget class="QLabel" name="label_47">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>0</x>
           <y>-10</y>
-          <width>1011</width>
-          <height>541</height>
+          <width>1021</width>
+          <height>651</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_47</zorder>
@@ -3773,8 +3799,8 @@ font-size:13px;
        <widget class="QFrame" name="frame_34">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>0</y>
+          <x>170</x>
+          <y>50</y>
           <width>621</width>
           <height>551</height>
          </rect>
@@ -3903,14 +3929,14 @@ font-size:14px;
           <x>-60</x>
           <y>-20</y>
           <width>1071</width>
-          <height>541</height>
+          <height>661</height>
          </rect>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_48</zorder>
@@ -3925,7 +3951,7 @@ font-size:14px;
         <x>0</x>
         <y>10</y>
         <width>911</width>
-        <height>661</height>
+        <height>671</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -4022,7 +4048,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -4041,7 +4067,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_23">
@@ -4423,7 +4449,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_24">
@@ -4785,7 +4811,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_27">
@@ -5142,7 +5168,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_29">
@@ -5233,7 +5259,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_25">
@@ -5724,8 +5750,8 @@ border: none;
        <rect>
         <x>40</x>
         <y>10</y>
-        <width>781</width>
-        <height>581</height>
+        <width>821</width>
+        <height>701</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -5822,7 +5848,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_12">
        <attribute name="title">
@@ -5831,8 +5857,8 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
        <widget class="QGroupBox" name="groupBox_14">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
+          <x>120</x>
+          <y>100</y>
           <width>531</width>
           <height>341</height>
          </rect>
@@ -6006,8 +6032,8 @@ selection-color: rgb(0, 255, 0);
        <widget class="QFrame" name="frame_17">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
+          <x>100</x>
+          <y>90</y>
           <width>581</width>
           <height>371</height>
          </rect>
@@ -6024,22 +6050,6 @@ background:rgba(0,0,0,100);}</string>
          <enum>QFrame::Raised</enum>
         </property>
        </widget>
-       <widget class="QLabel" name="label_39">
-        <property name="geometry">
-         <rect>
-          <x>630</x>
-          <y>330</y>
-          <width>911</width>
-          <height>701</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_40">
         <property name="geometry">
          <rect>
@@ -6053,13 +6063,12 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_40</zorder>
        <zorder>frame_17</zorder>
        <zorder>groupBox_14</zorder>
-       <zorder>label_39</zorder>
       </widget>
       <widget class="QWidget" name="tab_14">
        <attribute name="title">
@@ -6068,8 +6077,8 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QGroupBox" name="groupBox_15">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
+          <x>110</x>
+          <y>90</y>
           <width>531</width>
           <height>341</height>
          </rect>
@@ -6258,8 +6267,8 @@ border:none;}</string>
        <widget class="QFrame" name="frame_18">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
+          <x>90</x>
+          <y>80</y>
           <width>591</width>
           <height>381</height>
          </rect>
@@ -6289,7 +6298,7 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_41</zorder>
@@ -6303,8 +6312,8 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QGroupBox" name="groupBox_16">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>20</y>
+          <x>130</x>
+          <y>100</y>
           <width>521</width>
           <height>341</height>
          </rect>
@@ -6365,8 +6374,8 @@ font-size:13px;
        <widget class="QFrame" name="frame_19">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
+          <x>110</x>
+          <y>90</y>
           <width>581</width>
           <height>391</height>
          </rect>
@@ -6396,7 +6405,7 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_42</zorder>
@@ -6410,8 +6419,8 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QTableView" name="table_commande_3">
         <property name="geometry">
          <rect>
-          <x>120</x>
-          <y>70</y>
+          <x>170</x>
+          <y>170</y>
           <width>601</width>
           <height>251</height>
          </rect>
@@ -6420,8 +6429,8 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QLineEdit" name="chercher_3">
         <property name="geometry">
          <rect>
-          <x>310</x>
-          <y>10</y>
+          <x>360</x>
+          <y>110</y>
           <width>181</width>
           <height>31</height>
          </rect>
@@ -6442,8 +6451,8 @@ border-radius: 8px;
        <widget class="QRadioButton" name="tri_prix_3">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>0</y>
+          <x>130</x>
+          <y>100</y>
           <width>111</width>
           <height>21</height>
          </rect>
@@ -6462,8 +6471,8 @@ font-size: 10px;
        <widget class="QRadioButton" name="tri_idc_3">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>20</y>
+          <x>130</x>
+          <y>120</y>
           <width>141</width>
           <height>18</height>
          </rect>
@@ -6482,8 +6491,8 @@ font-size: 10px;
        <widget class="QRadioButton" name="tri_date_3">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>40</y>
+          <x>130</x>
+          <y>140</y>
           <width>131</width>
           <height>18</height>
          </rect>
@@ -6502,8 +6511,8 @@ font-size: 10px;
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>20</y>
+          <x>70</x>
+          <y>120</y>
           <width>47</width>
           <height>14</height>
          </rect>
@@ -6515,8 +6524,8 @@ font-size: 10px;
        <widget class="QPushButton" name="PDF">
         <property name="geometry">
          <rect>
-          <x>490</x>
-          <y>330</y>
+          <x>540</x>
+          <y>430</y>
           <width>121</width>
           <height>31</height>
          </rect>
@@ -6536,8 +6545,8 @@ font-size:13px;
        <widget class="QPushButton" name="ara">
         <property name="geometry">
          <rect>
-          <x>550</x>
-          <y>10</y>
+          <x>600</x>
+          <y>110</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -6557,10 +6566,10 @@ font-size:13px;
        <widget class="QFrame" name="frame_20">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>0</y>
+          <x>70</x>
+          <y>80</y>
           <width>731</width>
-          <height>441</height>
+          <height>461</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -6588,7 +6597,7 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_43</zorder>
@@ -6609,8 +6618,8 @@ background:rgba(0,0,0,100);}</string>
        <widget class="QPushButton" name="pushButton_2">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>20</y>
+          <x>50</x>
+          <y>80</y>
           <width>181</width>
           <height>23</height>
          </rect>
@@ -6630,8 +6639,8 @@ font-size:13px;
        <widget class="QTableView" name="table_histo">
         <property name="geometry">
          <rect>
-          <x>25</x>
-          <y>61</y>
+          <x>45</x>
+          <y>121</y>
           <width>731</width>
           <height>201</height>
          </rect>
@@ -6646,8 +6655,8 @@ color:rgb(0,0,0)
        <widget class="QTableView" name="table_histo_2">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>340</y>
+          <x>40</x>
+          <y>400</y>
           <width>361</width>
           <height>61</height>
          </rect>
@@ -6659,8 +6668,8 @@ color:rgb(0,0,0)
        <widget class="QPushButton" name="pushButton_4">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>300</y>
+          <x>40</x>
+          <y>360</y>
           <width>121</width>
           <height>23</height>
          </rect>
@@ -6680,8 +6689,8 @@ font-size:13px;
        <widget class="QComboBox" name="comboBox">
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>300</y>
+          <x>300</x>
+          <y>360</y>
           <width>71</width>
           <height>22</height>
          </rect>
@@ -6750,8 +6759,8 @@ font-size:13px;
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>300</y>
+          <x>250</x>
+          <y>360</y>
           <width>56</width>
           <height>16</height>
          </rect>
@@ -6767,8 +6776,8 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
        <widget class="QFrame" name="frame_21">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
+          <x>30</x>
+          <y>70</y>
           <width>761</width>
           <height>441</height>
          </rect>
@@ -6798,7 +6807,7 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_44</zorder>
@@ -6832,23 +6841,12 @@ border-radius: 8px;
 }</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="nvID">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>680</y>
-      <width>113</width>
-      <height>22</height>
-     </rect>
-    </property>
-   </widget>
    <zorder>lineEdit_cin_2</zorder>
    <zorder>stackedWidget</zorder>
-   <zorder>nvID</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="r.qrc"/>
+  <include location="im.qrc"/>
  </resources>
  <connections/>
 </ui>
