@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
    connect(ui->quitter_btn, SIGNAL(clicked()),this, SLOT(close()));
    connect(ui->parcourir_btn, SIGNAL(clicked()), this, SLOT(browse()));
 
-   int ret=A.connect_arduino();
+   int ret=Ar.connect_arduino();
    switch(ret){
    case(0):qDebug()<< "arduino is available and is connected to : "<<Ar.getArduino_port_name();
        break;

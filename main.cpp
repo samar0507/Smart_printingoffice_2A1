@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
                                       "Language", languages);
     if(lang == "English")
     {
-        t.load(":/english.qm");
+        t.load(":/anglaiss.qm");
         a.installTranslator(&t);
     }else if(lang == "Arabic")
     {
