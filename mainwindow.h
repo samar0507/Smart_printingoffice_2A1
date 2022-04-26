@@ -267,6 +267,36 @@ void on_button_modifier_3_clicked();
 
   void update_label_uid();
 
+  void on_pushButton_29_clicked();
+
+  void on_pushButton_28_clicked();
+
+  void on_pushButton_26_clicked();
+
+  void on_pushButton_23_clicked();
+
+  void on_pushButton_22_clicked();
+
+  void on_pushButton_30_clicked();
+
+  void on_pushButton_39_clicked();
+
+  void on_pushButton_38_clicked();
+
+  void on_pushButton_37_clicked();
+
+  void on_pushButton_31_clicked();
+
+  void on_pushButton_44_clicked();
+
+  void on_pushButton_43_clicked();
+
+  void on_pushButton_42_clicked();
+
+  void on_pushButton_41_clicked();
+
+  void on_pushButton_40_clicked();
+
 private:
     Ui::MainWindow *ui;
     client cl;

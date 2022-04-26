@@ -1631,3 +1631,78 @@ if(data.length()==11){
 }
 
 }
+
+void MainWindow::on_pushButton_29_clicked()
+{
+      ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_28_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_26_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_23_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_30_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_39_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_38_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_37_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_31_clicked()
+{
+     ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_44_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_43_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_42_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_41_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}
+
+void MainWindow::on_pushButton_40_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->menu);
+}

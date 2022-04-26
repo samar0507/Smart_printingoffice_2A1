@@ -20,17 +20,36 @@
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="lineEdit_cin_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>560</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+ { background-color: transparent;
+  color: #F5F5DC
+;
+  border: 1.5px solid white; 
+border-radius: 8px;
+}</string>
+    </property>
+   </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>-10</y>
-      <width>1101</width>
+      <x>0</x>
+      <y>0</y>
+      <width>1051</width>
       <height>691</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="menu">
      <widget class="QTabWidget" name="tab2_2">
@@ -332,7 +351,7 @@ font-size: 40px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <zorder>label_4</zorder>
@@ -453,7 +472,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -781,7 +800,7 @@ selection-color: rgb(0, 255, 0);
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_21">
@@ -827,7 +846,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_14">
@@ -1268,7 +1287,7 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame">
@@ -1320,8 +1339,8 @@ border: none;
      <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>10</y>
+        <x>0</x>
+        <y>0</y>
         <width>931</width>
         <height>641</height>
        </rect>
@@ -1702,12 +1721,35 @@ QDateEdit::drop-down {
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_29">
+        <property name="geometry">
+         <rect>
+          <x>880</x>
+          <y>560</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_23</zorder>
        <zorder>frame_2</zorder>
        <zorder>frame_4</zorder>
+       <zorder>pushButton_29</zorder>
       </widget>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1916,7 +1958,29 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_28">
+        <property name="geometry">
+         <rect>
+          <x>870</x>
+          <y>560</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_2</zorder>
@@ -1925,6 +1989,7 @@ font-size:13px;
        <zorder>cherche</zorder>
        <zorder>label_13</zorder>
        <zorder>qr_label</zorder>
+       <zorder>pushButton_28</zorder>
       </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
@@ -2125,11 +2190,57 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_24">
+        <property name="geometry">
+         <rect>
+          <x>890</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_26">
+        <property name="geometry">
+         <rect>
+          <x>880</x>
+          <y>550</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_6</zorder>
        <zorder>groupBox_3</zorder>
+       <zorder>pushButton_24</zorder>
+       <zorder>pushButton_26</zorder>
       </widget>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -2247,11 +2358,34 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_23">
+        <property name="geometry">
+         <rect>
+          <x>880</x>
+          <y>550</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_7</zorder>
        <zorder>frame_7</zorder>
+       <zorder>pushButton_23</zorder>
       </widget>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">
@@ -2332,7 +2466,7 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QLineEdit" name="nvID">
@@ -2345,9 +2479,32 @@ font-size:13px;
          </rect>
         </property>
        </widget>
+       <widget class="QPushButton" name="pushButton_22">
+        <property name="geometry">
+         <rect>
+          <x>870</x>
+          <y>550</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
        <zorder>nvID</zorder>
        <zorder>label_8</zorder>
        <zorder>frame_8</zorder>
+       <zorder>pushButton_22</zorder>
       </widget>
      </widget>
     </widget>
@@ -2355,8 +2512,8 @@ font-size:13px;
      <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>10</y>
+        <x>0</x>
+        <y>0</y>
         <width>1021</width>
         <height>671</height>
        </rect>
@@ -2455,7 +2612,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
@@ -2781,12 +2938,35 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_30">
+        <property name="geometry">
+         <rect>
+          <x>970</x>
+          <y>590</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_45</zorder>
        <zorder>frame_30</zorder>
        <zorder>groupBox_17</zorder>
+       <zorder>pushButton_30</zorder>
       </widget>
       <widget class="QWidget" name="tab_28">
        <attribute name="title">
@@ -3111,11 +3291,34 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_39">
+        <property name="geometry">
+         <rect>
+          <x>970</x>
+          <y>590</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_46</zorder>
        <zorder>frame_31</zorder>
+       <zorder>pushButton_39</zorder>
       </widget>
       <widget class="QWidget" name="tab_29">
        <attribute name="title">
@@ -3374,11 +3577,34 @@ border-radius: 8px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_38">
+        <property name="geometry">
+         <rect>
+          <x>970</x>
+          <y>590</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_49</zorder>
        <zorder>frame_32</zorder>
+       <zorder>pushButton_38</zorder>
       </widget>
       <widget class="QWidget" name="tab_30">
        <attribute name="title">
@@ -3786,11 +4012,34 @@ font-size:13px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_37">
+        <property name="geometry">
+         <rect>
+          <x>970</x>
+          <y>590</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_47</zorder>
        <zorder>frame_33</zorder>
+       <zorder>pushButton_37</zorder>
       </widget>
       <widget class="QWidget" name="tab_31">
        <attribute name="title">
@@ -3936,11 +4185,34 @@ font-size:14px;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_31">
+        <property name="geometry">
+         <rect>
+          <x>960</x>
+          <y>590</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_48</zorder>
        <zorder>frame_34</zorder>
+       <zorder>pushButton_31</zorder>
       </widget>
      </widget>
     </widget>
@@ -3949,7 +4221,7 @@ font-size:14px;
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>10</y>
+        <y>0</y>
         <width>911</width>
         <height>671</height>
        </rect>
@@ -4067,7 +4339,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_23">
@@ -4449,7 +4721,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_24">
@@ -4811,7 +5083,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_27">
@@ -5168,7 +5440,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_29">
@@ -5259,7 +5531,7 @@ border: none;
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
         </property>
        </widget>
        <widget class="QFrame" name="frame_25">
@@ -5748,8 +6020,8 @@ border: none;
      <widget class="QTabWidget" name="tabWidget_4">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>10</y>
+        <x>0</x>
+        <y>0</y>
         <width>821</width>
         <height>701</height>
        </rect>
@@ -6063,12 +6335,35 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_44">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_40</zorder>
        <zorder>frame_17</zorder>
        <zorder>groupBox_14</zorder>
+       <zorder>pushButton_44</zorder>
       </widget>
       <widget class="QWidget" name="tab_14">
        <attribute name="title">
@@ -6298,12 +6593,35 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_43">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_41</zorder>
        <zorder>frame_18</zorder>
        <zorder>groupBox_15</zorder>
+       <zorder>pushButton_43</zorder>
       </widget>
       <widget class="QWidget" name="tab_15">
        <attribute name="title">
@@ -6405,12 +6723,35 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_42">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_42</zorder>
        <zorder>frame_19</zorder>
        <zorder>groupBox_16</zorder>
+       <zorder>pushButton_42</zorder>
       </widget>
       <widget class="QWidget" name="tab_13">
        <attribute name="title">
@@ -6597,7 +6938,29 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_41">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_43</zorder>
@@ -6610,6 +6973,7 @@ background:rgba(0,0,0,100);}</string>
        <zorder>label_21</zorder>
        <zorder>PDF</zorder>
        <zorder>ara</zorder>
+       <zorder>pushButton_41</zorder>
       </widget>
       <widget class="QWidget" name="tab_16">
        <attribute name="title">
@@ -6807,7 +7171,29 @@ background:rgba(0,0,0,100);}</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="im.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+         <pixmap resource="r.qrc">:/new/prefix1/djjjj.jpg</pixmap>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_40">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>600</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+image:url(:/new/prefix1/lister.png);
+padding: 10px;
+border-radius: 10;
+border: none;
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
        <zorder>label_44</zorder>
@@ -6818,35 +7204,15 @@ background:rgba(0,0,0,100);}</string>
        <zorder>pushButton_4</zorder>
        <zorder>comboBox</zorder>
        <zorder>label_22</zorder>
+       <zorder>pushButton_40</zorder>
       </widget>
      </widget>
     </widget>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_cin_2">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>560</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit
- { background-color: transparent;
-  color: #F5F5DC
-;
-  border: 1.5px solid white; 
-border-radius: 8px;
-}</string>
-    </property>
-   </widget>
-   <zorder>lineEdit_cin_2</zorder>
-   <zorder>stackedWidget</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="im.qrc"/>
+  <include location="r.qrc"/>
  </resources>
  <connections/>
 </ui>
