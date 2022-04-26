@@ -258,7 +258,7 @@ void MainWindow::on_modif_cl_clicked()
       bool test=cl.modifier(cin);
       if(test)
       {
-          Notification n("Modifié avec succés","Client ajouté");
+          Notification n("Modifié avec succés","Client modifié");
           n.afficher();
           ui->tab_cl->setModel(cl.afficher());//refresh
           ui->lineEdit_cin_2->clear();
