@@ -606,7 +606,8 @@ void MainWindow::on_pb_import_image_clicked()//importation d'image
             }
             else
             {
-                ///error handling
+                Notification n("Failed","Impossible d'inserer l'image.");
+                            n.afficher();
             }
             }
 }
@@ -758,9 +759,11 @@ alert=hum;
 if (alert>60)
 {
     ui->label_alert->setText("Taux d'humidite élevè!!!");
+    A.write_to_arduino("1");
 }
 else {
      ui->label_alert->setText(" ");
+       A.write_to_arduino("0");
 }
 
  }
@@ -814,18 +817,17 @@ void MainWindow::on_add_btn_clicked()
         bool test=e.ajouter();
         if(test)
         {
+            Notification n("Ajouté avec succés","Employe ajouté");
+                       n.afficher();
             //REFRESH
             ui->tab_employes->setModel(e.afficher());
             ui->tab_id_2->setModel(e.afficher_id());
-            QMessageBox::information(nullptr, QObject::tr("OK"),
-                        QObject::tr("Ajout effectué.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
         }
         else
         {
-            QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                        QObject::tr("Ajout non effectué.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+            Notification n("Echec d'ajout ","Employe non ajouté");
+                              n.afficher();
 
         }
 }
@@ -835,20 +837,17 @@ void MainWindow::on_del_btn_clicked()
     int id=ui->combo->currentText().toInt();
          bool test=e.supprimer(id);
          if(test)
-         {
+         { Notification n("Supprimé avec succés","Employe supprimé");
+             n.afficher();
              //REFRESH
              ui->tab_employes->setModel(e.afficher());
              ui->tab_id_2->setModel(e.afficher_id());
-             QMessageBox::information(nullptr, QObject::tr("OK"),
-                         QObject::tr("Suppression effectuée.\n"
-                                     "Click Cancel to exit."), QMessageBox::Cancel);
+
          }
          else
          {
-             QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                         QObject::tr("Suppression non effectuée.\n"
-                                     "Click Cancel to exit."), QMessageBox::Cancel);
-
+             Notification n("Echec de suppression ","Employe non supprimés");
+                    n.afficher();
          }
 }
 
@@ -862,18 +861,18 @@ void MainWindow::on_mod_btn_clicked()
         bool test=e.modifier(id,nom,prenom,date_naiss,pass);
         if(test)
         {
+            Notification n("Modifié avec succés","Employe modifié");
+            n.afficher();
             //REFRESH
             ui->tab_employes->setModel(e.afficher());
             ui->tab_id_2->setModel(e.afficher_id());
-            QMessageBox::information(nullptr, QObject::tr("OK"),
-                        QObject::tr("Modification effectuée.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
         }
         else
         {
-            QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                        QObject::tr("Modification non effectuée.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+            Notification n("Echec de modification  ","Employe non modifié");
+                                n.afficher();
         }
 }
 QSqlQueryModel*  employes ::afficher_id()
@@ -906,9 +905,9 @@ void MainWindow::on_tab_id_2_activated(const QModelIndex &index)
          }
             else
             {
-                QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                            QObject::tr("Impossible.\n"
-                                        "Click Cancel to exit."), QMessageBox::Cancel);
+            Notification n("Failed ","Impossible");
+            n.afficher();
+
             }
 }
 /*commande*/
@@ -925,13 +924,13 @@ bool test=c.ajouter();
 bool addfile=c.history_file(idc,idcl,prix,date_c);
 if(test&&addfile)
 
-{   //REFRESH
+{    Notification n("Ajouté avec succés","Commande ajoutée");
+    n.afficher();
+    //REFRESH
     ui->table_commande_3->setModel(c.afficher());
     ui->tablecom->setModel(c.afficher_id());
     ui->del_id_4->setModel(c.afficher_id());
-    QMessageBox::information(nullptr, QObject::tr("OK"),
-                QObject::tr("Ajout effectué\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+
     QString nomFile ="file";
               QFile file("C:/projet/Smart_printingoffice_2A1/historique.txt");
               QString finalmsg="fichier modifie avec succes";
@@ -949,9 +948,8 @@ if(test&&addfile)
               txt << message2;
 }
 else
-    QMessageBox::critical(nullptr, QObject::tr("Not OK"),
-                QObject::tr("Ajout non effectué\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+    Notification n("Echec d'ajout ","Commande non ajoutée");
+                      n.afficher();
 }
 void MainWindow::on_button_supprimer_3_clicked()
 {
@@ -960,12 +958,15 @@ void MainWindow::on_button_supprimer_3_clicked()
     bool test=c1.supprimer(c1.getidc());
     QMessageBox msgBox;
     if(test)
-    {   ui->table_commande_3->setModel(c.afficher());
+    {    Notification n("Supprimé avec succés","Commande supprimé");
+        n.afficher();
+        ui->table_commande_3->setModel(c.afficher());
         ui->tablecom->setModel(c.afficher_id());
         //ui->update_id->setModel(c.afficher_id());
         ui->del_id_4->setModel(c.afficher_id());
 
-        msgBox.setText("Suppression avec succes.");
+   //     msgBox.setText("Suppression avec succes.");
+
         QString nomFile ="Historique";
                      QFile file("C:/projet/Smart_printingoffice_2A1//historique.txt");
                      QString finalmsg="fichier modifie avec succes";
@@ -985,8 +986,8 @@ void MainWindow::on_button_supprimer_3_clicked()
 
     }
     else
-        msgBox.setText("Echec de suppression.");
-        msgBox.exec();
+        Notification n("Echec de suppression ","Commande non supprimés");
+               n.afficher();
 }
 void MainWindow::on_button_modifier_3_clicked()
 {int idc=ui->update_id_3->text().toInt();
@@ -1000,11 +1001,12 @@ void MainWindow::on_button_modifier_3_clicked()
  bool test=c2.modifier();
  QMessageBox msgBox;
  if(test)
- {
+ {  Notification n("Modifié avec succés  ","Commande  modifiée");
+      n.afficher();
     ui->table_commande_3->setModel(c.afficher());
     ui->tablecom->setModel(c.afficher_id());
     ui->del_id_4->setModel(c.afficher_id());
-    msgBox.setText("Modification avec succes.");
+
 
     QString nomFile ="Historique";
          QFile file("C:/projet/Smart_printingoffice_2A1//historique.txt");
@@ -1024,8 +1026,8 @@ void MainWindow::on_button_modifier_3_clicked()
 
  }
  else
-     msgBox.setText("Echec de Modification.");
-     msgBox.exec();
+     Notification n("Echec de modification  ","Commande non modifiée");
+      n.afficher();
 
 }
 void MainWindow::on_tablecom_activated(const QModelIndex &index)
@@ -1047,9 +1049,8 @@ void MainWindow::on_tablecom_activated(const QModelIndex &index)
                             }
                                else
                                {
-                                   QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                                               QObject::tr("Impossible.\n"
-                                                           "Click Cancel to exit."), QMessageBox::Cancel);
+                Notification n("Failed ","Impossible");
+                n.afficher();
                                }
 
 }
@@ -1066,7 +1067,8 @@ void MainWindow::on_g_comm_clicked()
 void MainWindow::on_qr_clicked()
 {
     if(ui->tab_employes->currentIndex().row()==-1)
-                   QMessageBox::information(nullptr, QObject::tr("QrCode"),
+
+        QMessageBox::information(nullptr, QObject::tr("QrCode"),
                                             QObject::tr("Veuillez Choisir un client du Tableau.\n"
                                                         "Click Ok to exit."), QMessageBox::Ok);
                else
@@ -1143,10 +1145,8 @@ QSqlQueryModel * employes::tri_nom()
     return model;}
 void MainWindow::on_tri_nom2_clicked()
 {
-
-    QMessageBox::information(nullptr, QObject::tr("Ok"),
-             QObject::tr("tri effectué avec succès.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
+    Notification n("tri","tri effectué avec succès");
+             n.afficher();
     ui->tab_employes->setModel(e.tri_nom());
 }
 QSqlQueryModel * employes::tri_prenom()
@@ -1155,9 +1155,8 @@ QSqlQueryModel * employes::tri_prenom()
     return model;}
 void MainWindow::on_tri_prenom_clicked()
 {
-    QMessageBox::information(nullptr, QObject::tr("Ok"),
-             QObject::tr("tri effectué avec succès.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
+    Notification n("tri","tri effectué avec succès");
+             n.afficher();
     ui->tab_employes->setModel(e.tri_prenom()); }
 void employes::rechercher(QTableView *table, int id)
 {
@@ -1303,27 +1302,25 @@ void MainWindow::on_pushButton_4_clicked()
     ui->table_histo_2->setModel(c.calcul(month));
 }
 void MainWindow::on_tri_prix_3_clicked()
-{
+{ Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->table_commande_3->setModel(c.tri_prix());
     ui->table_histo->setModel(c.display_history());
-       QMessageBox::information(nullptr, QObject::tr("Ok"),
-                QObject::tr("tri effectu.\n"
-                            "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 void MainWindow::on_tri_idc_3_clicked()
-{
+{ Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->table_commande_3->setModel(c.tri_idc());
 
-    QMessageBox::information(nullptr, QObject::tr("Ok"),
-             QObject::tr("tri effectu.\n"
-                         "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 void MainWindow::on_tri_date_3_clicked()
 {
+    Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->table_commande_3->setModel(c.tri_idc());
-        QMessageBox::information(nullptr, QObject::tr("Ok"),
-                 QObject::tr("tri effectu.\n"
-                             "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 void MainWindow::on_chercher_3_textChanged(const QString &arg1)
 {
@@ -1357,50 +1354,45 @@ void MainWindow::on_btn_add_clicked()
         ui->id_tab->setModel(f.load());
         ui->del_id_5->setModel(f.load());
         ui->tab_id_2->setModel(f.afficher_id());
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                    QObject::tr("Ajout effectué.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+        Notification n("Ajouté avec succés","Fournisseur ajouté");
+        n.afficher();
     }
     else
     {
-        QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                    QObject::tr("Ajout non effectué.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+        Notification n("Echec d'ajout ","Fournisseur non ajouté");
+                          n.afficher();
 
     }
 }
 
 void MainWindow::on_tri_pr_nom_clicked()
-{
+{Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->tab_frnss->setModel(f.tri_nom());
-        QMessageBox::information(nullptr, QObject::tr("Ok"),
-                 QObject::tr("tri effectué.\n"
-                             "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
 void MainWindow::on_tri_pr_id_clicked()
 {
+    Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->tab_frnss->setModel(f.tri_id());
-        QMessageBox::information(nullptr, QObject::tr("Ok"),
-                 QObject::tr("tri effectué.\n"
-                             "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
 void MainWindow::on_tri_pr_fin_clicked()
 {
+    Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->tab_frnss->setModel(f.tri_date_fin());
-        QMessageBox::information(nullptr, QObject::tr("Ok"),
-                 QObject::tr("tri effectué.\n"
-                             "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
-
 void MainWindow::on_tri_pr_deb_clicked()
-{
+{ Notification n("tri","tri effectué avec succès");
+    n.afficher();
     ui->tab_frnss->setModel(f.tri_date_deb());
-        QMessageBox::information(nullptr, QObject::tr("Ok"),
-                 QObject::tr("tri effectué.\n"
-                             "Click Cancel to exit."), QMessageBox::Cancel);
+
 }
 
 void MainWindow::on_search_id_textChanged(const QString &arg1)
@@ -1417,20 +1409,18 @@ void MainWindow::on_btn_del_clicked()
     int id=ui->del_id_5->currentText().toInt();
      bool test=f.supprimer(id);
      if(test)
-     {
+     {Notification n("Supprimé avec succés","Fournisseur supprimé");
+         n.afficher();
          //REFRESH
          ui->tab_frnss->setModel(f.afficher());
          ui->id_tab->setModel(f.load());
          ui->del_id_5->setModel(f.load());
-         QMessageBox::information(nullptr, QObject::tr("OK"),
-                     QObject::tr("Suppression effectuée.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
+
      }
      else
      {
-         QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                     QObject::tr("Suppression non effectuée.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
+         Notification n("Echec de suppression ","Fournisseur non supprimé");
+                 n.afficher();
 
      }
 }
@@ -1440,20 +1430,18 @@ void MainWindow::on_btn_del_all_clicked()
 {
     bool test=f.supprimerTout();
     if(test)
-    {
+    {Notification n("Supprimé avec succés","Fournisseurs supprimés");
+        n.afficher();
         //REFRESH
         ui->tab_frnss->setModel(f.afficher());
         ui->id_tab->setModel(f.load());
         ui->del_id_5->setModel(f.load());
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                    QObject::tr("Suppression effectuée.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+
     }
     else
     {
-        QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                    QObject::tr("Suppression non effectuée.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+        Notification n("Echec de suppression ","Fournisseurs non supprimés");
+                n.afficher();
 
     }
 }
@@ -1500,21 +1488,19 @@ void MainWindow::on_btn_update_clicked()
 //    etudiant e(id,nom,prenom);
     bool test=f.modifier(id,nom,date_deb,date_fin,adresse,rfid);
     if(test)
-    {
+    { Notification n("Modifié avec succés","Fournisseur ajouté");
+        n.afficher();
         //REFRESH
         ui->tab_frnss->setModel(f.afficher());
         ui->id_tab->setModel(f.load());
         ui->del_id_5->setModel(f.load());
         ui->id_tab->setModel(f.afficher_id());
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                    QObject::tr("Modification effectuée.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+
     }
     else
     {
-        QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                    QObject::tr("Modification non effectuée.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+        Notification n("Echec de modification  ","Fournisseur non modifié");
+                            n.afficher();
     }
 }
 
@@ -1531,10 +1517,9 @@ void MainWindow::on_btn_browse_clicked()
             ui->img_add->setPixmap(QPixmap::fromImage(image));
         }
         else
-        {
-            QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                        QObject::tr("Impossible d'inserer l'image.\n"
-                                    "Click Cancel to exit."), QMessageBox::Cancel);
+        { Notification n("Failed","Impossible d'inserer l'image.");
+            n.afficher();
+
         }
     }
 }
@@ -1614,16 +1599,17 @@ if(data.length()==11){
 
        /* QMessageBox::information(nullptr, QObject::tr(""),
          QObject::tr(message"click cancel to exit . ") , QMessageBox::Cancel);*/
-        QMessageBox::information(this,"Fournisseurs existant " , message,QMessageBox::Ok);
+        Notification n(" ","Fournisseurs existant");
+                  n.afficher();
          Ar.write_to_arduino("1");
 
 
     data.clear();
         }
     else
-    {    QMessageBox::critical(nullptr, QObject::tr("Fournisseur n'existe pas"),
-         QObject::tr("Fournisseur n'existe pas.\n"
-                     "click cancel to exit . ") , QMessageBox::Cancel);
+    {
+        Notification n(" ","Fournisseur n'existe pas");
+        n.afficher();
         Ar.write_to_arduino("0");
 
     data.clear();
