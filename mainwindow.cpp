@@ -74,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
    centralWidget()->setStyleSheet("{background-image:url(qrc:/img/img/djjjj.jpg)}");
+
     //////////////////////Fournisseurs/////////////////////
 
    ui->id_add->setValidator(new QIntValidator(0,9999999,this));
@@ -168,6 +169,8 @@ else
 }
 connect(mSocket,SIGNAL(readyRead()),this,SLOT(leer()));
 
+//////////////Commandes////////////////
+ui->tablecom->setModel((c.afficher_id()));
 //QPixmap pix("C:\Users\ASUS\Desktop\bg.png")
 ui->le_idc_4->setValidator(new QIntValidator(0,9999,this));
 ui->le_idcl_3->setValidator(new QIntValidator(0,9999,this));
@@ -394,10 +397,10 @@ void MainWindow::on_fidelite_clicked()
                                                    QString qrid="QRCode/"+res;
                                                    QPainter painter(&pdfWriter);
 
-                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/2.jpg"));
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("C:/projet/Smart_printingoffice_2A1/2.jpg"));
                                                       painter.drawPixmap(QRect(2280,1080,pdfWriter.logicalDpiX()*0.17,pdfWriter.logicalDpiY()*0.17),QPixmap(qrid));
                                                      pdfWriter.newPage();
-                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("../clients/1.jpg"));
+                                                     painter.drawPixmap(QRect(0,0,pdfWriter.logicalDpiX()*2.1,pdfWriter.logicalDpiY()*1.1),QPixmap("C:/projet/Smart_printingoffice_2A1/1.jpg"));
 
 
 
@@ -732,17 +735,6 @@ void MainWindow::on_refresh_mod_clicked()
     ui->tab_produit->setModel(model2) ;
 }
 
-void MainWindow::on_buttonon_clicked()
-{
-    A.write_to_arduino("1"); //envoyer 1 à arduino
-    ui->label_etat->setText("ON");
-}
-
-void MainWindow::on_buttonoff_clicked()
-{
-    A.write_to_arduino("0"); //envoyer 0 à arduino
-    ui->label_etat->setText("OFF");
-}
 void MainWindow::update_label()
 {
  QByteArray sr=A.read_from_arduino();
@@ -920,30 +912,6 @@ void MainWindow::on_tab_id_2_activated(const QModelIndex &index)
             }
 }
 /*commande*/
-void MainWindow::on_tableView_3_activated(const QModelIndex &index)
-{
-    QSqlQuery query;
-        QString idc=ui->tableView_3->model()->data(index).toString();
-
-        query.prepare("select * from commande where idc='"+idc+"'");
-        if(query.exec())
-        {
-            while (query.next())
-            {
-               // ui->update_id->setText(query.value(0).toString());
-                ui->idcl_3->setText(query.value(1).toString());
-                ui->prix_3->setText(query.value(2).toString());
-                ui->date_5->setDate(query.value(3).toDate());
-                ui->demande_5->setText(query.value(4).toString());
-            }
-         }
-            else
-            {
-                QMessageBox::critical(nullptr, QObject::tr("Failed"),
-                            QObject::tr("Impossible.\n"
-                                        "Click Cancel to exit."), QMessageBox::Cancel);
-            }
-}
 void MainWindow::on_add_btn_3_clicked()
 {
     int idc=ui->le_idc_4->text().toInt();
@@ -959,13 +927,13 @@ if(test&&addfile)
 
 {   //REFRESH
     ui->table_commande_3->setModel(c.afficher());
-    ui->tableView_3->setModel(c.afficher_id());
+    ui->tablecom->setModel(c.afficher_id());
     ui->del_id_4->setModel(c.afficher_id());
     QMessageBox::information(nullptr, QObject::tr("OK"),
                 QObject::tr("Ajout effectué\n"
                             "Click Cancel to exit."), QMessageBox::Cancel);
     QString nomFile ="file";
-              QFile file("C:/Users/ASUS/Desktop/Integration QT/sans ghada (1)/nour+sirine/historique.txt");
+              QFile file("C:/projet/Smart_printingoffice_2A1/historique.txt");
               QString finalmsg="fichier modifie avec succes";
                if(!file.exists()){
                finalmsg="fichier cree avec succes";
@@ -993,13 +961,13 @@ void MainWindow::on_button_supprimer_3_clicked()
     QMessageBox msgBox;
     if(test)
     {   ui->table_commande_3->setModel(c.afficher());
-        ui->tableView_3->setModel(c.afficher_id());
+        ui->tablecom->setModel(c.afficher_id());
         //ui->update_id->setModel(c.afficher_id());
         ui->del_id_4->setModel(c.afficher_id());
 
         msgBox.setText("Suppression avec succes.");
         QString nomFile ="Historique";
-                     QFile file("C:/Users/ASUS/Desktop/Integration QT/sans ghada (1)/nour+sirine/historique.txt");
+                     QFile file("C:/projet/Smart_printingoffice_2A1//historique.txt");
                      QString finalmsg="fichier modifie avec succes";
                       if(!file.exists()){
                       finalmsg="fichier cree avec succes";
@@ -1027,19 +995,19 @@ void MainWindow::on_button_modifier_3_clicked()
       int prix=ui->prix_3->text().toInt();
       QDate date_c=ui->date_5->date();
       QString demande=ui->demande_5->text();
-      QString id=ui->tableView_3->model()->data(ui->tableView_3->model()->index(ui->tableView_3->currentIndex().row(),0)).toString();
+      QString id=ui->tablecom->model()->data(ui->tablecom->model()->index(ui->tablecom->currentIndex().row(),0)).toString();
  commande c2(idc,idcl,prix,date_c,demande);
  bool test=c2.modifier();
  QMessageBox msgBox;
  if(test)
  {
     ui->table_commande_3->setModel(c.afficher());
-    ui->tableView_3->setModel(c.afficher_id());
+    ui->tablecom->setModel(c.afficher_id());
     ui->del_id_4->setModel(c.afficher_id());
     msgBox.setText("Modification avec succes.");
 
     QString nomFile ="Historique";
-         QFile file("C:/Users/ASUS/Desktop/Integration QT/sans ghada (1)/nour+sirine/historique.txt");
+         QFile file("C:/projet/Smart_printingoffice_2A1//historique.txt");
          QString finalmsg="fichier modifie avec succes";
           if(!file.exists()){
           finalmsg="fichier cree avec succes";
@@ -1060,6 +1028,32 @@ void MainWindow::on_button_modifier_3_clicked()
      msgBox.exec();
 
 }
+void MainWindow::on_tablecom_activated(const QModelIndex &index)
+{
+    QSqlQuery query;
+            QString idc=ui->tablecom->model()->data(index).toString();
+
+            query.prepare("select * from commande where idc='"+idc+"'");
+            if(query.exec())
+            {
+                while (query.next())
+                {
+//                    ui->id_modif->setText(query.value(0).toString());
+                    ui->idcl_3->setText(query.value(1).toString());
+                    ui->prix_3->setText(query.value(2).toString());
+                    ui->date_5->setDate(query.value(3).toDate());
+                    ui->demande_5->setText(query.value(4).toString());
+                               }
+                            }
+                               else
+                               {
+                                   QMessageBox::critical(nullptr, QObject::tr("Failed"),
+                                               QObject::tr("Impossible.\n"
+                                                           "Click Cancel to exit."), QMessageBox::Cancel);
+                               }
+
+}
+
 
 void MainWindow::on_g_comm_clicked()
 {
@@ -1196,7 +1190,7 @@ void MainWindow::on_ara_clicked()
 }
 bool commande::history_file(int idc,int idcl, int prix,QDate date_c)
 {
-    QFile file("C:/Users/ASUS/Desktop/Integration QT/sans ghada (1)/nour+sirine/histo.txt");
+    QFile file("C:/projet/Smart_printingoffice_2A1/histo.txt");
     if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
     {
         qCritical() << file.errorString();
@@ -1234,11 +1228,11 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_PDF_clicked()
 {
     //QPdfWriter pdf("C:/Users/ASUS/Desktop/copieee/Commande.pdf");
-    QPdfWriter pdf("C:/Users/ASUS/Desktop/Integration QT/sans ghada (1)/nour+sirine/commande.pdf");
+    QPdfWriter pdf("C:/projet/Smart_printingoffice_2A1//commande.pdf");
 
 
     QPainter painter(&pdf);
-    const QImage image("C:/Users/nourb/OneDrive/Bureau/atconnex/nour+sirine/logo.png");
+    const QImage image("C:/projet/Smart_printingoffice_2A1/logo.png");
             const QPoint imageCoordinates(0,0);
             painter.drawImage(imageCoordinates,image);
 
@@ -1273,7 +1267,7 @@ void MainWindow::on_PDF_clicked()
     int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
     if (reponse == QMessageBox::Yes)
     {
-        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/nourb/OneDrive/Bureau/atconnex/nour+sirine/commande.pdf"));
+        QDesktopServices::openUrl(QUrl::fromLocalFile("C:/projet/Smart_printingoffice_2A1/commande.pdf"));
 
         painter.end();
     }
@@ -1426,7 +1420,7 @@ void MainWindow::on_btn_del_clicked()
      {
          //REFRESH
          ui->tab_frnss->setModel(f.afficher());
-         //ui->tab_id_2->setModel(f.load());
+         ui->id_tab->setModel(f.load());
          ui->del_id_5->setModel(f.load());
          QMessageBox::information(nullptr, QObject::tr("OK"),
                      QObject::tr("Suppression effectuée.\n"
@@ -1449,7 +1443,7 @@ void MainWindow::on_btn_del_all_clicked()
     {
         //REFRESH
         ui->tab_frnss->setModel(f.afficher());
-        //ui->tab_id_2->setModel(f.load());
+        ui->id_tab->setModel(f.load());
         ui->del_id_5->setModel(f.load());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Suppression effectuée.\n"
@@ -1492,12 +1486,18 @@ void MainWindow::on_id_tab_activated(const QModelIndex &index)
 void MainWindow::on_btn_update_clicked()
 {
     //récupération des informations saisies
-    int id=ui->nvID->text().toInt();
+    //int id=ui->tab_id_2->currentText().toInt();
+    int id=ui->update_id->text().toInt();
+//    e.setId(ui->update_id->text().toInt())
        QString nom=ui->nvNom->text();
        QDate date_deb=ui->nvDebut->date();
        QDate date_fin=ui->nvFin->date();
        QString adresse=ui->nvAdresse->text();
        QString rfid=ui->nvRfid->currentText();
+
+//    e.setNom(ui->new_nom->text());
+//    e.setPrenom(ui->new_prenom->text());
+//    etudiant e(id,nom,prenom);
     bool test=f.modifier(id,nom,date_deb,date_fin,adresse,rfid);
     if(test)
     {
@@ -1505,7 +1505,7 @@ void MainWindow::on_btn_update_clicked()
         ui->tab_frnss->setModel(f.afficher());
         ui->id_tab->setModel(f.load());
         ui->del_id_5->setModel(f.load());
-        ui->tab_id_2->setModel(f.afficher_id());
+        ui->id_tab->setModel(f.afficher_id());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Modification effectuée.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
@@ -1706,3 +1706,4 @@ void MainWindow::on_pushButton_40_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->menu);
 }
+

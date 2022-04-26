@@ -49,7 +49,7 @@ border-radius: 8px;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="menu">
      <widget class="QTabWidget" name="tab2_2">
@@ -4320,7 +4320,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
@@ -5572,8 +5572,8 @@ background:rgba(0,0,0,100);}</string>
          <widget class="QLineEdit" name="lineEdit_105">
           <property name="geometry">
            <rect>
-            <x>60</x>
-            <y>230</y>
+            <x>80</x>
+            <y>120</y>
             <width>61</width>
             <height>71</height>
            </rect>
@@ -5589,94 +5589,11 @@ font-size: 12px;
            <string>Humidité :</string>
           </property>
          </widget>
-         <widget class="QLineEdit" name="lineEdit_114">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>160</y>
-            <width>113</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit {background:transparent;
-border:none;
-color:white;
-font-size: 12px;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>Etat :</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="lineEdit_115">
-          <property name="geometry">
-           <rect>
-            <x>60</x>
-            <y>100</y>
-            <width>111</width>
-            <height>21</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit {background:transparent;
-border:none;
-color:white;
-font-size: 12px;
-}</string>
-          </property>
-          <property name="text">
-           <string>Ventilateur :</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="buttonon">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>100</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-          </property>
-          <property name="text">
-           <string>ON</string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="buttonoff">
-          <property name="geometry">
-           <rect>
-            <x>250</x>
-            <y>100</y>
-            <width>75</width>
-            <height>23</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{border-radius: 8px;
-background :#5F9EA0
-;
-color: white;
-font-size:13px;
-}</string>
-          </property>
-          <property name="text">
-           <string>OFF</string>
-          </property>
-         </widget>
          <widget class="QLCDNumber" name="Hum">
           <property name="geometry">
            <rect>
-            <x>140</x>
-            <y>220</y>
+            <x>160</x>
+            <y>110</y>
             <width>239</width>
             <height>89</height>
            </rect>
@@ -5938,32 +5855,11 @@ font-size:13px;
            <number>7</number>
           </property>
          </widget>
-         <widget class="QLineEdit" name="label_etat">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>160</y>
-            <width>113</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit {background:transparent;
-border:none;
-color:white;
-font-size: 12px;
-}
-</string>
-          </property>
-          <property name="text">
-           <string>OFF</string>
-          </property>
-         </widget>
          <widget class="QLabel" name="label_alert">
           <property name="geometry">
            <rect>
-            <x>100</x>
-            <y>360</y>
+            <x>120</x>
+            <y>250</y>
             <width>431</width>
             <height>81</height>
            </rect>
@@ -6120,7 +6016,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_12">
        <attribute name="title">
@@ -6533,16 +6429,6 @@ selection-color: rgb(0, 255, 0);
           <bool>true</bool>
          </property>
         </widget>
-        <widget class="QTableView" name="tableView_3">
-         <property name="geometry">
-          <rect>
-           <x>170</x>
-           <y>10</y>
-           <width>171</width>
-           <height>81</height>
-          </rect>
-         </property>
-        </widget>
         <widget class="QLineEdit" name="update_id_3">
          <property name="geometry">
           <rect>
@@ -6556,6 +6442,16 @@ selection-color: rgb(0, 255, 0);
           <string notr="true">QLineEdit
 {
 border:none;}</string>
+         </property>
+        </widget>
+        <widget class="QTableView" name="tablecom">
+         <property name="geometry">
+          <rect>
+           <x>340</x>
+           <y>30</y>
+           <width>141</width>
+           <height>251</height>
+          </rect>
          </property>
         </widget>
        </widget>

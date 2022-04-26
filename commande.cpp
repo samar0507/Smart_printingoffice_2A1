@@ -79,11 +79,11 @@ bool commande::modifier()
 
         QSqlQuery query;
             query.prepare("UPDATE commande SET idc=:idc, idcl=:idcl, prix=:prix, date_c=:date_c,demande=:demande WHERE idc=:idc ");
-            query.bindValue(":idc", idc);
-            query.bindValue(":idcl", idcl);
-            query.bindValue(":prix", prix);
-            query.bindValue(":date_c", date_c);
-            query.bindValue(":demande", demande);
+            query.bindValue(0, idc);
+            query.bindValue(1, idcl);
+            query.bindValue(2, prix);
+            query.bindValue(3, date_c);
+            query.bindValue(5, demande);
              return query.exec();
 
     }

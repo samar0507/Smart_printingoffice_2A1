@@ -34,8 +34,6 @@ public:
 arduino a;
 private slots:
 
-void on_tableView_3_activated(const QModelIndex &index);
-
 void on_add_btn_3_clicked();
 
 void on_button_supprimer_3_clicked();
@@ -106,10 +104,6 @@ void on_button_modifier_3_clicked();
     void on_rech_textEdited(const QString &arg1);
 
     void on_refresh_mod_clicked();
-
-    void on_buttonon_clicked();
-
-    void on_buttonoff_clicked();
 
 
 
@@ -296,6 +290,8 @@ void on_button_modifier_3_clicked();
   void on_pushButton_41_clicked();
 
   void on_pushButton_40_clicked();
+
+  void on_tablecom_activated(const QModelIndex &index);
 
 private:
     Ui::MainWindow *ui;

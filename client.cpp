@@ -33,10 +33,10 @@ QSqlQueryModel *client::afficher()
     QSqlQueryModel * model =new QSqlQueryModel();
         model->setQuery("select * from client");
         model->setHeaderData(0,Qt::Horizontal,QObject::tr("Cin"));
-        model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
-        model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
-        model->setHeaderData(3,Qt::Horizontal,QObject::tr("Adresse"));
-        model->setHeaderData(4,Qt::Horizontal,QObject::tr("Date de Naissance"));
+        model->setHeaderData(1,Qt::Horizontal,QObject::tr("Adresse"));
+        model->setHeaderData(2,Qt::Horizontal,QObject::tr("Date de naissance"));
+        model->setHeaderData(3,Qt::Horizontal,QObject::tr("Nom"));
+        model->setHeaderData(4,Qt::Horizontal,QObject::tr("Prénom"));
     return model;
 }
 bool client::supprimer(int cin)
