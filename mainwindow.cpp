@@ -1360,9 +1360,9 @@ void MainWindow::on_btn_add_clicked()
     {
         //REFRESH
         ui->tab_frnss->setModel(f.afficher());
-//        ui->tab_id_2->setModel(f.afficher_id());
-//        ui->tab_id_2->setModel(f.load());
-//        ui->del_id->setModel(f.load());
+        ui->id_tab->setModel(f.load());
+        ui->del_id_5->setModel(f.load());
+        ui->tab_id_2->setModel(f.afficher_id());
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Ajout effectué.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);

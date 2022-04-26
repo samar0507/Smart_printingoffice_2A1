@@ -2612,7 +2612,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_27">
        <attribute name="title">
